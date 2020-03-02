@@ -1,0 +1,165 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{embrac} % 把括号变正
+\usepackage{geometry}
+%\usepackage{amssymb}
+
+\geometry{a4paper,left=2cm,right=2cm,top=2cm,bottom=1cm}
+\newtheorem{Definition}{\hspace{2em}定义}%[subsection]
+\newtheorem{Theorem}[Definition]{\hspace{2em}定理}
+\newtheorem{Remark}[Definition]{\hspace{2em}注意}
+
+
+\begin{document}
+
+\title{近世代数(抽象代数)笔记}
+\author{管清文}
+\maketitle
+\tableofcontents
+
+\section{基本概念}
+
+\subsection{代数运算}
+%\begin{Definition}[笛卡尔积] 令 $A_1, A_2, \cdots, A_n$是$n$个集合
+%$$ A_1 \times A_2 \times \cdots \times A_n = \{ (a_1, a_2, \cdots, a_n) \mid a_i \in A_i, i = 1, 2, \cdots, n \} $$
+%\end{Definition}
+
+\begin{Remark}
+近世代数(或抽象代数)的主要内容就是研究所谓\textbf{代数系统}，即带有运算的集合。
+\end{Remark}
+
+\begin{Definition}[映射]
+$$ \begin{aligned}
+A_1 \times A_2 \times \cdots \times A_n &\rightarrow D \\
+ (a_1, a_2, \cdots, a_n) &\mapsto d = \phi (a_1, a_2, \cdots, a_n) = \overline{(a_1, a_2, \cdots, a_n)} \end{aligned}$$ 
+% \begin{itemize}
+% 	\item 法则 $\phi$ 叫做集合 $A_1 \times A_2 \times \cdots \times A_n$ 到 集合 $D$ 的一个\textbf{映射}
+% 	\item 元素 $d$ 叫做 元素  $ (a_1, a_2, \cdots, a_n) $ 在映射 $
+% 	\phi$ 下的\textbf{象}
+% 	\item 元素 $ (a_1, a_2, \cdots, a_n) $  叫做元素 $d$ 在 $\phi$下的 \textbf{原象}
+% \end{itemize}
+\end{Definition}
+
+\begin{Remark}
+% 	\begin{itemize}
+ 		%\item 
+ 		判断一个法则$\phi$是映射的充要条件: (i) 都有象 (ii) 象唯一.
+% 	\end{itemize}
+\end{Remark}
+
+\begin{Definition}[代数运算] 
+$$\begin{aligned}
+A \times B &\rightarrow D \\ 
+(a, b) &\mapsto d = \phi(a, b) = \circ (a, b) = a \circ b \end{aligned}$$
+\end{Definition}
+
+\begin{Remark}
+% 	\begin{itemize}
+ %		\item 
+ $A = B$时, 对于代数运算$ A \times A \rightarrow D $, $ a \circ b $ 和 $ b \circ a $ 都有意义，但不一定相等.
+\end{Remark}
+% 	\end{itemize}
+
+\begin{Definition}[$A$的代数运算, 二元运算] 
+假如 $ \circ $ 是一个 $ A \times A \rightarrow A$的代数运算(即$A = B = D$),我们说集合$A$对于代数运算$\circ$来说是闭的, 也说, $\circ$是\textbf{$A$的代数运算}或\textbf{二元运算}.
+\end{Definition}
+
+\begin{Definition}[结合率]
+我们说，一个集合$A$的代数运算$\circ$适合结合律，假如对于$A$的任何三个元$a, b, c$来说都有$$
+(a \circ b) \circ c = a \circ (b \circ c)
+$$
+\end{Definition}
+
+\begin{Definition}
+假如对于$A$的$n$ ($n \ge 2$)个固定的元素 $a_1, a_2, \cdots, a_n$来说，所有的加括号方式 $\pi(a_1 \circ a_2 \circ \cdots \circ a_n)$都相等，我们就把这些步骤可以得到的唯一的结果，用$a_1 \circ a_2 \circ \cdots \circ a_n $ 来表示.
+\end{Definition}
+
+\begin{Theorem}
+若$A$的代数运算$\circ$满足结合律，则对于$A$的任意$n$($n \ge 2$)个元素 $a_1, a_2, \cdots, a_n$来说，对于任意的加括号的方法$\pi$, $\pi(a_1 \circ a_2 \circ \cdots \circ a_n)$ 都相等，$a_1 \circ a_2 \circ \cdots \circ a_n$ 也就总有意义.
+\end{Theorem}
+
+\begin{Definition}
+$A$上的二元运算$\circ$, $a \circ b = b \circ a$(a与b可交换) $\forall a, b \in A$成立，则称$\circ$满足交换律. 
+\end{Definition}
+
+\begin{Theorem}
+若$A$上的二元运算$\circ$满足结合律与交换律，则$a_1 \circ a_2 \circ \cdots \circ a_n$ 可以任意交换顺序.
+\end{Theorem}
+
+\begin{Definition}
+$ \astrosun, \oplus $ 都是 $A$上的二元运算, 
+\begin{itemize}
+\item 若
+$ b \astrosun (a_1 \oplus a_2) = (b \astrosun a_1) \oplus (b \astrosun a_2), \forall b, a_1, a_2 $, 则称 $ \astrosun, \oplus $  满足第一分配率.
+\item 若
+$ (a_1 \oplus a_2) \astrosun b = (a_1 \astrosun b) \oplus ( a_2 \astrosun b), \forall b, a_1, a_2 $, 则称 $ \astrosun, \oplus $  满足第二分配率.
+\end{itemize}
+\end{Definition}
+
+
+\begin{Theorem}
+若$A$上的二元运算$\oplus$ 满足结合律, $ \astrosun, \oplus $ 满足第一分配率，则
+$$
+b \astrosun ( a_1 \oplus a_2 \oplus \cdots \oplus a_n ) =  ( b \astrosun a_1) \oplus (b \astrosun a_2) \oplus \cdots \oplus (b \astrosun a_n)
+$$
+\end{Theorem}
+
+\subsection{同态}
+
+\begin{Definition}[满射]
+映射$\phi: A \rightarrow \bar{A}$被称为\textbf{满射}, 如果
+$\forall \hat{a} \in \bar{A}, \exists a \in A \text{ s.t. } \bar{a} = \hat{a}$. 
+($\phi^{-1}$都有象)
+\end{Definition}
+
+\begin{Definition}[单射]
+映射$\phi: A \rightarrow \bar{A}$被称为\textbf{单射}, 如果
+$\forall a, b \in A, a \neq b \Rightarrow \bar{a} \neq \bar{b}$.
+ ($\phi^{-1}$象唯一)
+\end{Definition}
+
+\begin{Definition}[一一映射]
+既是满射又是单射.
+\end{Definition}
+
+\begin{Remark}
+% 	\begin{itemize}
+ 		%\item 
+ 		判断一个法则$\phi$是一一映射的充要条件: (i) 都有象 (ii) 象唯一 (iii)满的 (iv) 单的.
+\end{Remark}
+
+\begin{Definition}[变换]
+从$A$到$A$的映射 $\phi: A \rightarrow A$ 叫$A$上的变换.
+\begin{itemize}
+	\item 如果$\phi$是满的, 则称为\textbf{满变换}.
+	\item 如果$\phi$是单的, 则称为\textbf{单变换}.
+	\item 如果$\phi$是一一的, 则称为\textbf{一一变换}.
+\end{itemize}
+\end{Definition}
+
+\begin{Definition}[同态映射]
+对于$\phi: A \rightarrow \bar{A}$, $A$上有二元运算$\circ$, $\bar{A}$上有二元运算$\bar{\circ}$.
+如果
+$ \overline{a \circ b} = \bar{a} \bar{\circ} \bar{b}$, 则称 $\phi$是 $A$到 $\bar{A}$的同态映射.
+\end{Definition}
+
+\begin{Remark}[同态映射判别]
+ 判断一个法则$\phi$是同态映射的充要条件: \\
+
+\centerline{(i) 都有象 (ii) 象唯一 (iii) $ \overline{a \circ b} = \bar{a} \bar{\circ} \bar{b}$}
+\end{Remark}
+
+
+
+\section{群}
+\section{环}
+\section{域}
+\section{TODO}
+\begin{itemize}
+	\item 括号斜体难看
+\end{itemize}
+
+
+
+\end{document}
