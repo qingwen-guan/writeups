@@ -3,12 +3,15 @@
 \usepackage{wasysym}
 \usepackage{embrac} % 把括号变正
 \usepackage{geometry}
+\usepackage{ntheorem}
 %\usepackage{amssymb}
 
 \geometry{a4paper,left=2cm,right=2cm,top=2cm,bottom=1cm}
-\newtheorem{Definition}{\hspace{2em}定义}%[subsection]
-\newtheorem{Theorem}[Definition]{\hspace{2em}定理}
-\newtheorem{Remark}[Definition]{\hspace{2em}注意}
+
+\theorembodyfont{\upshape}
+\newtheorem{Definition}{定义}%[subsection]
+\newtheorem{Theorem}[Definition]{定理}
+\newtheorem{Remark}[Definition]{注意}
 
 
 \begin{document}
@@ -91,15 +94,15 @@ $A$上的二元运算$\circ$, $a \circ b = b \circ a$(a与b可交换) $\forall a
 $ \astrosun, \oplus $ 都是 $A$上的二元运算, 
 \begin{itemize}
 \item 若
-$ b \astrosun (a_1 \oplus a_2) = (b \astrosun a_1) \oplus (b \astrosun a_2), \forall b, a_1, a_2 $, 则称 $ \astrosun, \oplus $  满足第一分配率.
+$ b \astrosun (a_1 \oplus a_2) = (b \astrosun a_1) \oplus (b \astrosun a_2), \forall b, a_1, a_2 $, 则称 $ \astrosun$和$ \oplus $  满足第一分配率.
 \item 若
-$ (a_1 \oplus a_2) \astrosun b = (a_1 \astrosun b) \oplus ( a_2 \astrosun b), \forall b, a_1, a_2 $, 则称 $ \astrosun, \oplus $  满足第二分配率.
+$ (a_1 \oplus a_2) \astrosun b = (a_1 \astrosun b) \oplus ( a_2 \astrosun b), \forall b, a_1, a_2 $, 则称 $ \astrosun$和$\oplus $  满足第二分配率.
 \end{itemize}
 \end{Definition}
 
 
 \begin{Theorem}
-若$A$上的二元运算$\oplus$ 满足结合律, $ \astrosun, \oplus $ 满足第一分配率，则
+若$A$上的二元运算$\oplus$ 满足结合律, $ \astrosun $和$\oplus $ 满足第一分配率，则
 $$
 b \astrosun ( a_1 \oplus a_2 \oplus \cdots \oplus a_n ) =  ( b \astrosun a_1) \oplus (b \astrosun a_2) \oplus \cdots \oplus (b \astrosun a_n)
 $$
@@ -147,19 +150,74 @@ $ \overline{a \circ b} = \bar{a} \bar{\circ} \bar{b}$, 则称 $\phi$是 $A$到 $
 \begin{Remark}[同态映射判别]
  判断一个法则$\phi$是同态映射的充要条件: \\
 
-\centerline{(i) 都有象 (ii) 象唯一 (iii) $ \overline{a \circ b} = \bar{a} \bar{\circ} \bar{b}$}
+\centerline{(i) 是映射(都有象、象唯一) (ii) $ \overline{a \circ b} = \bar{a} \bar{\circ} \bar{b}$}
 \end{Remark}
 
+\begin{Definition}[同态满射、同态]
+如果$A$到$\bar{A}\;${\fbox{存在}}\;一个同态映射$\phi$, 且它是满的, 则称$A$与$\bar{A}$(关于$\circ$与$\bar{\circ}$来说)同态. 称这个映射是一个\textbf{同态满射}.
+\end{Definition}
+
+\begin{Remark}[同态满射判别]
+(i) 是映射(都有象、象唯一) (ii) 同态 (iii) 满
+\end{Remark}
+
+
+\begin{Definition}[同构映射、同构]
+如果$A$到$\bar{A}\;${\fbox{存在}}\;一个同态映射$\phi$, 且它是既是满的又是单的(一一的), 则称$A$与$\bar{A}$(关于$\circ$与$\bar{\circ}$)\textbf{同构}, 记为$A \cong
+ \bar{A}$. 称这个映射是一个(关于$\circ$与$\bar{\circ}$的)\textbf{同构映射}(简称\text{同构}).
+\end{Definition}
+
+\begin{Remark}[同构映射判别]
+(i) 是映射(都有象、象唯一) (ii) 同态 (iii) 满 (iv) 单
+\end{Remark}
+
+\begin{Theorem}
+假定对于代数运算$\circ$和$\bar{\circ}$来说, $A$与$\bar{A}$同态, 那么
+(i) 若 $\circ$ 满足结合律, $\bar{\circ}$也满足结合律;
+(ii) 若 $\circ$ 满足交换律, $\bar{\circ}$也满足交换律.
+\end{Theorem}
+
+\begin{Theorem}
+$ \astrosun $和$ \oplus $ 是 $A$的两个代数运算, 
+$ \bar{\astrosun} $和$\bar{\oplus} $ 是 $\bar{A}$的两个代数运算,
+有
+$\phi$既是$A$与$\bar{A}$的关于$ \astrosun $和$\bar{\astrosun}$ 的同态满射，
+$\phi$也是$A$与$\bar{A}$的关于$ \oplus $和$\bar{\oplus}$ 的同态满射，
+则 
+(i) 若$ \astrosun$和$ \oplus $  满足第一分配率, 则 $ \bar{\astrosun} $和$\bar{\oplus} $ 也满足第一分配率.
+(ii) 若$ \astrosun$和$\oplus $  满足第二分配率, 则 $ \bar{\astrosun} $和$\bar{\oplus} $ 也满足第二分配率.
+\end{Theorem}
+
+\begin{Remark}
+总结下来, 如果$A$与$\bar{A}$同态，则若前者有什么算律(结合、交换、分配)，后者就也有什么算律(结合、交换、分配).
+\end{Remark}
+
+\begin{Definition}[自同构]
+对于$\circ$和$\circ$来说的一个$A$与$A$之间的\;\fbox{同构映射}\;叫做一个对于$\circ$来说的$A$的\textbf{自同构}.
+\end{Definition}
+
+\begin{Definition}[关系(Relation)]
+$R: A \times A \rightarrow D = \{\text{对}, \text{错}\} $, 
+若
+$R(a, b) = \text{对}$
+, 称
+$(a, b)$
+满足关系$R$, 记为$aRb$.
+\end{Definition}
+
+\begin{Definition}[等价关系]
+如果$\sim$是$A$的元素间的关系，满足 
+\begin{enumerate}
+\item 自反性, $\forall a \in A, a \sim a$.
+\item 对称性, $\forall a, b \in A$, 若$a \sim b$, 则$b \sim a$.
+\item 传递性, $\forall a, b, c \in A$, 若$a \sim b$, $b\sim c$, 则$a \sim c$.
+\end{enumerate}
+则称呼$\sim$为等价关系.
+\end{Definition}
 
 
 \section{群}
 \section{环}
 \section{域}
-\section{TODO}
-\begin{itemize}
-	\item 括号斜体难看
-\end{itemize}
-
-
 
 \end{document}
