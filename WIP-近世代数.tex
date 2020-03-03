@@ -4,6 +4,8 @@
 \usepackage{embrac} % 把括号变正
 \usepackage{geometry}
 \usepackage{ntheorem}
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
 %\usepackage{amssymb}
 
 \geometry{a4paper,left=2cm,right=2cm,top=2cm,bottom=1cm}
@@ -13,6 +15,8 @@
 \newtheorem{Theorem}[Definition]{定理}
 \newtheorem{Remark}[Definition]{注意}
 
+\setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0pt}
+\setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0pt}
 
 \begin{document}
 
@@ -69,7 +73,7 @@ A \times B &\rightarrow D \\
 \end{Definition}
 
 \begin{Definition}[结合率]
-我们说，一个集合$A$的代数运算$\circ$适合结合律，假如对于$A$的任何三个元$a, b, c$来说都有$$
+我们说，一个集合$A$的代数运算$\circ$满足结合律，假如对于$A$的任何三个元素$a, b, c$来说都有$$
 (a \circ b) \circ c = a \circ (b \circ c)
 $$
 \end{Definition}
@@ -83,21 +87,21 @@ $$
 \end{Theorem}
 
 \begin{Definition}
-$A$上的二元运算$\circ$, $a \circ b = b \circ a$(a与b可交换) $\forall a, b \in A$成立，则称$\circ$满足交换律. 
+$A$上的二元运算$\circ$, $a \circ b = b \circ a$\;(a与b可交换) $\forall a, b \in A$成立，则称$\circ$满足交换律. 
 \end{Definition}
 
 \begin{Theorem}
 若$A$上的二元运算$\circ$满足结合律与交换律，则$a_1 \circ a_2 \circ \cdots \circ a_n$ 可以任意交换顺序.
 \end{Theorem}
 
-\begin{Definition}
-$ \astrosun, \oplus $ 都是 $A$上的二元运算, 
-\begin{itemize}
+\begin{Definition}[分配率]
+$ \astrosun $和$ \oplus $ 都是 $A$上的二元运算, 
+\begin{enumerate}[i)]
 \item 若
 $ b \astrosun (a_1 \oplus a_2) = (b \astrosun a_1) \oplus (b \astrosun a_2), \forall b, a_1, a_2 $, 则称 $ \astrosun$和$ \oplus $  满足第一分配率.
 \item 若
-$ (a_1 \oplus a_2) \astrosun b = (a_1 \astrosun b) \oplus ( a_2 \astrosun b), \forall b, a_1, a_2 $, 则称 $ \astrosun$和$\oplus $  满足第二分配率.
-\end{itemize}
+$ (a_1 \oplus a_2) \astrosun b = (a_1 \astrosun b) \oplus ( a_2 \astrosun b), \forall a_1, a_2, b $, 则称 $ \astrosun$和$\oplus $  满足第二分配率.
+\end{enumerate}
 \end{Definition}
 
 
@@ -126,10 +130,8 @@ $\forall a, b \in A, a \neq b \Rightarrow \bar{a} \neq \bar{b}$.
 既是满射又是单射.
 \end{Definition}
 
-\begin{Remark}
-% 	\begin{itemize}
- 		%\item 
- 		判断一个法则$\phi$是一一映射的充要条件: (i) 都有象 (ii) 象唯一 (iii)满的 (iv) 单的.
+\begin{Remark}[一一映射判别]
+(i) 是映射(都有象、象唯一) (ii)满的 (iii) 单的.
 \end{Remark}
 
 \begin{Definition}[变换]
@@ -144,17 +146,15 @@ $\forall a, b \in A, a \neq b \Rightarrow \bar{a} \neq \bar{b}$.
 \begin{Definition}[同态映射]
 对于$\phi: A \rightarrow \bar{A}$, $A$上有二元运算$\circ$, $\bar{A}$上有二元运算$\bar{\circ}$.
 如果
-$ \overline{a \circ b} = \bar{a} \bar{\circ} \bar{b}$, 则称 $\phi$是 $A$到 $\bar{A}$的同态映射.
+$ \overline{a \circ b} = \bar{a} \, \bar{\circ} \, \bar{b}$, 则称 $\phi$是 $A$到 $\bar{A}$的同态映射.
 \end{Definition}
 
 \begin{Remark}[同态映射判别]
- 判断一个法则$\phi$是同态映射的充要条件: \\
-
-\centerline{(i) 是映射(都有象、象唯一) (ii) $ \overline{a \circ b} = \bar{a} \bar{\circ} \bar{b}$}
+(i) 是映射(都有象、象唯一) (ii) $ \overline{a \circ b} = \bar{a} \,{\bar{\circ}}\, \bar{b}$
 \end{Remark}
 
 \begin{Definition}[同态满射、同态]
-如果$A$到$\bar{A}\;${\fbox{存在}}\;一个同态映射$\phi$, 且它是满的, 则称$A$与$\bar{A}$(关于$\circ$与$\bar{\circ}$来说)同态. 称这个映射是一个\textbf{同态满射}.
+如果$A$到$\bar{A}\;${\fbox{存在}}\;一个同态映射$\phi$, 且它是满的, 则称$A$与$\bar{A}$\;(关于$\circ$与$\bar{\circ}$来说)\textbf{同态}. 称这个映射是一个\textbf{同态满射}.
 \end{Definition}
 
 \begin{Remark}[同态满射判别]
@@ -173,8 +173,10 @@ $ \overline{a \circ b} = \bar{a} \bar{\circ} \bar{b}$, 则称 $\phi$是 $A$到 $
 
 \begin{Theorem}
 假定对于代数运算$\circ$和$\bar{\circ}$来说, $A$与$\bar{A}$同态, 那么
-(i) 若 $\circ$ 满足结合律, $\bar{\circ}$也满足结合律;
-(ii) 若 $\circ$ 满足交换律, $\bar{\circ}$也满足交换律.
+\begin{enumerate}[i)]
+\item 若 $\circ$ 满足结合律, $\bar{\circ}$也满足结合律;
+\item 若 $\circ$ 满足交换律, $\bar{\circ}$也满足交换律.
+\end{enumerate}
 \end{Theorem}
 
 \begin{Theorem}
@@ -184,8 +186,10 @@ $ \bar{\astrosun} $和$\bar{\oplus} $ 是 $\bar{A}$的两个代数运算,
 $\phi$既是$A$与$\bar{A}$的关于$ \astrosun $和$\bar{\astrosun}$ 的同态满射，
 $\phi$也是$A$与$\bar{A}$的关于$ \oplus $和$\bar{\oplus}$ 的同态满射，
 则 
-(i) 若$ \astrosun$和$ \oplus $  满足第一分配率, 则 $ \bar{\astrosun} $和$\bar{\oplus} $ 也满足第一分配率.
-(ii) 若$ \astrosun$和$\oplus $  满足第二分配率, 则 $ \bar{\astrosun} $和$\bar{\oplus} $ 也满足第二分配率.
+\begin{enumerate}[i)]
+\item 若$ \astrosun$和$ \oplus $  满足第一分配率, 则 $ \bar{\astrosun} $和$\bar{\oplus} $ 也满足第一分配率.
+\item 若$ \astrosun$和$\oplus $  满足第二分配率, 则 $ \bar{\astrosun} $和$\bar{\oplus} $ 也满足第二分配率.
+\end{enumerate}
 \end{Theorem}
 
 \begin{Remark}
@@ -196,7 +200,7 @@ $\phi$也是$A$与$\bar{A}$的关于$ \oplus $和$\bar{\oplus}$ 的同态满射�
 对于$\circ$和$\circ$来说的一个$A$与$A$之间的\;\fbox{同构映射}\;叫做一个对于$\circ$来说的$A$的\textbf{自同构}.
 \end{Definition}
 
-\begin{Definition}[关系(Relation)]
+\begin{Definition}[关系\mbox{[Relation]}]
 $R: A \times A \rightarrow D = \{\text{对}, \text{错}\} $, 
 若
 $R(a, b) = \text{对}$
@@ -207,7 +211,7 @@ $(a, b)$
 
 \begin{Definition}[等价关系]
 如果$\sim$是$A$的元素间的关系，满足 
-\begin{enumerate}
+\begin{enumerate}[i)]
 \item 自反性, $\forall a \in A, a \sim a$.
 \item 对称性, $\forall a, b \in A$, 若$a \sim b$, 则$b \sim a$.
 \item 传递性, $\forall a, b, c \in A$, 若$a \sim b$, $b\sim c$, 则$a \sim c$.
