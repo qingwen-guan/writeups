@@ -24,13 +24,11 @@
 \author{管清文}
 \maketitle
 \tableofcontents
+\clearpage
 
 \section{基本概念}
 
 \subsection{代数运算}
-%\begin{Definition}[笛卡尔积] 令 $A_1, A_2, \cdots, A_n$是$n$个集合
-%$$ A_1 \times A_2 \times \cdots \times A_n = \{ (a_1, a_2, \cdots, a_n) \mid a_i \in A_i, i = 1, 2, \cdots, n \} $$
-%\end{Definition}
 
 \begin{Remark}
 近世代数(或抽象代数)的主要内容就是研究所谓\textbf{代数系统}，即带有运算的集合。
@@ -40,19 +38,10 @@
 $$ \begin{aligned}
 A_1 \times A_2 \times \cdots \times A_n &\rightarrow D \\
  (a_1, a_2, \cdots, a_n) &\mapsto d = \phi (a_1, a_2, \cdots, a_n) = \overline{(a_1, a_2, \cdots, a_n)} \end{aligned}$$ 
-% \begin{itemize}
-% 	\item 法则 $\phi$ 叫做集合 $A_1 \times A_2 \times \cdots \times A_n$ 到 集合 $D$ 的一个\textbf{映射}
-% 	\item 元素 $d$ 叫做 元素  $ (a_1, a_2, \cdots, a_n) $ 在映射 $
-% 	\phi$ 下的\textbf{象}
-% 	\item 元素 $ (a_1, a_2, \cdots, a_n) $  叫做元素 $d$ 在 $\phi$下的 \textbf{原象}
-% \end{itemize}
 \end{Definition}
 
 \begin{Remark}
-% 	\begin{itemize}
- 		%\item 
- 		判断一个法则$\phi$是映射的充要条件: (i) 都有象 (ii) 象唯一.
-% 	\end{itemize}
+判断一个法则$\phi$是映射的充要条件: (i) 都有象 (ii) 象唯一.
 \end{Remark}
 
 \begin{Definition}[代数运算] 
@@ -62,15 +51,14 @@ A \times B &\rightarrow D \\
 \end{Definition}
 
 \begin{Remark}
-% 	\begin{itemize}
- %		\item 
- $A = B$时, 对于代数运算$ A \times A \rightarrow D $, $ a \circ b $ 和 $ b \circ a $ 都有意义，但不一定相等.
+$A = B$时, 对于代数运算$ A \times A \rightarrow D $, $ a \circ b $ 和 $ b \circ a $ 都有意义，但不一定相等.
 \end{Remark}
-% 	\end{itemize}
 
 \begin{Definition}[$A$的代数运算, 二元运算] 
 假如 $ \circ $ 是一个 $ A \times A \rightarrow A$的代数运算(即$A = B = D$),我们说集合$A$对于代数运算$\circ$来说是闭的, 也说, $\circ$是\textbf{$A$的代数运算}或\textbf{二元运算}.
 \end{Definition}
+
+\subsection{运算律}
 
 \begin{Definition}[结合率]
 我们说，一个集合$A$的代数运算$\circ$满足结合律，假如对于$A$的任何三个元素$a, b, c$来说都有$$
@@ -86,8 +74,8 @@ $$
 若$A$的代数运算$\circ$满足结合律，则对于$A$的任意$n$($n \ge 2$)个元素 $a_1, a_2, \cdots, a_n$来说，对于任意的加括号的方法$\pi$, $\pi(a_1 \circ a_2 \circ \cdots \circ a_n)$ 都相等，$a_1 \circ a_2 \circ \cdots \circ a_n$ 也就总有意义.
 \end{Theorem}
 
-\begin{Definition}
-$A$上的二元运算$\circ$, $a \circ b = b \circ a$\;(a与b可交换) $\forall a, b \in A$成立，则称$\circ$满足交换律. 
+\begin{Definition}[交换律]
+$A$上的二元运算$\circ$, $a \circ b = b \circ a$\;(a与b可交换) $\forall a, b \in A$成立，则称$\circ$满足\textbf{交换律}. 
 \end{Definition}
 
 \begin{Theorem}
@@ -98,9 +86,9 @@ $A$上的二元运算$\circ$, $a \circ b = b \circ a$\;(a与b可交换) $\forall
 $ \astrosun $和$ \oplus $ 都是 $A$上的二元运算, 
 \begin{enumerate}[i)]
 \item 若
-$ b \astrosun (a_1 \oplus a_2) = (b \astrosun a_1) \oplus (b \astrosun a_2), \forall b, a_1, a_2 $, 则称 $ \astrosun$和$ \oplus $  满足第一分配率.
+$ a \, \astrosun \, (b \oplus c) = (a \, \astrosun \, b) \oplus (a \, \astrosun \, c), \forall a, b, c $, 则称 $ \astrosun$和$ \oplus $  满足第一分配率.
 \item 若
-$ (a_1 \oplus a_2) \astrosun b = (a_1 \astrosun b) \oplus ( a_2 \astrosun b), \forall a_1, a_2, b $, 则称 $ \astrosun$和$\oplus $  满足第二分配率.
+$ (a \oplus b) \, \astrosun \, c = (a \, \astrosun \, c) \oplus ( b \, \astrosun \, c), \forall a, b, c$, 则称 $ \astrosun$和$\oplus $  满足第二分配率.
 \end{enumerate}
 \end{Definition}
 
@@ -108,7 +96,14 @@ $ (a_1 \oplus a_2) \astrosun b = (a_1 \astrosun b) \oplus ( a_2 \astrosun b), \f
 \begin{Theorem}
 若$A$上的二元运算$\oplus$ 满足结合律, $ \astrosun $和$\oplus $ 满足第一分配率，则
 $$
-b \astrosun ( a_1 \oplus a_2 \oplus \cdots \oplus a_n ) =  ( b \astrosun a_1) \oplus (b \astrosun a_2) \oplus \cdots \oplus (b \astrosun a_n)
+a \, \astrosun \, ( b_1 \oplus b_2 \oplus \cdots \oplus b_n ) =  ( a \, \astrosun \, b_1) \oplus (a \, \astrosun \, b_2) \oplus \cdots \oplus (a \, \astrosun \, b_n)
+$$
+\end{Theorem}
+
+\begin{Theorem}
+若$A$上的二元运算$\oplus$ 满足结合律, $ \astrosun $和$\oplus $ 满足第二分配率，则
+$$
+( a_1 \oplus a_2 \oplus \cdots \oplus a_n ) \, \astrosun \, b =  ( a_1 \, \astrosun \, b) \oplus ( a_2 \, \astrosun \, b) \oplus \cdots \oplus (  a_n \, \astrosun \, b)
 $$
 \end{Theorem}
 
@@ -161,7 +156,6 @@ $ \overline{a \circ b} = \bar{a} \, \bar{\circ} \, \bar{b}$, 则称 $\phi$是 $A
 (i) 是映射(都有象、象唯一) (ii) 同态 (iii) 满
 \end{Remark}
 
-
 \begin{Definition}[同构映射、同构]
 如果$A$到$\bar{A}\;${\fbox{存在}}\;一个同态映射$\phi$, 且它是既是满的又是单的(一一的), 则称$A$与$\bar{A}$(关于$\circ$与$\bar{\circ}$)\textbf{同构}, 记为$A \cong
  \bar{A}$. 称这个映射是一个(关于$\circ$与$\bar{\circ}$的)\textbf{同构映射}(简称\text{同构}).
@@ -193,12 +187,14 @@ $\phi$也是$A$与$\bar{A}$的关于$ \oplus $和$\bar{\oplus}$ 的同态满射�
 \end{Theorem}
 
 \begin{Remark}
-总结下来, 如果$A$与$\bar{A}$同态，则若前者有什么算律(结合、交换、分配)，后者就也有什么算律(结合、交换、分配).
+总结下来, 如果$A$与$\bar{A}$同态，那么前者有什么运算律(结合、交换、分配)，后者就也有什么运算律(结合、交换、分配).
 \end{Remark}
 
 \begin{Definition}[自同构]
 对于$\circ$和$\circ$来说的一个$A$与$A$之间的\;\fbox{同构映射}\;叫做一个对于$\circ$来说的$A$的\textbf{自同构}.
 \end{Definition}
+
+\subsection{等价关系与集合分类}
 
 \begin{Definition}[关系\mbox{[Relation]}]
 $R: A \times A \rightarrow D = \{\text{对}, \text{错}\} $, 
@@ -206,7 +202,7 @@ $R: A \times A \rightarrow D = \{\text{对}, \text{错}\} $,
 $R(a, b) = \text{对}$
 , 称
 $(a, b)$
-满足关系$R$, 记为$aRb$.
+满足关系$R$, 记为$a \, R \, b$.
 \end{Definition}
 
 \begin{Definition}[等价关系]
@@ -239,8 +235,10 @@ $ \{ [0], [1], \cdots, [n-1] \} $, $[i] = \{ k n + i \mid k \in \mathbb{Z} \}$
 
 \section{群论}
 
+\subsection{群的定义和性质}
+
 \begin{Remark}
-群是一个代数系统(定义代数运算的代数系统), 其中群里只有一个代数运算. 便利起见$\phi(a, b) = a \circ b$写成$a b$
+群是一个代数系统(定义代数运算的集合), 其中群里只有一个代数运算. 便利起见$\phi(a, b) = a \circ b$写成$a b$
 \end{Remark}
 
 \begin{Definition}[群\mbox{[Group]}的第一定义]
@@ -262,8 +260,8 @@ $ \{ [0], [1], \cdots, [n-1] \} $, $[i] = \{ k n + i \mid k \in \mathbb{Z} \}$
 \end{Theorem}
 
 
-\begin{Definition}[群\mbox{[Group]}的二定义]
-在集合$G \neq \emptyset$上规定乘法. 这个代数系统被称为群, 如果
+\begin{Definition}[群\mbox{[Group]}第的二定义]
+在集合$G \neq \emptyset$上规定乘法. 这个代数系统被称为\textbf{群}, 如果
 \begin{itemize}
 	\item[\uppercase\expandafter{\romannumeral1}] 乘法封闭
 	\item[\uppercase\expandafter{\romannumeral2}] 乘法结合
@@ -272,24 +270,13 @@ $ \{ [0], [1], \cdots, [n-1] \} $, $[i] = \{ k n + i \mid k \in \mathbb{Z} \}$
 \end{itemize}
 \end{Definition}
 
-
-%\begin{Lemma}
-%群$G$中一个元素$a$的左逆元也是右逆元($a^{-1}a = e \Rightarrow a a^{-1} = e$).
-%\end{Lemma}
-
-%\begin{Lemma}
-%群$G$中左单位元也是右单位元($ea = a \Rightarrow ae = a, \forall a \in G$).
-%\end{Lemma}
-
 \begin{Definition}[群的阶]
 如果$|G|$有限, 称其为\textbf{有限群}, 称他的\textbf{阶}是$G$的元素个数. \\
 如果$G$中有无穷多个元素, 称其为\textbf{无限群}, 称他的\textbf{阶}无限.
 \end{Definition}
 
-
-
 \begin{Definition}[交换群、Abel群]
-群中交换律不一定成立, 如果乘法满足交换律($\forall a, b \in G, ab = ba$), 则称之为\textbf{交换群}(\textbf{Abel群})
+群中交换律不一定成立, 如果乘法满足交换律($\forall a, b \in G, ab = ba$), 则称之为\textbf{交换群}(\textbf{Abel群}).
 \end{Definition}
 
 \begin{Theorem}[单位元]
