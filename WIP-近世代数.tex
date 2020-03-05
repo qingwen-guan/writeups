@@ -14,6 +14,7 @@
 \newtheorem{Theorem}[Definition]{定理}
 \newtheorem{Remark}[Definition]{注意}
 \newtheorem{Lemma}[Definition]{引理}
+\newtheorem{Corollary}[Definition]{推论}
 
 \setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0pt}
 \setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0pt}
@@ -130,11 +131,11 @@ $\forall a, b \in A, a \neq b \Rightarrow \bar{a} \neq \bar{b}$.
 \end{Remark}
 
 \begin{Definition}[变换]
-从$A$到$A$的映射 $\phi: A \rightarrow A$ 叫$A$上的变换.
+从$A$到$A$的映射 $\tau: A \rightarrow A, a \mapsto \tau(a) = a^{\tau}$ 叫$A$上的变换.
 \begin{itemize}
-	\item 如果$\phi$是满的, 则称为\textbf{满变换}.
-	\item 如果$\phi$是单的, 则称为\textbf{单变换}.
-	\item 如果$\phi$是一一的, 则称为\textbf{一一变换}.
+	\item 如果$\tau$是满的, 则称为\textbf{满变换}.
+	\item 如果$\tau$是单的, 则称为\textbf{单变换}.
+	\item 如果$\tau$是一一的, 则称为\textbf{一一变换}.
 \end{itemize}
 \end{Definition}
 
@@ -185,10 +186,6 @@ $\phi$也是$A$与$\bar{A}$的关于$ \oplus $和$\bar{\oplus}$ 的同态满射�
 \item 若$ \astrosun$和$\oplus $  满足第二分配率, 则 $ \bar{\astrosun} $和$\bar{\oplus} $ 也满足第二分配率.
 \end{enumerate}
 \end{Theorem}
-
-\begin{Remark}
-总结下来, 如果$A$与$\bar{A}$同态，那么前者有什么运算律(结合、交换、分配)，后者就也有什么运算律(结合、交换、分配).
-\end{Remark}
 
 \begin{Definition}[自同构]
 对于$\circ$和$\circ$来说的一个$A$与$A$之间的\;\fbox{同构映射}\;叫做一个对于$\circ$来说的$A$的\textbf{自同构}.
@@ -242,25 +239,28 @@ $ \{ [0], [1], \cdots, [n-1] \} $, $[i] = \{ k n + i \mid k \in \mathbb{Z} \}$
 \end{Remark}
 
 \begin{Definition}[群\mbox{[Group]}的第一定义]
-在集合$G \neq \emptyset$上规定一个叫做乘法的代数运算. 这个代数系统被称为群, 如果
+在集合$G \neq \emptyset$上规定一个叫做乘法的\;\fbox{代数运算}\;. 这个代数系统被称为群, 如果
 \begin{itemize}
-	\item[\uppercase\expandafter{\romannumeral1}] 乘法封闭, $\forall a, b \in G, ab \in G$ (由代数运算要求)
+	\item[\uppercase\expandafter{\romannumeral1}] 乘法封闭, $\forall a, b \in G, ab \in G$
 	\item[\uppercase\expandafter{\romannumeral2}] 乘法结合, $\forall a, b, c \in G, (ab)c = a(bc)$
 	\item[\uppercase\expandafter{\romannumeral3}] $ \forall a, b \in G$, $ax = b, ya = b$在$G$中都有解.
 \end{itemize}
 \end{Definition}
 
+\begin{Remark}[乘法]
+以后提到乘法，都是指某个集合$A$上的代数运算$A \times A \rightarrow A$, 自然要求I(乘法封闭).
+\end{Remark}
+
+
 \begin{Theorem}[IV\mbox{[左单位元]}]
 对于群$G$中至少有一个元$e$, 叫做$G$的一个\textbf{左单位元}，使得$\forall a \in G$都有 $ea = a$.
 \end{Theorem}
-
 
 \begin{Theorem}[V\mbox{[左逆元]}]
 对于群$G$中的任何一个元素$a$, 在$G$中存在一个元$a^{-1}$，叫做$a$的\textbf{左逆元}, 能让$a^{-1} a = e$.
 \end{Theorem}
 
-
-\begin{Definition}[群\mbox{[Group]}第的二定义]
+\begin{Definition}[群\mbox{[Group]}的第二定义]
 在集合$G \neq \emptyset$上规定乘法. 这个代数系统被称为\textbf{群}, 如果
 \begin{itemize}
 	\item[\uppercase\expandafter{\romannumeral1}] 乘法封闭
@@ -299,6 +299,176 @@ $ a^n a^m = a^{n+m}, (a^n)^m, n, m \in \mathbb{Z} $
 \begin{Definition}[元素的阶]
 在一个群$G$中，使得$a^n = e$的最小正整数, 叫做$a$的\textbf{阶}. 若这样的$n$不存在, 称$a$是无穷阶的，或者叫$a$的阶是无穷.
 \end{Definition}
+
+\begin{Theorem}[III'\mbox{[消去律]}]
+群的乘法满足: $ax = ax' \Rightarrow x = x', ya = y'a \Rightarrow y = y'$
+\end{Theorem}
+
+\begin{Corollary}
+在群里, $ax = b$ 和 $ya = b$都有唯一解.
+\end{Corollary}
+
+\begin{Theorem}[有限群的另一定义]
+一个带有乘法的 \fbox{有限集合}  $G \neq \emptyset$, 若满足I、II、III', 则$G$是一个\textbf{群}.
+\end{Theorem}
+
+\subsection{群的同态}
+
+\begin{Theorem}
+$G$与$\bar{G}$关于他们的乘法同态, 则 $G$是群$\Rightarrow \bar{G}$也是群.
+\end{Theorem}
+
+\begin{Theorem}
+假定$G$和$\bar{G}$是两个群, 在$G$到$\bar{G}$的一个同态满射之下, $G$的单位元$e$的象是$\bar{G}$的单位元, $G$的元$a$的逆元$a^{-1}$的象是$a$的象的逆元.
+\end{Theorem}
+
+\begin{Remark}
+总结下来, 如果$A$与$\bar{A}$同态，那么前者有什么后面就也有什么:
+\begin{itemize}
+	\item 前面有结合，后面就也有结合
+	\item 前面有交换，后面就也有交换
+	\item 前面有分配，后面就也有分配
+	\item 前面是群，后面就也是群
+\end{itemize}
+\end{Remark}
+
+\begin{Theorem}
+$G$与$\bar{G}$关于他们的乘法同构, 则 $G$是群$\Leftrightarrow \bar{G}$是群.
+\end{Theorem}
+
+\subsection{变换群}
+
+\begin{Definition}[变换的乘法]
+$\tau_1 \tau_2: a \mapsto {\left(a^{\tau_1}\right)}^{\tau_2}$
+\end{Definition}
+
+\begin{Theorem}[变换乘法结合]
+$(\tau_1 \tau_2) \tau_3 = \tau_1 ( \tau_2 \tau_3 )$
+\end{Theorem}
+
+\begin{Theorem}
+$G$是集合$A$的若干变换构成的集合, 如果$G$基于变换的乘法做成一个群,
+则$G$中的变换一定是一一变换.
+\end{Theorem}
+
+\begin{Definition}[变换群]
+如果一个集合$A$的若干\;\fbox{一一变换}\;对于变换的乘法能够做成一个群，则称这个群为A的一个\textbf{变换群}.
+\end{Definition}
+
+\begin{Theorem}
+一个集合$A$上的所有一一变换做成一个变换群$G$.
+\end{Theorem}
+
+\begin{Theorem}
+任何一个群都与一个变换群同构.
+\end{Theorem}
+
+\begin{Definition}[置换]
+\fbox{有限集合}\;上的\;\fbox{一一变换}\;叫做\textbf{置换}, 一般用$\pi$表示.
+\end{Definition}
+
+\begin{Definition}[置换群]
+有限集合上的若干置换做成的群叫\textbf{置换群}.
+\end{Definition}
+
+\begin{Definition}[对称群]
+一个$n$元集合$A = \{ a_1, a_2, \cdots, a_n \}$上的所有置换
+(有$n!$个)做成的群叫做$n$次\textbf{对称群}, 用$S_n$来表示.
+\end{Definition}
+
+\begin{Theorem}
+$$
+\left.
+\begin{aligned}
+\pi_1 &= \begin{pmatrix} 
+j_1       & \cdots & j_k       & j_{k+1} & \cdots & j_n \\
+j_1^{(1)} & \cdots & j_k^{(1)} & j_{k+1} & \cdots & j_n \\
+\end{pmatrix} \\
+\pi_2 &= \begin{pmatrix} 
+j_1       & \cdots & j_k       & j_{k+1}       & \cdots & j_n      \\
+j_1       & \cdots & j_k       & j_{k+1}^{(2)} & \cdots & j_n^{(2)} \\
+\end{pmatrix} 
+\end{aligned}
+\right\}
+\Rightarrow
+\pi_1 \pi_2 = \begin{pmatrix} 
+j_1       & \cdots & j_k       & j_{k+1}       & \cdots & j_n \\
+j_1^{(1)} & \cdots & j_k^{(1)} & j_{k+1}^{(2)} & \cdots & j_n^{(2)} \\
+\end{pmatrix}
+$$
+\end{Theorem}
+
+\begin{Definition}[$k$-循环置换]
+如果$S_n$中的置换满足$a_{i_1}$的象是$a_{i_2}$, $a_{i_2}$的象是$a_{i_3}$, $\cdots$, 
+$a_{i_{k-1}}$的象是$a_{i_k}$, $a_{i_{k}}$的象是$a_{i_1}$, 其他元素，如果还有的话，象是不变的, 则称之为\textbf{$k$-循环置换}.
+用$(i_1 \, i_2 \, i_3 \, \cdots \, i_{k-1} \, i_k)$ 或 
+$(i_2 \, i_3 \, \cdots \, i_{k-1} \, i_k \, i_1)$ 或 $\cdots$ 或   
+$( i_k \, i_1 \, i_2 \, i_3 \, \cdots \, i_{k-1})$来表示.
+\end{Definition}
+
+\begin{Theorem}
+任何一个置换都可以写成若干没有共同数字的循环置换的乘积.
+\end{Theorem}
+
+\begin{Theorem}
+任何一个有限群都与一个置换群同构.
+\end{Theorem}
+
+\begin{Definition}[循环群]
+若一个群$G$的每一个元都是$G$的某一固定元$a$的乘方, 我们就称$G$是一个\textbf{循环群}, $a$是$G$的一个\textbf{生成元}, 并记$G = (a)$, 且说$G$是由元$a$生成的。
+\end{Definition}
+
+
+\begin{Definition}[$\mathbb{Z}_n$\mbox{[模$n$的剩余类加群]}]
+$G$包含所有模$n$的剩余类，$G = \{ [0], [1], \cdots, [n-1] \}$, 定义乘法(叫做加法) $[a] + [b] = [a +b]$，可以证明$(G, +)$做成一个群, 叫做\textbf{模$n$的剩余类加群}.
+\end{Definition}
+
+\begin{Theorem}
+假定$G$是由$a$生成的循环群, 则$G$的构造可以完全由$a$的阶来决定:
+\begin{itemize}
+\item 如果$a$的阶无限, 则$G \cong \mathbb{Z}$.
+\item 如果$a$的阶为$n$, 则$G \cong \mathbb{Z}_n$.
+\end{itemize}
+\end{Theorem}
+
+\subsection{子群}
+
+\begin{Definition}[子群]
+如果一个群$G$的一个子集$H$关于群$G$的乘法也能做成一个群，则称$H$为$G$的一个\textbf{子群}.
+\end{Definition}
+
+\begin{Theorem}
+一个群$G$的一个非空子集$H$做成$G$的子群，当且仅当
+\begin{enumerate}[(i)]
+\item $a, b \in H \Rightarrow ab \in H$
+\item $a \in H \Rightarrow a^{-1} \in H$
+\end{enumerate}
+\end{Theorem}
+
+\begin{Corollary}
+若$H$是$G$的子群, 则, $H$的单位元就是$G$的单位元, $a$在$H$中的逆就是$a$的$G$中的逆.
+\end{Corollary}
+
+\begin{Theorem}
+一个群$G$的一个非空子集$H$做成$G$的子群，当且仅当 (iii) $a, b \in H \Rightarrow ab^{-1} \in H$
+\end{Theorem}
+
+\begin{Theorem}
+一个群$G$的一个非空\;\fbox{有限}\;子集$H$做成$G$的子群，当且仅当 (i) $a, b \in H \Rightarrow ab \in H$
+\end{Theorem}
+
+\begin{Remark}[验证非空集合是群的方法]
+(1) I, II, III (2) I、II、IV, V (3) 有限集: I, II, III'
+(4) 子群: (i), (ii) \mbox{(5) 子群: (iii)} (6) 有限子群: (i)
+\end{Remark}
+
+\begin{Definition}[生成子群]
+对于群$G$的非空子集$S$, 包含$S$的最小子群, 被称为由$S$生成的子群, 记为$(S)$.
+\end{Definition}
+
+\begin{Theorem}
+$S = \{a\}$时, $(S) = (a)$.
+\end{Theorem}
 
 \section{环}
 \section{域}
