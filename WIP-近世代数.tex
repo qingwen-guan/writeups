@@ -229,7 +229,6 @@ $$ A = A_1 \cup A_2 \cup \cdots \cup A_n, A_i \cap A_j = \emptyset, i \neq j$$
 $ \{ [0], [1], \cdots, [n-1] \} $, $[i] = \{ k n + i \mid k \in \mathbb{Z} \}$
 \end{Definition}
 
-
 \section{群论}
 
 \subsection{群的定义和性质}
@@ -252,11 +251,11 @@ $ \{ [0], [1], \cdots, [n-1] \} $, $[i] = \{ k n + i \mid k \in \mathbb{Z} \}$
 \end{Remark}
 
 
-\begin{Theorem}[IV\mbox{[左单位元]}]
+\begin{Theorem}[左单位元]
 对于群$G$中至少有一个元$e$, 叫做$G$的一个\textbf{左单位元}，使得$\forall a \in G$都有 $ea = a$.
 \end{Theorem}
 
-\begin{Theorem}[V\mbox{[左逆元]}]
+\begin{Theorem}[左逆元]
 对于群$G$中的任何一个元素$a$, 在$G$中存在一个元$a^{-1}$，叫做$a$的\textbf{左逆元}, 能让$a^{-1} a = e$.
 \end{Theorem}
 
@@ -265,8 +264,8 @@ $ \{ [0], [1], \cdots, [n-1] \} $, $[i] = \{ k n + i \mid k \in \mathbb{Z} \}$
 \begin{itemize}
 	\item[\uppercase\expandafter{\romannumeral1}] 乘法封闭
 	\item[\uppercase\expandafter{\romannumeral2}] 乘法结合
-	\item[IV] $\exists e \in G$使 $ea =a$ 对 $\forall a \in G$都成立.
-	\item[V]$\forall a \in G, \exists \, a^{-1}$使$a^{-1}a = e$.
+	\item[IV] 左单位元: $\exists e \in G$使 $ea =a$ 对 $\forall a \in G$都成立.
+	\item[V] 左逆元: $\forall a \in G, \exists \, a^{-1}$使$a^{-1}a = e$.
 \end{itemize}
 \end{Definition}
 
@@ -288,6 +287,10 @@ $ \{ [0], [1], \cdots, [n-1] \} $, $[i] = \{ k n + i \mid k \in \mathbb{Z} \}$
 使 $a^{-1} a = a a^{-1} = e$. 这个元素被称为$a$的\textbf{逆元}, 或者简称\textbf{逆}.
 \end{Theorem}
 
+\begin{Remark}
+证明$a^{-1}$是$a$的逆的方法: $a^{-1}a = e$或者$aa^{-1} = e$
+\end{Remark}
+
 \begin{Definition}
 规定$a^n = \underbrace{a a \cdots a}_{n\text{个}}, a^0 = e, a^{-n} = (a^{-1})^n, n \in \mathbb{Z}^{+}$
 \end{Definition}
@@ -296,9 +299,17 @@ $ \{ [0], [1], \cdots, [n-1] \} $, $[i] = \{ k n + i \mid k \in \mathbb{Z} \}$
 $ a^n a^m = a^{n+m}, (a^n)^m, n, m \in \mathbb{Z} $
 \end{Theorem}
 
+\begin{Theorem}
+$\forall a, b \in G, {(ab^{-1})}^{-1} = b a^{-1}$
+\end{Theorem}
+
 \begin{Definition}[元素的阶]
 在一个群$G$中，使得$a^n = e$的最小正整数, 叫做$a$的\textbf{阶}. 若这样的$n$不存在, 称$a$是无穷阶的，或者叫$a$的阶是无穷.
 \end{Definition}
+
+\begin{Theorem}
+假定群的元$a$的阶是$n$, 则$a^r$的阶是$\displaystyle \frac{n}{\text{gcd}(r, n)}$.
+\end{Theorem}
 
 \begin{Theorem}[III'\mbox{[消去律]}]
 群的乘法满足: $ax = ax' \Rightarrow x = x', ya = y'a \Rightarrow y = y'$
@@ -312,6 +323,8 @@ $ a^n a^m = a^{n+m}, (a^n)^m, n, m \in \mathbb{Z} $
 一个带有乘法的 \fbox{有限集合}  $G \neq \emptyset$, 若满足I、II、III', 则$G$是一个\textbf{群}.
 \end{Theorem}
 
+
+
 \subsection{群的同态}
 
 \begin{Theorem}
@@ -319,7 +332,7 @@ $G$与$\bar{G}$关于他们的乘法同态, 则 $G$是群$\Rightarrow \bar{G}$�
 \end{Theorem}
 
 \begin{Theorem}
-假定$G$和$\bar{G}$是两个群, 在$G$到$\bar{G}$的一个同态满射之下, $G$的单位元$e$的象是$\bar{G}$的单位元, $G$的元$a$的逆元$a^{-1}$的象是$a$的象的逆元.
+假定$G$和$\bar{G}$是两个群, 在$G$到$\bar{G}$的一个同态满射之下, $G$的单位元$e$的象是$\bar{G}$的单位元, $G$的元$a$的逆元$a^{-1}$的象是$a$的象的逆元($\overline{a^{-1}} = \bar{a}^{-1}$).
 \end{Theorem}
 
 \begin{Remark}
@@ -362,6 +375,12 @@ $G$是集合$A$的若干变换构成的集合, 如果$G$基于变换的乘法做
 \begin{Theorem}
 任何一个群都与一个变换群同构.
 \end{Theorem}
+
+\begin{Theorem}
+一个变换群的单位元一定是恒等变换.
+\end{Theorem}
+
+\subsection{置换群}
 
 \begin{Definition}[置换]
 \fbox{有限集合}\;上的\;\fbox{一一变换}\;叫做\textbf{置换}, 一般用$\pi$表示.
@@ -407,17 +426,30 @@ $( i_k \, i_1 \, i_2 \, i_3 \, \cdots \, i_{k-1})$来表示.
 \end{Definition}
 
 \begin{Theorem}
+$(i_1 \, i_2 \, \cdots \i_k)^{-1} = (i_k \, \cdots \, i_2 \, i_1)$.
+\end{Theorem}
+
+\begin{Theorem}
+$k$-循环置换的阶是$k$.
+\end{Theorem}
+
+\begin{Theorem}
 任何一个置换都可以写成若干没有共同数字的循环置换的乘积.
+\end{Theorem}
+
+\begin{Theorem}
+两个没有共同数字的循环置换可以交换.
 \end{Theorem}
 
 \begin{Theorem}
 任何一个有限群都与一个置换群同构.
 \end{Theorem}
 
+\subsection{循环群}
+
 \begin{Definition}[循环群]
 若一个群$G$的每一个元都是$G$的某一固定元$a$的乘方, 我们就称$G$是一个\textbf{循环群}, $a$是$G$的一个\textbf{生成元}, 并记$G = (a)$, 且说$G$是由元$a$生成的。
 \end{Definition}
-
 
 \begin{Definition}[$\mathbb{Z}_n$\mbox{[模$n$的剩余类加群]}]
 $G$包含所有模$n$的剩余类，$G = \{ [0], [1], \cdots, [n-1] \}$, 定义乘法(叫做加法) $[a] + [b] = [a +b]$，可以证明$(G, +)$做成一个群, 叫做\textbf{模$n$的剩余类加群}.
@@ -430,6 +462,21 @@ $G$包含所有模$n$的剩余类，$G = \{ [0], [1], \cdots, [n-1] \}$, 定义�
 \item 如果$a$的阶为$n$, 则$G \cong \mathbb{Z}_n$.
 \end{itemize}
 \end{Theorem}
+
+\begin{Theorem}
+一个循环群一定是交换群.
+\end{Theorem}
+
+
+
+\begin{Theorem}
+$a$生成一个阶是$n$的循环群$G$, 则$a^r$也生成$G$，如果$\text{gcd}(r, d) = 1$.
+\end{Theorem}
+
+\begin{Theorem}
+$G$是循环群, 且$G$与$\bar{G}$同态，则$\bar{G}$也是循环群.
+\end{Theorem}
+
 
 \subsection{子群}
 
@@ -470,7 +517,128 @@ $G$包含所有模$n$的剩余类，$G = \{ [0], [1], \cdots, [n-1] \}$, 定义�
 $S = \{a\}$时, $(S) = (a)$.
 \end{Theorem}
 
-\section{环}
-\section{域}
+\begin{Definition}
+群$G$, 子群$H$, 规定$G$上的关系$\sim: a \sim b \Leftrightarrow a b^{-1} \in H$
+\end{Definition}
+
+\begin{Theorem}
+上面规定的关系$\sim$是等价关系.
+\end{Theorem}
+
+\begin{Definition}[右陪集]
+由上述等价关系确定集合的分类叫做$H$的\textbf{右陪集}.
+\end{Definition}
+
+\begin{Theorem}
+包含元$a$的右陪集$ = Ha =  \{ ha \mid h \in H \}$
+\end{Theorem}
+
+\begin{Definition}
+群$G$, 子群$H$, 规定$G$上的关系$\sim': a \sim 'b \Leftrightarrow b^{-1} a \in H$. 可以证明$~'$是等价关系.
+\end{Definition}
+
+\begin{Definition}[左陪集]
+由上述等价关系$\sim': a \sim' b \Leftrightarrow b^{-1} a \in H$, 确定集合的分类叫做$H$的\textbf{左陪集}, 包含元$a$的左陪集可以用$aH = \{ ah \mid h \in H \}$表示.
+\end{Definition}
+
+\begin{Theorem}
+一个子群的右陪集与左陪集个数相等: 个数或者都是无穷大, 或者都有限且相等.
+\end{Theorem}
+
+\begin{Definition}[指数]
+一个群$G$的一个子群$H$的右陪集(或左陪集)的个数叫做$H$在$G$里的指数.
+\end{Definition}
+
+
+\begin{Theorem}
+右陪集所含元素的个数等于子群$H$所含元素的个数.
+\end{Theorem}
+
+\begin{Theorem}
+$H$是一个有限群$G$的子群, 那么$H$的阶$n$和他在$G$中的指数$j$都能整除$G$的阶$N$, 并且$N = nj$
+\end{Theorem}
+
+\begin{Theorem}[元素的阶整除群的阶]
+一个有限群$G$的任何一个元$a$的阶能够整除$G$的阶.
+\end{Theorem}
+
+\begin{Remark}
+待证明: 阶是$n$的元素生成的循环子群的阶是$n$.
+\end{Remark}
+
+\begin{Definition}[不变子群]
+群$G$的子群$N$叫做$G$的\textbf{不变子群}, 如果$\forall a \in G$, 有$Na = aN$. 一个不变子群$N$的一个左(或右)陪集叫做$N$的一个\textbf{陪集}.
+\end{Definition}
+
+\begin{Definition}
+$S_1, S_2, \cdots, S_m \subseteq $群$G$, 规定子集的乘法
+$S_1 S_2 \cdots S_m = \{s_1 s_2 \cdots s_m \mid s_i \in S_i \}$. 可以证明这个乘法满足结合律.
+\end{Definition}
+
+\begin{Theorem}
+已知一个群$G$有一个子群$N$, $N$是不变子群的充要条件是$aNa^{-1} = N, \forall a \in G$.
+\end{Theorem}
+
+\begin{Theorem}
+已知一个群$G$有一个子群$N$, $N$是不变子群的充要条件是
+$a \in G, n \in N \Rightarrow ana^{-1} \in N $.
+\end{Theorem}
+
+\begin{Theorem}
+如果$N$刚好包含$G$的所有具有以下性质的元$n$,
+$$
+	na = an, \forall a \in G
+$$
+则$N$是$G$的不变子群. 我们称这个不变子群是G的\textbf{中心}.
+\end{Theorem}
+
+\begin{Theorem}
+$N$是群$G$的不变子群, 在其陪集$\{ aN, bN, cN, \cdots \}$上定义的乘法$(xN, yN) \mapsto (xy)N$, 则这个乘法是此陪集的二元运算，且此陪集对于上面规定的乘法来说构成一个群.
+\end{Theorem}
+
+\begin{Definition}[商群]
+一个群$G$的一个不变子群$N$的所有陪集关于陪集的乘法做成的群叫做$G$的\textbf{商群}，用$G/N$表示.
+\end{Definition}
+
+\begin{Theorem}
+对于有限群, $ \displaystyle | G/N | $ = $\frac{|G|}{|N|}$.
+\end{Theorem}
+
+\begin{Theorem}
+一个群$G$与它的商群$G/N$同态.
+\end{Theorem}
+
+\begin{Definition}[核]
+$\phi$是群$G$到群$\bar{G}$的一个同态满射, $\bar{G}$的单位元$\bar{e}$在$\phi$之下的所有原象做成的$G$的子集叫做$\phi$的\textbf{核}.
+\end{Definition}
+
+\begin{Theorem}
+$G$和$\bar{G}$是两个群，且$G$与$\bar{G}$同态，则这个同态满射的核$N$是$G$的一个不变子群，且$G/N \cong \bar{G}$.
+\end{Theorem}
+
+\begin{Remark}
+一个群只和``相当于''它的商群同态
+\end{Remark}
+
+\begin{Definition}
+$\phi$是$A \rightarrow \bar{A}$的满射, 取$S \subseteq A$, 定义$S$的象是$S$中所有元素的象做成的集合. 取$\bar{S} \subseteq \bar{A}$, 定义$\bar{S}$的原象是$\bar{S}$中所有元素的原象做成的集合.
+\end{Definition}
+
+\begin{Theorem}
+$G$和$\bar{G}$是两个群，且$G$与$\bar{G}$同态，则在这个同态满射之下:
+\begin{itemize}
+\item[(1)] $G$的一个子群$H$的象$\bar{H}$也是$\bar{G}$的一个子群.
+\item[(2)] $G$的一个不变子群$N$的象$\bar{N}$也是$\bar{G}$的一个不变子群.
+\item[(1')] $\bar{G}$的一个子群$\bar{H}$的原象$H$也是$G$的一个子群.
+\item[(2')] $\bar{G}$的一个不变子群$\bar{N}$的原象$N$也是$G$的一个不变子群.
+\end{itemize}
+\end{Theorem}
+
+\begin{Remark}
+这也体现了同态的性质，前面有的后面也有!
+\end{Remark}
+
+
+\section{环与域}
 
 \end{document}
