@@ -252,7 +252,6 @@ $ \{ [0], [1], \cdots, [n-1] \} $, $[i] = \{ k n + i \mid k \in \mathbb{Z} \}$
 以后提到乘法，都是指某个集合$A$上的代数运算$A \times A \rightarrow A$, 自然要求I(乘法封闭).
 \end{Remark}
 
-
 \begin{Theorem}[左单位元]
 对于群$G$中至少有一个元$e$, 叫做$G$的一个\textbf{左单位元}，使得$\forall a \in G$都有 $ea = a$.
 \end{Theorem}
@@ -298,7 +297,7 @@ $ \{ [0], [1], \cdots, [n-1] \} $, $[i] = \{ k n + i \mid k \in \mathbb{Z} \}$
 \end{Definition}
 
 \begin{Theorem}
-$ a^n a^m = a^{n+m}, (a^n)^m, n, m \in \mathbb{Z} $
+$ a^n a^m = a^{n+m}, (a^n)^m, n, m \in \mathbb{Z} $ (灰色: 它说明了${(a^{-1})}^{-1} = a$)
 \end{Theorem}
 
 \begin{Proposition}[乘积的逆等于逆的乘积]
@@ -695,5 +694,165 @@ $ G/N \sim \bar{G}/\bar{N} $.
 \end{Proposition}
 
 \section{环与域}
+
+\begin{Definition}[加群]
+一个交换群叫做一个的\textbf{加群}, 如果我们把这个群的代数运算称为加法, 并且用符号$+$表示.
+\end{Definition}
+
+\begin{Definition}
+$n$的元的和$a_1 + a_2 + \cdots + a_n$用符号$\displaystyle \sum_{i=1}^{n} a_n$ 来表示.
+\end{Definition}
+
+\begin{Definition}
+$n$个$a$的和$\displaystyle \sum_{i=1}^{n} a$我们用$na$表示.
+\end{Definition}
+
+\begin{Definition}[零元]
+加群唯一的单位元用$0$来表示, 并且把它叫做\textbf{零元}.
+\end{Definition}
+
+\begin{Definition}[负元]
+元$a$的唯一的逆元我们用$-a$来表示，并且把它叫做$a$的\textbf{负元}. $a + (-b)$我们简写成$a - b$.
+\end{Definition}
+
+\begin{Theorem}
+加群满足以下运算规则
+\begin{enumerate}[(1)]
+\item $0 + a = a + 0 = a$
+\item $-a + a = a - a = 0$
+\item $-(-a) = a$
+\item[(4: 移项)] $a + c = b \Leftrightarrow c = b - a$
+\item $-(a +b) = -a - b, -(a-b) = -a +b$
+\item $ma + na = (m+n)a, m(na) = (mn)a, n(a+b) = na + nb, \forall m, n \in \mathbb{Z}^+$
+\end{enumerate}
+\end{Theorem}
+
+\begin{Remark}
+非空子集$S$做成子群的充要条件变成了 
+\begin{itemize}
+\item (i) $a, b \in S \Rightarrow a+b \in S$ (ii) $a \in S \Rightarrow -a \in S$
+\item 或者 (iii) $a, b \in S \Rightarrow a - b \in S$.
+\end{itemize}
+\end{Remark}
+
+\begin{Definition}[环]
+一个集合$R$叫做一个环, 如果
+\begin{enumerate}
+	\item $R$是一个加群: $R$关于一个叫做加法的代数运算做成一个交换群.
+	\item $R$对于另一个叫做乘法的代数运算是封闭的.
+	\item $R$关于乘法结合
+	\item 分配率: $a(b+c) = bc + ac, (a+b)c = ac + bc$
+\end{enumerate}
+\end{Definition}
+
+\begin{Remark}[环的判别] 判断一个代数系统是环的条件: 
+\begin{enumerate}[(i)]
+\item 加法(构成交换群): I.加法封闭 II 加法结合 IV 有零元 V 负元 X 加法交换
+\item 乘法: I.乘法封闭 II 乘法结合
+\item 两种运算的关系: 分配率
+\end{enumerate}
+\end{Remark}
+
+\begin{Theorem}
+环还满足以下运算规则
+\begin{enumerate}[(1)]
+\item[(7)] $(a-b)c = ac - bc, c(a - b) = ca - cb$
+\item[(8)] $0a = a0 = 0$
+\item[(9)] $(-a)b = a(-b) = -(ab)$
+\item[(10)] $(-a)(-b) = ab$
+\item[(11)] $a(b_1 + b_2 + \cdots + b_n) = ab_1 +ab_2 + \cdots + ab_n, (b_1 + b_2 + \cdots + b_n)a = b_1a + b_2a + \cdots + b_na$
+\item[(12)] 
+$ \displaystyle \left( \sum_{i=1}^m a_i \right) \left( \sum_{j=1}^n b_j \right) 
+= \sum_{a=1}^m \sum_{b=1}^{n} a_i b_j $
+           $$
+\begin{aligned}
+(a_1 + a_2 + \cdots + a_m) (b_1 + b_2 + \cdots + b_n) 
+= 
+a_1b_1 + a_1 b_2 + &\cdots + a_1 b_n \\
++ a_2 b_1 + a_2 b_2 + &\cdots + a_2 b_n \\
++ &\cdots \\
++ a_m b_1 + a_m b_2 + &\cdots + a_m b_n
+\end{aligned}
+ $$
+ \item[(13)] $ (na)b = a(nb) = n(ab), n \in \mathbb{Z}^+$ 
+ \item[(14)] 规定 $a^n = \underbrace{a a \cdots a}_{n\text{个}}, n \in \mathbb{Z}^{+}$, 则 $ a^m a^n = a^{m+n}, (a^m)^n = a^{mn} $
+\end{enumerate}
+\end{Theorem}
+
+\subsection{交换律、单位元、零因子、整环}
+
+\begin{Definition}[交换环]
+一个环$R$叫做\textbf{交换环}， 如果$ab = ba,  \forall a, b \in R$.
+\end{Definition}
+
+\begin{Proposition}
+在一个交换环中${(ab)}^n = a^n b^n$.
+\end{Proposition}
+
+\begin{Definition}[单位元]
+对于环$R$, 如果$ea = ae = a, \forall a \in R$, 则称$e$是环$R$的单位元. 一般，一个环未必有单位元.
+\end{Definition}
+
+\begin{Proposition}
+一个环如果有单位元, 则唯一. 用$1$来表示.
+\end{Proposition}
+
+\begin{Definition}[整数环]
+整数关于普通加法和乘法构成的环.
+\end{Definition}
+
+\begin{Definition}[逆元]
+若$ba = 1$, 则称$b$为$a$的\textbf{左逆元}. 若$ba = ab = 1$, 则称$b$为$a$的\textbf{逆元}. 
+\end{Definition}
+
+\begin{Proposition}
+如果$a$有逆元, 则唯一.
+\end{Proposition}
+
+\begin{Proposition}
+如果$a$有逆元, 则规定$a^{-m} = {(a^{-1})}^m, a^0 = 1$. 则$a^m a^n = a^{m+n}, {(a^m)}^n = a^{mn}, \forall m, n \in \mathbb{Z}$.
+\end{Proposition}
+
+\begin{Proposition}[模$n$的剩余类环]
+$R = \{ [0], [1], \cdots, [n-1] \}$, 加法: $[a] + [b] = [a+b]$, 乘法: $[a][b] = [ab]$做成一个交换环, 被称为\textbf{模$n$的剩余类环}, 零元$0 = [0]$, 单位元$1 = [1]$.
+\end{Proposition}
+
+\begin{Proposition}
+$ab = 0 \Rightarrow a = 0 $ 或者 $b = 0$ 在环里不一定对.
+\end{Proposition}
+
+\begin{Definition}[零因子]
+在一个环$R$中, 若$a \neq 0, b \neq 0$但$ab = 0$, 则称$a$是$R$的\textbf{左零因子}, $b$是$R$的\textbf{右零因子}.
+\end{Definition}
+
+\begin{Remark}
+左零因子不一定是右零因子. 但是如果有左零因子, 就一定有右零因子. 如果$R$是交换环, 则左零因子一定是右零因子.
+\end{Remark}
+
+\begin{Theorem}
+在一个没有零因子的环里, 两个消去律都成立.
+\begin{enumerate}
+	\item $a \neq 0, ab = ac \Rightarrow b = c$
+	\item $a \neq 0, ba = ca \Rightarrow b = c$
+\end{enumerate}
+反过来, 在一个环里如果\;\fbox{有一个}\;消去律成立，那么这个环没有零因子.
+\end{Theorem}
+
+\begin{Corollary}
+在一个环$R$中如果有一个消去律成立，那么另一个消去律也成立.
+\end{Corollary}
+
+\begin{Definition}[整环]
+一个环$R$叫做一个\textbf{整环}, 如果
+\begin{enumerate}
+	\item 乘法适合交换律: $ab = ba$.
+	\item $R$有单位元1: $1a = a1 = a$.
+	\item $R$没有零因子: $ab = 0 \Rightarrow a = 0$或$b = 0$
+\end{enumerate}
+\end{Definition}
+
+\begin{Proposition}
+整数环是一个整环.
+\end{Proposition}
 
 \end{document}
