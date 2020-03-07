@@ -15,6 +15,8 @@
 \newtheorem{Remark}[Definition]{注意}
 \newtheorem{Lemma}[Definition]{引理}
 \newtheorem{Corollary}[Definition]{推论}
+\newtheorem{Proposition}[Definition]{命题}
+
 
 \setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0pt}
 \setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0pt}
@@ -299,9 +301,9 @@ $ \{ [0], [1], \cdots, [n-1] \} $, $[i] = \{ k n + i \mid k \in \mathbb{Z} \}$
 $ a^n a^m = a^{n+m}, (a^n)^m, n, m \in \mathbb{Z} $
 \end{Theorem}
 
-\begin{Theorem}
+\begin{Proposition}[乘积的逆等于逆的乘积]
 $\forall a, b \in G, {(ab^{-1})}^{-1} = b a^{-1}$
-\end{Theorem}
+\end{Proposition}
 
 \begin{Definition}[元素的阶]
 在一个群$G$中，使得$a^n = e$的最小正整数, 叫做$a$的\textbf{阶}. 若这样的$n$不存在, 称$a$是无穷阶的，或者叫$a$的阶是无穷.
@@ -322,8 +324,6 @@ $\forall a, b \in G, {(ab^{-1})}^{-1} = b a^{-1}$
 \begin{Theorem}[有限群的另一定义]
 一个带有乘法的 \fbox{有限集合}  $G \neq \emptyset$, 若满足I、II、III', 则$G$是一个\textbf{群}.
 \end{Theorem}
-
-
 
 \subsection{群的同态}
 
@@ -459,15 +459,13 @@ $G$包含所有模$n$的剩余类，$G = \{ [0], [1], \cdots, [n-1] \}$, 定义�
 假定$G$是由$a$生成的循环群, 则$G$的构造可以完全由$a$的阶来决定:
 \begin{itemize}
 \item 如果$a$的阶无限, 则$G \cong \mathbb{Z}$.
-\item 如果$a$的阶为$n$, 则$G \cong \mathbb{Z}_n$.
+\item 如果$a$的阶为$n$, 则$G \cong \mathbb{Z}_n$. !灰色(自然$|G| = n$, 或者说$|(a)| = n$)灰色!
 \end{itemize}
 \end{Theorem}
 
 \begin{Theorem}
 一个循环群一定是交换群.
 \end{Theorem}
-
-
 
 \begin{Theorem}
 $a$生成一个阶是$n$的循环群$G$, 则$a^r$也生成$G$，如果$\text{gcd}(r, d) = 1$.
@@ -477,6 +475,9 @@ $a$生成一个阶是$n$的循环群$G$, 则$a^r$也生成$G$，如果$\text{gcd
 $G$是循环群, 且$G$与$\bar{G}$同态，则$\bar{G}$也是循环群.
 \end{Theorem}
 
+\begin{Theorem}
+$G$是无限阶循环群, $\bar{G}$是任何循环群, 则$G$与$\bar{G}$同态.
+\end{Theorem}
 
 \subsection{子群}
 
@@ -517,6 +518,21 @@ $G$是循环群, 且$G$与$\bar{G}$同态，则$\bar{G}$也是循环群.
 $S = \{a\}$时, $(S) = (a)$.
 \end{Theorem}
 
+\begin{Proposition}
+群$G$的两个子群的交集也是$G$的子群.
+\end{Proposition}
+
+\begin{Proposition}
+循环群的子群也是循环群.
+\end{Proposition}
+
+\begin{Proposition}
+$H$是群$G$的一个非空子集, 且$H$的每个元素的阶都有限,
+则$H$做成子群的充要条件是 (i) $a, b \in H \Rightarrow ab \in H$.
+\end{Proposition}
+
+\subsection{子群的陪集}
+
 \begin{Definition}
 群$G$, 子群$H$, 规定$G$上的关系$\sim: a \sim b \Leftrightarrow a b^{-1} \in H$
 \end{Definition}
@@ -549,7 +565,6 @@ $S = \{a\}$时, $(S) = (a)$.
 一个群$G$的一个子群$H$的右陪集(或左陪集)的个数叫做$H$在$G$里的指数.
 \end{Definition}
 
-
 \begin{Theorem}
 右陪集所含元素的个数等于子群$H$所含元素的个数.
 \end{Theorem}
@@ -559,12 +574,30 @@ $H$是一个有限群$G$的子群, 那么$H$的阶$n$和他在$G$中的指数$j$
 \end{Theorem}
 
 \begin{Theorem}[元素的阶整除群的阶]
-一个有限群$G$的任何一个元$a$的阶能够整除$G$的阶.
+一个有限群$G$的任何一个元$a$的阶能够整除$G$的阶$|G|$.
 \end{Theorem}
 
 \begin{Remark}
 待证明: 阶是$n$的元素生成的循环子群的阶是$n$.
 \end{Remark}
+
+\begin{Proposition}
+阶是素数的群一定是循环群.
+\end{Proposition}
+
+\begin{Proposition}
+阶是$p^m$的群($p$是素数)一定包含一个阶是$p$的子群.
+\end{Proposition}
+
+\begin{Proposition}
+若我们把同构的群看做一样的，一共只存在两个阶是4的群，它们都是交换群.
+\end{Proposition}
+
+\begin{Proposition}
+有限非交换群至少有6个元素.
+\end{Proposition}
+
+\subsection{不变子群、商群}
 
 \begin{Definition}[不变子群]
 群$G$的子群$N$叫做$G$的\textbf{不变子群}, 如果$\forall a \in G$, 有$Na = aN$. 一个不变子群$N$的一个左(或右)陪集叫做$N$的一个\textbf{陪集}.
@@ -604,6 +637,16 @@ $N$是群$G$的不变子群, 在其陪集$\{ aN, bN, cN, \cdots \}$上定义的�
 对于有限群, $ \displaystyle | G/N | $ = $\frac{|G|}{|N|}$.
 \end{Theorem}
 
+\begin{Proposition}
+两个不变子群的交集还是不变子群.
+\end{Proposition}
+
+\begin{Proposition}
+$H$是$G$的子群, $N$是$G$的不变子群, 则$HN$是$G$的子群.
+\end{Proposition}
+
+\subsection{同态与不变子群}
+
 \begin{Theorem}
 一个群$G$与它的商群$G/N$同态.
 \end{Theorem}
@@ -638,6 +681,18 @@ $G$和$\bar{G}$是两个群，且$G$与$\bar{G}$同态，则在这个同态满�
 这也体现了同态的性质，前面有的后面也有!
 \end{Remark}
 
+\begin{Proposition}
+假定群$G$与群$\bar{G}$同态, $\bar{N}$是$\bar{G}$的不变子群， $N$是$\bar{N}$的逆象,则
+$ G/N \sim \bar{G}/\bar{N} $.
+\end{Proposition}
+
+\begin{Proposition}
+假定群$G$与$\bar{G}$是两个有限循环群，他们的阶各是$m$和$n$,则$G$与$\bar{G}$同态$\Leftrightarrow n \mid m$
+\end{Proposition}
+
+\begin{Proposition}
+假定群$G$是一个循环群, $N$是$G$的一个子群, 则$G/N$也是循环群.
+\end{Proposition}
 
 \section{环与域}
 
