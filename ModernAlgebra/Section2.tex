@@ -3,7 +3,7 @@
 \subsection{群的定义和性质}
 
 \begin{Remark}
-群是一个代数系统(定义代数运算的集合), 其中群里只有一个代数运算. 便利起见$\phi(a, b) = a \circ b$写成$a b$
+群是一个代数系统(定义代数运算的集合), 它只有一个代数运算. 便利起见$\phi(a, b)$写成$a b$ \marginnote{之前写成$a \circ b$}
 \end{Remark}
 
 \begin{Definition}[群\mbox{[Group]}的第一定义]
@@ -55,16 +55,16 @@
 使 $a^{-1} a = a a^{-1} = e$. 这个元素被称为$a$的\textbf{逆元}, 或者简称\textbf{逆}.
 \end{Theorem}
 
-\begin{Remark}
+\begin{Note}
 证明$a^{-1}$是$a$的逆的方法: $a^{-1}a = e$或者$aa^{-1} = e$
-\end{Remark}
+\end{Note}
 
 \begin{Definition}
 规定$a^n = \underbrace{a a \cdots a}_{n\text{个}}, a^0 = e, a^{-n} = (a^{-1})^n, n \in \mathbb{Z}^{+}$
 \end{Definition}
 
 \begin{Theorem}
-$ a^n a^m = a^{n+m}, (a^n)^m, n, m \in \mathbb{Z} $ (灰色: 它说明了${(a^{-1})}^{-1} = a$)
+$ a^n a^m = a^{n+m}, (a^n)^m, n, m \in \mathbb{Z} $ \marginnote{\small $\Rightarrow {(a^{-1})}^{-1} = a$}
 \end{Theorem}
 
 \begin{Proposition}[乘积的逆等于逆的乘积]
@@ -225,25 +225,26 @@ $G$包含所有模$n$的剩余类，$G = \{ [0], [1], \cdots, [n-1] \}$, 定义�
 假定$G$是由$a$生成的循环群, 则$G$的构造可以完全由$a$的阶来决定:
 \begin{itemize}
 \item 如果$a$的阶无限, 则$G \cong \mathbb{Z}$.
-\item 如果$a$的阶为$n$, 则$G \cong \mathbb{Z}_n$. !灰色(自然$|G| = n$, 或者说$|(a)| = n$)灰色!
+\item 如果$a$的阶为$n$, 则$G \cong \mathbb{Z}_n$. \marginnote{
+	自然$|G| = n$, 或者说$|(a)| = n$}
 \end{itemize}
 \end{Theorem}
 
-\begin{Theorem}
+\begin{Proposition}
 一个循环群一定是交换群.
-\end{Theorem}
+\end{Proposition}
 
-\begin{Theorem}
+\begin{Proposition}
 $a$生成一个阶是$n$的循环群$G$, 则$a^r$也生成$G$，如果$\text{gcd}(r, d) = 1$.
-\end{Theorem}
+\end{Proposition}
 
-\begin{Theorem}
+\begin{Proposition}
 $G$是循环群, 且$G$与$\bar{G}$同态，则$\bar{G}$也是循环群.
-\end{Theorem}
+\end{Proposition}
 
-\begin{Theorem}
+\begin{Proposition}
 $G$是无限阶循环群, $\bar{G}$是任何循环群, 则$G$与$\bar{G}$同态.
-\end{Theorem}
+\end{Proposition}
 
 \subsection{子群}
 
@@ -271,10 +272,10 @@ $G$是无限阶循环群, $\bar{G}$是任何循环群, 则$G$与$\bar{G}$同态.
 一个群$G$的一个非空\;\fbox{有限}\;子集$H$做成$G$的子群，当且仅当 (i) $a, b \in H \Rightarrow ab \in H$
 \end{Theorem}
 
-\begin{Remark}[验证非空集合是群的方法]
+\begin{Note}[验证非空集合是群的方法]
 (1) I, II, III (2) I、II、IV, V (3) 有限集: I, II, III'
 (4) 子群: (i), (ii) \mbox{(5) 子群: (iii)} (6) 有限子群: (i)
-\end{Remark}
+\end{Note}
 
 \begin{Definition}[生成子群]
 对于群$G$的非空子集$S$, 包含$S$的最小子群, 被称为由$S$生成的子群, 记为$(S)$.
@@ -342,10 +343,6 @@ $H$是一个有限群$G$的子群, 那么$H$的阶$n$和他在$G$中的指数$j$
 \begin{Theorem}[元素的阶整除群的阶]
 一个有限群$G$的任何一个元$a$的阶能够整除$G$的阶$|G|$.
 \end{Theorem}
-
-\begin{Remark}
-待证明: 阶是$n$的元素生成的循环子群的阶是$n$.
-\end{Remark}
 
 \begin{Proposition}
 阶是素数的群一定是循环群.

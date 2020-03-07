@@ -2,9 +2,9 @@
 
 \subsection{代数运算}
 
-\begin{Remark}
+\begin{Note}
 近世代数(或抽象代数)的主要内容就是研究所谓\textbf{代数系统}，即带有运算的集合。
-\end{Remark}
+\end{Note}
 
 \begin{Definition}[映射]
 $$ \begin{aligned}
@@ -12,9 +12,9 @@ A_1 \times A_2 \times \cdots \times A_n &\rightarrow D \\
  (a_1, a_2, \cdots, a_n) &\mapsto d = \phi (a_1, a_2, \cdots, a_n) = \overline{(a_1, a_2, \cdots, a_n)} \end{aligned}$$ 
 \end{Definition}
 
-\begin{Remark}
+\begin{Note}
 判断一个法则$\phi$是映射的充要条件: (i) 都有象 (ii) 象唯一.
-\end{Remark}
+\end{Note}
 
 \begin{Definition}[代数运算] 
 $$\begin{aligned}
@@ -22,9 +22,13 @@ A \times B &\rightarrow D \\
 (a, b) &\mapsto d = \phi(a, b) = \circ (a, b) = a \circ b \end{aligned}$$
 \end{Definition}
 
-\begin{Remark}
+
+{\color{gray}{
+\begin{Note}
 $A = B$时, 对于代数运算$ A \times A \rightarrow D $, $ a \circ b $ 和 $ b \circ a $ 都有意义，但不一定相等.
-\end{Remark}
+\end{Note}
+}}
+
 
 \begin{Definition}[$A$的代数运算, 二元运算] 
 假如 $ \circ $ 是一个 $ A \times A \rightarrow A$的代数运算(即$A = B = D$),我们说集合$A$对于代数运算$\circ$来说是闭的, 也说, $\circ$是\textbf{$A$的代数运算}或\textbf{二元运算}.
@@ -33,13 +37,13 @@ $A = B$时, 对于代数运算$ A \times A \rightarrow D $, $ a \circ b $ 和 $ 
 \subsection{运算律}
 
 \begin{Definition}[结合率]
-我们说，一个集合$A$的代数运算$\circ$满足结合律，假如对于$A$的任何三个元素$a, b, c$来说都有$$
+我们说，一个集合$A$的代数运算$\circ$满足结合律，假如对于$A$的任何三个元素$a, b, c$来说都有$
 (a \circ b) \circ c = a \circ (b \circ c)
-$$
+$
 \end{Definition}
 
 \begin{Definition}
-假如对于$A$的$n$ ($n \ge 2$)个固定的元素 $a_1, a_2, \cdots, a_n$来说，所有的加括号方式 $\pi(a_1 \circ a_2 \circ \cdots \circ a_n)$都相等，我们就把这些步骤可以得到的唯一的结果，用$a_1 \circ a_2 \circ \cdots \circ a_n $ 来表示.
+假如对于$A$的$n$ ($n \ge 2$)个固定的元 $a_1, a_2, \cdots, a_n$来说，所有的加括号方式 $\pi(a_1 \circ a_2 \circ \cdots \circ a_n)$都相等，我们就把这些步骤可以得到的唯一的结果，用$a_1 \circ a_2 \circ \cdots \circ a_n $ 来表示.
 \end{Definition}
 
 \begin{Theorem}
@@ -47,7 +51,7 @@ $$
 \end{Theorem}
 
 \begin{Definition}[交换律]
-$A$上的二元运算$\circ$, $a \circ b = b \circ a$\;(a与b可交换) $\forall a, b \in A$成立，则称$\circ$满足\textbf{交换律}. 
+$A$上的二元运算$\circ$, $a \circ b = b \circ a, \forall a, b \in A$ \marginnote{\small $a \circ b = b \circ a$称为$a,b$可交换} 成立，则称$\circ$满足\textbf{交换律}. 
 \end{Definition}
 
 \begin{Theorem}
@@ -63,7 +67,6 @@ $ a \, \astrosun \, (b \oplus c) = (a \, \astrosun \, b) \oplus (a \, \astrosun 
 $ (a \oplus b) \, \astrosun \, c = (a \, \astrosun \, c) \oplus ( b \, \astrosun \, c), \forall a, b, c$, 则称 $ \astrosun$和$\oplus $  满足第二分配率.
 \end{enumerate}
 \end{Definition}
-
 
 \begin{Theorem}
 若$A$上的二元运算$\oplus$ 满足结合律, $ \astrosun $和$\oplus $ 满足第一分配率，则
@@ -84,29 +87,32 @@ $$
 \begin{Definition}[满射]
 映射$\phi: A \rightarrow \bar{A}$被称为\textbf{满射}, 如果
 $\forall \hat{a} \in \bar{A}, \exists a \in A \text{ s.t. } \bar{a} = \hat{a}$. 
-($\phi^{-1}$都有象)
+\marginnote{$\phi^{-1}$都有象}
 \end{Definition}
 
 \begin{Definition}[单射]
 映射$\phi: A \rightarrow \bar{A}$被称为\textbf{单射}, 如果
 $\forall a, b \in A, a \neq b \Rightarrow \bar{a} \neq \bar{b}$.
- ($\phi^{-1}$象唯一)
+\marginnote{$\phi^{-1}$象唯一
+}
 \end{Definition}
 
 \begin{Definition}[一一映射]
+{\color{gray}{
 既是满射又是单射.
+}}
 \end{Definition}
 
-\begin{Remark}[一一映射判别]
-(i) 是映射(都有象、象唯一) (ii)满的 (iii) 单的.
-\end{Remark}
+\begin{Note}[一一映射判别]
+(1) 是映射(都有象、象唯一) (2)满的 (3) 单的.
+\end{Note}
 
 \begin{Definition}[变换]
-从$A$到$A$的映射 $\tau: A \rightarrow A, a \mapsto \tau(a) = a^{\tau}$ 叫$A$上的变换.
+从$A$到$A$的映射 $\tau: A \rightarrow A, a \mapsto a^{\tau}$ 叫$A$上的变换. \marginnote{用$a^\tau$表示$\tau(a)$}
 \begin{itemize}
-	\item 如果$\tau$是满的, 则称为\textbf{满变换}.
-	\item 如果$\tau$是单的, 则称为\textbf{单变换}.
-	\item 如果$\tau$是一一的, 则称为\textbf{一一变换}.
+	\item {\color{gray}{如果$\tau$是满的, 则称为}}\textbf{满变换}.
+	\item {\color{gray}{如果$\tau$是单的, 则称为}}\textbf{单变换}.
+	\item {\color{gray}{如果$\tau$是一一的, 则称为}}\textbf{一一变换}.
 \end{itemize}
 \end{Definition}
 
@@ -116,26 +122,26 @@ $\forall a, b \in A, a \neq b \Rightarrow \bar{a} \neq \bar{b}$.
 $ \overline{a \circ b} = \bar{a} \, \bar{\circ} \, \bar{b}$, 则称 $\phi$是 $A$到 $\bar{A}$的同态映射.
 \end{Definition}
 
-\begin{Remark}[同态映射判别]
-(i) 是映射(都有象、象唯一) (ii) $ \overline{a \circ b} = \bar{a} \,{\bar{\circ}}\, \bar{b}$
-\end{Remark}
+\begin{Note}[同态映射判别]
+(1) 是映射(都有象、象唯一) (2) $ \overline{a \circ b} = \bar{a} \,{\bar{\circ}}\, \bar{b}$
+\end{Note}
 
 \begin{Definition}[同态满射、同态]
 如果$A$到$\bar{A}\;${\fbox{存在}}\;一个同态映射$\phi$, 且它是满的, 则称$A$与$\bar{A}$\;(关于$\circ$与$\bar{\circ}$来说)\textbf{同态}. 称这个映射是一个\textbf{同态满射}.
 \end{Definition}
 
-\begin{Remark}[同态满射判别]
-(i) 是映射(都有象、象唯一) (ii) 同态 (iii) 满
-\end{Remark}
+\begin{Note}[同态满射判别]
+(1) 是映射(都有象、象唯一) (2) 满 (3) 同态 
+\end{Note}
 
 \begin{Definition}[同构映射、同构]
 如果$A$到$\bar{A}\;${\fbox{存在}}\;一个同态映射$\phi$, 且它是既是满的又是单的(一一的), 则称$A$与$\bar{A}$(关于$\circ$与$\bar{\circ}$)\textbf{同构}, 记为$A \cong
  \bar{A}$. 称这个映射是一个(关于$\circ$与$\bar{\circ}$的)\textbf{同构映射}(简称\text{同构}).
 \end{Definition}
 
-\begin{Remark}[同构映射判别]
-(i) 是映射(都有象、象唯一) (ii) 同态 (iii) 满 (iv) 单
-\end{Remark}
+\begin{Note}[同构映射判别]
+(1) 是映射(都有象、象唯一) (2) 满 (3) 单 (4) 同态
+\end{Note}
 
 \begin{Theorem}
 假定对于代数运算$\circ$和$\bar{\circ}$来说, $A$与$\bar{A}$同态, 那么
@@ -175,7 +181,7 @@ $(a, b)$
 
 \begin{Definition}[等价关系]
 如果$\sim$是$A$的元素间的关系，满足 
-\begin{enumerate}[i)]
+\begin{enumerate}[(1)]
 \item 自反性, $\forall a \in A, a \sim a$.
 \item 对称性, $\forall a, b \in A$, 若$a \sim b$, 则$b \sim a$.
 \item 传递性, $\forall a, b, c \in A$, 若$a \sim b$, $b\sim c$, 则$a \sim c$.

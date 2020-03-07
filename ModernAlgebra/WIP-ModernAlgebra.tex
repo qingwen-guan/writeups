@@ -1,22 +1,33 @@
 \documentclass[UTF8]{ctexart}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage[dvipsnames, svgnames, x11names]{xcolor}  % 一般放得靠前
+\usepackage{marginnote}
 \usepackage{wasysym}
 \usepackage{geometry}
 \usepackage{ntheorem}
+%\usepackage{amsthm}
 \usepackage{enumerate}
 \usepackage[shortlabels]{enumitem} %https://tex.stackexchange.com/questions/229540/customized-enumerate-items
 
-\geometry{a4paper,left=2cm,right=2cm,top=2cm,bottom=1cm}
+\geometry{a4paper,left=2cm,right=4cm,top=2cm,bottom=1cm,marginparwidth=3cm}
 
 \theorembodyfont{\upshape}
 \newtheorem{Definition}{定义}%[subsection]
 \newtheorem{Theorem}[Definition]{定理}
+
 \newtheorem{Remark}[Definition]{注意}
+\newtheorem*{RemarkNon}[Definition]{注意}
+
 \newtheorem{Lemma}[Definition]{引理}
 \newtheorem{Corollary}[Definition]{推论}
 \newtheorem{Proposition}[Definition]{命题}
 
+\newtheorem{Property}[Definition]{性质}
+\newtheorem*{PropertyNon}[Definition]{性质}
+
+\newtheorem{Note}[Definition]{说明}
+\newtheorem*{NoteNon}[Definition]{说明}
 
 \setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0pt}
 \setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0pt}
@@ -29,6 +40,21 @@
 \tableofcontents
 \clearpage
 
+% http://blog.sina.com.cn/s/blog_4b3651ad0101nk4o.html
+\begin{PropertyNon}[Property]
+结果值得一记, 但是没有定理深刻.
+\end{PropertyNon}
+
+\begin{RemarkNon}[Remark]
+涉及到一些结论，更像是非正式的定理.
+\end{RemarkNon}
+
+\begin{NoteNon}[Note]
+就是注解.
+\end{NoteNon}
+
+\setcounter{Definition}{0}
+
 \input{ModernAlgebra/Section1}
 \input{ModernAlgebra/Section2}
 
@@ -38,8 +64,11 @@
 一个交换群叫做一个的\textbf{加群}, 如果我们把这个群的代数运算称为加法, 并且用符号$+$表示.
 \end{Definition}
 
-\begin{Definition}
-$n$的元的和$a_1 + a_2 + \cdots + a_n$用符号$\displaystyle \sum_{i=1}^{n} a_n$ 来表示.
+\begin{Definition}[$\Sigma$]
+{\color{gray}{
+$n$个元的和$a_1 + a_2 + \cdots + a_n$用符号$\displaystyle \sum_{i=1}^{n} a_n$ 来表示.
+}
+}
 \end{Definition}
 
 \begin{Definition}
@@ -66,13 +95,13 @@ $n$个$a$的和$\displaystyle \sum_{i=1}^{n} a$我们用$na$表示.
 \end{enumerate}
 \end{Theorem}
 
-\begin{Remark}
+\begin{Note}
 非空子集$S$做成子群的充要条件变成了 
 \begin{itemize}
 \item (i) $a, b \in S \Rightarrow a+b \in S$ (ii) $a \in S \Rightarrow -a \in S$
 \item 或者 (iii) $a, b \in S \Rightarrow a - b \in S$.
 \end{itemize}
-\end{Remark}
+\end{Note}
 
 \begin{Definition}[环]
 一个集合$R$叫做一个环, 如果
@@ -84,13 +113,13 @@ $n$个$a$的和$\displaystyle \sum_{i=1}^{n} a$我们用$na$表示.
 \end{enumerate}
 \end{Definition}
 
-\begin{Remark}[环的判别] 判断一个代数系统是环的条件: 
+\begin{Note}[环的判别] 判断一个代数系统是环的条件: 
 \begin{enumerate}[(i)]
 \item 加法(构成交换群): I.加法封闭 II 加法结合 IV 有零元 V 负元 X 加法交换
 \item 乘法: I.乘法封闭 II 乘法结合
 \item 两种运算的关系: 分配率
 \end{enumerate}
-\end{Remark}
+\end{Note}
 
 \begin{Theorem}
 环还满足以下运算规则
