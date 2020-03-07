@@ -1,0 +1,201 @@
+\section{基本概念}
+
+\subsection{代数运算}
+
+\begin{Remark}
+近世代数(或抽象代数)的主要内容就是研究所谓\textbf{代数系统}，即带有运算的集合。
+\end{Remark}
+
+\begin{Definition}[映射]
+$$ \begin{aligned}
+A_1 \times A_2 \times \cdots \times A_n &\rightarrow D \\
+ (a_1, a_2, \cdots, a_n) &\mapsto d = \phi (a_1, a_2, \cdots, a_n) = \overline{(a_1, a_2, \cdots, a_n)} \end{aligned}$$ 
+\end{Definition}
+
+\begin{Remark}
+判断一个法则$\phi$是映射的充要条件: (i) 都有象 (ii) 象唯一.
+\end{Remark}
+
+\begin{Definition}[代数运算] 
+$$\begin{aligned}
+A \times B &\rightarrow D \\ 
+(a, b) &\mapsto d = \phi(a, b) = \circ (a, b) = a \circ b \end{aligned}$$
+\end{Definition}
+
+\begin{Remark}
+$A = B$时, 对于代数运算$ A \times A \rightarrow D $, $ a \circ b $ 和 $ b \circ a $ 都有意义，但不一定相等.
+\end{Remark}
+
+\begin{Definition}[$A$的代数运算, 二元运算] 
+假如 $ \circ $ 是一个 $ A \times A \rightarrow A$的代数运算(即$A = B = D$),我们说集合$A$对于代数运算$\circ$来说是闭的, 也说, $\circ$是\textbf{$A$的代数运算}或\textbf{二元运算}.
+\end{Definition}
+
+\subsection{运算律}
+
+\begin{Definition}[结合率]
+我们说，一个集合$A$的代数运算$\circ$满足结合律，假如对于$A$的任何三个元素$a, b, c$来说都有$$
+(a \circ b) \circ c = a \circ (b \circ c)
+$$
+\end{Definition}
+
+\begin{Definition}
+假如对于$A$的$n$ ($n \ge 2$)个固定的元素 $a_1, a_2, \cdots, a_n$来说，所有的加括号方式 $\pi(a_1 \circ a_2 \circ \cdots \circ a_n)$都相等，我们就把这些步骤可以得到的唯一的结果，用$a_1 \circ a_2 \circ \cdots \circ a_n $ 来表示.
+\end{Definition}
+
+\begin{Theorem}
+若$A$的代数运算$\circ$满足结合律，则对于$A$的任意$n$($n \ge 2$)个元素 $a_1, a_2, \cdots, a_n$来说，对于任意的加括号的方法$\pi$, $\pi(a_1 \circ a_2 \circ \cdots \circ a_n)$ 都相等，$a_1 \circ a_2 \circ \cdots \circ a_n$ 也就总有意义.
+\end{Theorem}
+
+\begin{Definition}[交换律]
+$A$上的二元运算$\circ$, $a \circ b = b \circ a$\;(a与b可交换) $\forall a, b \in A$成立，则称$\circ$满足\textbf{交换律}. 
+\end{Definition}
+
+\begin{Theorem}
+若$A$上的二元运算$\circ$满足结合律与交换律，则$a_1 \circ a_2 \circ \cdots \circ a_n$ 可以任意交换顺序.
+\end{Theorem}
+
+\begin{Definition}[分配率]
+$ \astrosun $和$ \oplus $ 都是 $A$上的二元运算, 
+\begin{enumerate}[i)]
+\item 若
+$ a \, \astrosun \, (b \oplus c) = (a \, \astrosun \, b) \oplus (a \, \astrosun \, c), \forall a, b, c $, 则称 $ \astrosun$和$ \oplus $  满足第一分配率.
+\item 若
+$ (a \oplus b) \, \astrosun \, c = (a \, \astrosun \, c) \oplus ( b \, \astrosun \, c), \forall a, b, c$, 则称 $ \astrosun$和$\oplus $  满足第二分配率.
+\end{enumerate}
+\end{Definition}
+
+
+\begin{Theorem}
+若$A$上的二元运算$\oplus$ 满足结合律, $ \astrosun $和$\oplus $ 满足第一分配率，则
+$$
+a \, \astrosun \, ( b_1 \oplus b_2 \oplus \cdots \oplus b_n ) =  ( a \, \astrosun \, b_1) \oplus (a \, \astrosun \, b_2) \oplus \cdots \oplus (a \, \astrosun \, b_n)
+$$
+\end{Theorem}
+
+\begin{Theorem}
+若$A$上的二元运算$\oplus$ 满足结合律, $ \astrosun $和$\oplus $ 满足第二分配率，则
+$$
+( a_1 \oplus a_2 \oplus \cdots \oplus a_n ) \, \astrosun \, b =  ( a_1 \, \astrosun \, b) \oplus ( a_2 \, \astrosun \, b) \oplus \cdots \oplus (  a_n \, \astrosun \, b)
+$$
+\end{Theorem}
+
+\subsection{同态}
+
+\begin{Definition}[满射]
+映射$\phi: A \rightarrow \bar{A}$被称为\textbf{满射}, 如果
+$\forall \hat{a} \in \bar{A}, \exists a \in A \text{ s.t. } \bar{a} = \hat{a}$. 
+($\phi^{-1}$都有象)
+\end{Definition}
+
+\begin{Definition}[单射]
+映射$\phi: A \rightarrow \bar{A}$被称为\textbf{单射}, 如果
+$\forall a, b \in A, a \neq b \Rightarrow \bar{a} \neq \bar{b}$.
+ ($\phi^{-1}$象唯一)
+\end{Definition}
+
+\begin{Definition}[一一映射]
+既是满射又是单射.
+\end{Definition}
+
+\begin{Remark}[一一映射判别]
+(i) 是映射(都有象、象唯一) (ii)满的 (iii) 单的.
+\end{Remark}
+
+\begin{Definition}[变换]
+从$A$到$A$的映射 $\tau: A \rightarrow A, a \mapsto \tau(a) = a^{\tau}$ 叫$A$上的变换.
+\begin{itemize}
+	\item 如果$\tau$是满的, 则称为\textbf{满变换}.
+	\item 如果$\tau$是单的, 则称为\textbf{单变换}.
+	\item 如果$\tau$是一一的, 则称为\textbf{一一变换}.
+\end{itemize}
+\end{Definition}
+
+\begin{Definition}[同态映射]
+对于$\phi: A \rightarrow \bar{A}$, $A$上有二元运算$\circ$, $\bar{A}$上有二元运算$\bar{\circ}$.
+如果
+$ \overline{a \circ b} = \bar{a} \, \bar{\circ} \, \bar{b}$, 则称 $\phi$是 $A$到 $\bar{A}$的同态映射.
+\end{Definition}
+
+\begin{Remark}[同态映射判别]
+(i) 是映射(都有象、象唯一) (ii) $ \overline{a \circ b} = \bar{a} \,{\bar{\circ}}\, \bar{b}$
+\end{Remark}
+
+\begin{Definition}[同态满射、同态]
+如果$A$到$\bar{A}\;${\fbox{存在}}\;一个同态映射$\phi$, 且它是满的, 则称$A$与$\bar{A}$\;(关于$\circ$与$\bar{\circ}$来说)\textbf{同态}. 称这个映射是一个\textbf{同态满射}.
+\end{Definition}
+
+\begin{Remark}[同态满射判别]
+(i) 是映射(都有象、象唯一) (ii) 同态 (iii) 满
+\end{Remark}
+
+\begin{Definition}[同构映射、同构]
+如果$A$到$\bar{A}\;${\fbox{存在}}\;一个同态映射$\phi$, 且它是既是满的又是单的(一一的), 则称$A$与$\bar{A}$(关于$\circ$与$\bar{\circ}$)\textbf{同构}, 记为$A \cong
+ \bar{A}$. 称这个映射是一个(关于$\circ$与$\bar{\circ}$的)\textbf{同构映射}(简称\text{同构}).
+\end{Definition}
+
+\begin{Remark}[同构映射判别]
+(i) 是映射(都有象、象唯一) (ii) 同态 (iii) 满 (iv) 单
+\end{Remark}
+
+\begin{Theorem}
+假定对于代数运算$\circ$和$\bar{\circ}$来说, $A$与$\bar{A}$同态, 那么
+\begin{enumerate}[i)]
+\item 若 $\circ$ 满足结合律, $\bar{\circ}$也满足结合律;
+\item 若 $\circ$ 满足交换律, $\bar{\circ}$也满足交换律.
+\end{enumerate}
+\end{Theorem}
+
+\begin{Theorem}
+$ \astrosun $和$ \oplus $ 是 $A$的两个代数运算, 
+$ \bar{\astrosun} $和$\bar{\oplus} $ 是 $\bar{A}$的两个代数运算,
+有
+$\phi$既是$A$与$\bar{A}$的关于$ \astrosun $和$\bar{\astrosun}$ 的同态满射，
+$\phi$也是$A$与$\bar{A}$的关于$ \oplus $和$\bar{\oplus}$ 的同态满射，
+则 
+\begin{enumerate}[i)]
+\item 若$ \astrosun$和$ \oplus $  满足第一分配率, 则 $ \bar{\astrosun} $和$\bar{\oplus} $ 也满足第一分配率.
+\item 若$ \astrosun$和$\oplus $  满足第二分配率, 则 $ \bar{\astrosun} $和$\bar{\oplus} $ 也满足第二分配率.
+\end{enumerate}
+\end{Theorem}
+
+\begin{Definition}[自同构]
+对于$\circ$和$\circ$来说的一个$A$与$A$之间的\;\fbox{同构映射}\;叫做一个对于$\circ$来说的$A$的\textbf{自同构}.
+\end{Definition}
+
+\subsection{等价关系与集合分类}
+
+\begin{Definition}[关系\mbox{[Relation]}]
+$R: A \times A \rightarrow D = \{\text{对}, \text{错}\} $, 
+若
+$R(a, b) = \text{对}$
+, 称
+$(a, b)$
+满足关系$R$, 记为$a \, R \, b$.
+\end{Definition}
+
+\begin{Definition}[等价关系]
+如果$\sim$是$A$的元素间的关系，满足 
+\begin{enumerate}[i)]
+\item 自反性, $\forall a \in A, a \sim a$.
+\item 对称性, $\forall a, b \in A$, 若$a \sim b$, 则$b \sim a$.
+\item 传递性, $\forall a, b, c \in A$, 若$a \sim b$, $b\sim c$, 则$a \sim c$.
+\end{enumerate}
+则称$\sim$为等价关系.
+\end{Definition}
+
+\begin{Definition}[集合分类、划分]
+集合$A$分成若干子集，满足 (i) 每个元素属于都某子集 (ii) 每个元素只属于某子集. 这些类的全体叫做\textbf{集合$A$的一个分类}.
+$$ A = A_1 \cup A_2 \cup \cdots \cup A_n, A_i \cap A_j = \emptyset, i \neq j$$
+\end{Definition}
+
+\begin{Theorem}
+集合上的一个分类，确定一个集合的元素之间的等价关系.
+\end{Theorem}
+
+\begin{Theorem}
+集合上的一个等价关系，确定一个集合的分类.
+\end{Theorem}
+
+\begin{Definition}[模$n$的剩余类]
+$ \{ [0], [1], \cdots, [n-1] \} $, $[i] = \{ k n + i \mid k \in \mathbb{Z} \}$
+\end{Definition}
