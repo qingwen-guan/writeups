@@ -3,21 +3,17 @@
 \subsection{群的定义和性质}
 
 \begin{Remark}
-群是一个代数系统(定义代数运算的集合), 它只有一个代数运算. 便利起见$\phi(a, b)$写成$a b$ \marginnote{之前写成$a \circ b$}
+群是一个代数系统(定义代数运算的集合), 它只有一个代数运算, 被称为乘法. 便利起见$\phi(a, b)$写成$a b$ \marginnote{之前写成$a \circ b$}
 \end{Remark}
 
 \begin{Definition}[群\mbox{[Group]}的第一定义]
-在集合$G \neq \emptyset$上规定一个叫做乘法的\;\fbox{代数运算}\;. 这个代数系统被称为群, 如果
+在集合$G \neq \emptyset$上规定一个叫做乘法的\;\fbox{代数运算}\;\marginnote{以后简称乘法}. 这个代数系统被称为群, 如果
 \begin{itemize}
-	\item[\uppercase\expandafter{\romannumeral1}] 乘法封闭, $\forall a, b \in G, ab \in G$
+	\item[\uppercase\expandafter{\romannumeral1}] 乘法封闭, $\forall a, b \in G, ab \in G$ \marginnote{代数运算要求封闭性}
 	\item[\uppercase\expandafter{\romannumeral2}] 乘法结合, $\forall a, b, c \in G, (ab)c = a(bc)$
 	\item[\uppercase\expandafter{\romannumeral3}] $ \forall a, b \in G$, $ax = b, ya = b$在$G$中都有解.
 \end{itemize}
 \end{Definition}
-
-\begin{Remark}[乘法]
-以后提到乘法，都是指某个集合$A$上的代数运算$A \times A \rightarrow A$, 自然要求I(乘法封闭).
-\end{Remark}
 
 \begin{Theorem}[左单位元]
 对于群$G$中至少有一个元$e$, 叫做$G$的一个\textbf{左单位元}，使得$\forall a \in G$都有 $ea = a$.
@@ -59,17 +55,17 @@
 证明$a^{-1}$是$a$的逆的方法: $a^{-1}a = e$或者$aa^{-1} = e$
 \end{Note}
 
+\begin{Property}[乘积的逆等于逆的乘积]
+$\forall a, b \in G, {(ab^{-1})}^{-1} = b a^{-1}$
+\end{Property}
+
 \begin{Definition}
 规定$a^n = \underbrace{a a \cdots a}_{n\text{个}}, a^0 = e, a^{-n} = (a^{-1})^n, n \in \mathbb{Z}^{+}$
 \end{Definition}
 
 \begin{Theorem}
-$ a^n a^m = a^{n+m}, (a^n)^m, n, m \in \mathbb{Z} $ \marginnote{\small $\Rightarrow {(a^{-1})}^{-1} = a$}
+$ a^n a^m = a^{n+m}, {(a^n)}^m = a^{mn}, n, m \in \mathbb{Z} $ \marginnote{\small $\Rightarrow {(a^{-1})}^{-1} = a$}
 \end{Theorem}
-
-\begin{Proposition}[乘积的逆等于逆的乘积]
-$\forall a, b \in G, {(ab^{-1})}^{-1} = b a^{-1}$
-\end{Proposition}
 
 \begin{Definition}[元素的阶]
 在一个群$G$中，使得$a^n = e$的最小正整数, 叫做$a$的\textbf{阶}. 若这样的$n$不存在, 称$a$是无穷阶的，或者叫$a$的阶是无穷.
@@ -100,16 +96,6 @@ $G$与$\bar{G}$关于他们的乘法同态, 则 $G$是群$\Rightarrow \bar{G}$�
 \begin{Theorem}
 假定$G$和$\bar{G}$是两个群, 在$G$到$\bar{G}$的一个同态满射之下, $G$的单位元$e$的象是$\bar{G}$的单位元, $G$的元$a$的逆元$a^{-1}$的象是$a$的象的逆元($\overline{a^{-1}} = \bar{a}^{-1}$).
 \end{Theorem}
-
-\begin{Remark}
-总结下来, 如果$A$与$\bar{A}$同态，那么前者有什么后面就也有什么:
-\begin{itemize}
-	\item 前面有结合，后面就也有结合
-	\item 前面有交换，后面就也有交换
-	\item 前面有分配，后面就也有分配
-	\item 前面是群，后面就也是群
-\end{itemize}
-\end{Remark}
 
 \begin{Theorem}
 $G$与$\bar{G}$关于他们的乘法同构, 则 $G$是群$\Leftrightarrow \bar{G}$是群.
@@ -146,7 +132,7 @@ $G$是集合$A$的若干变换构成的集合, 如果$G$基于变换的乘法做
 一个变换群的单位元一定是恒等变换.
 \end{Theorem}
 
-\subsection{置换群}
+\subsection{置换群} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{Definition}[置换]
 \fbox{有限集合}\;上的\;\fbox{一一变换}\;叫做\textbf{置换}, 一般用$\pi$表示.
@@ -191,25 +177,25 @@ $(i_2 \, i_3 \, \cdots \, i_{k-1} \, i_k \, i_1)$ 或 $\cdots$ 或
 $( i_k \, i_1 \, i_2 \, i_3 \, \cdots \, i_{k-1})$来表示.
 \end{Definition}
 
-\begin{Theorem}
-$(i_1 \, i_2 \, \cdots \i_k)^{-1} = (i_k \, \cdots \, i_2 \, i_1)$.
-\end{Theorem}
+\begin{Proposition}
+$(i_1 \, i_2 \, \cdots i_k)^{-1} = (i_k \, \cdots \, i_2 \, i_1)$.
+\end{Proposition}
 
-\begin{Theorem}
+\begin{Proposition}
 $k$-循环置换的阶是$k$.
-\end{Theorem}
+\end{Proposition}
 
-\begin{Theorem}
+\begin{Proposition}
 任何一个置换都可以写成若干没有共同数字的循环置换的乘积.
-\end{Theorem}
+\end{Proposition}
 
-\begin{Theorem}
+\begin{Proposition}
 两个没有共同数字的循环置换可以交换.
-\end{Theorem}
+\end{Proposition}
 
-\begin{Theorem}
+\begin{Proposition}
 任何一个有限群都与一个置换群同构.
-\end{Theorem}
+\end{Proposition}
 
 \subsection{循环群}
 
