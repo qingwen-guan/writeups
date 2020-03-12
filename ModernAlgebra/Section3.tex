@@ -1,11 +1,13 @@
 \section{环与域}
 
+\subsection{加群、环的定义}
+
 \begin{Definition}[加群]
 一个交换群叫做一个的\textbf{加群}, 如果我们把这个群的代数运算称为加法, 并且用符号$+$表示.
 \end{Definition}
 
 \begin{Definition}[$\Sigma$]
-{\color{gray}{
+{{
 $n$个元的和$a_1 + a_2 + \cdots + a_n$用符号$\displaystyle \sum_{i=1}^{n} a_n$ 来表示.
 }
 }
@@ -52,14 +54,6 @@ $n$个$a$的和$\displaystyle \sum_{i=1}^{n} a$我们用$na$表示.
 	\item 分配率: $a(b+c) = bc + ac, (a+b)c = ac + bc$
 \end{enumerate}
 \end{Definition}
-
-\begin{Note}[环的判别] 判断一个代数系统是环的条件: 
-\begin{enumerate}[(i)]
-\item 加群: I.加法封闭 II 加法结合 IV 有零元 V 负元 X 加法交换
-\item 乘法: I.乘法封闭 II 乘法结合
-\item 两种运算的关系: 分配率
-\end{enumerate}
-\end{Note}
 
 \begin{Theorem}
 环还满足以下运算规则
@@ -163,7 +157,19 @@ $ab = \mathfrak{0} \Rightarrow a = \mathfrak{0} $ 或者 $b = \mathfrak{0}$ 在�
 整数环是一个整环.
 \end{Proposition}
 
-\subsection{除环、域}
+\begin{Proposition}
+对于有单位元的环来说, 加法适合交换律是环定义里其他条件的结果.
+\end{Proposition}
+
+\begin{Proposition}
+二项式定理$\displaystyle (a + b)^n = \binom{n}{0} a^n + \binom{n}{1} a^{n-1}b + \binom{n}{2} a^{n-2}b^2 + \cdots + \binom{n}{n} b^n$在交换环中成立.
+\end{Proposition}
+
+%\begin{Proposition}
+%$\{ a + b \sqrt{2} \mid a, b \in \mathbb{Z}\}$对于普通加法和乘法来说是一个整环.
+%\end{Proposition}
+
+\subsection{除环、域} %%%%%%%%%%%%%%%%%%%%%
 
 \begin{Proposition}
 对于元素个数$\ge 2$的环, $\mathfrak{1} \neq \mathfrak{0}$, 且$\mathfrak{0}$没有逆元.
@@ -258,7 +264,11 @@ for tree={grow'=east, parent anchor=east, child anchor=west, anchor=west}
 \end{center}
 \end{Note}
 
-\subsection{无零因子环的特征}
+\begin{Proposition}
+一个至少有两个元且没有零因子的有限环，是一个除环.
+\end{Proposition}
+
+\subsection{无零因子环的特征}  %%%%%%%%%%%%%%%%%%%%%
 
 \begin{Proposition}
 对于模$p$的剩余类环$\mathbb{Z}_p$, $p$是素数 $\Leftrightarrow $ $\mathbb{Z}_p$做成一个域.
@@ -284,11 +294,11 @@ for tree={grow'=east, parent anchor=east, child anchor=west, anchor=west}
 整环、除环以及域的特征或者是无限大，或者是一个素数.
 \end{Corollary}
 
-\begin{Proposition}
-{\color{gray}{一个的特征是$p$的交换环里, $(a+b)^p = a^p +b^p$.}}
-\end{Proposition}
+%\begin{Proposition}
+%{\color{gray}{一个的特征是$p$的交换环里, $(a+b)^p = a^p +b^p$.}}
+%\end{Proposition}
 
-\subsection{子环、环的同态}
+\subsection{子环、环的同态} %%%%%%%%%%%%
 
 \begin{Definition}[子环]
 一个环$R$的非空子集$S$如果对于R的代数运算来说也是环(整环、除环、域), 则称$S$是$R$的一个\textbf{子环}(\textbf{子整环}、\textbf{子除环}、\textbf{子域}).
@@ -311,7 +321,7 @@ for tree={grow'=east, parent anchor=east, child anchor=west, anchor=west}
 \end{Theorem}
 
 \begin{Proposition}
-环$R$的可以同每个元交换的做成一个子环, 这个子环称为$R$的中心.
+环$R$的可以同每个元交换的元做成一个j交换子环$N = \{ n \mid a n = na, \forall a \in R\}$, 这个子环称为$R$的中心.
 \end{Proposition}
 
 \begin{Theorem}
@@ -350,3 +360,303 @@ for tree={grow'=east, parent anchor=east, child anchor=west, anchor=west}
 	\item $R$是整环(除环、域) $\not\Rightarrow$ $\bar{R}$是整环(除环、域)
 \end{itemize}
 \end{Proposition}
+
+\begin{Proposition}
+$R$与$\bar{R}$都是环, 且$R \cong \bar{R}$, 则
+\begin{itemize}
+	\item $R$无零因子 $\Leftrightarrow$ $\bar{R}$无零因子.
+	\item $R$有非零元 $\Leftrightarrow$ $\bar{R}$有非零元.
+	\item  $R$非零元有逆 $\Leftrightarrow$ $\bar{R}$非零元有逆
+\end{itemize}
+\end{Proposition}
+
+\begin{Theorem}
+$R$与$\bar{R}$都是环, 且$R \cong \bar{R}$, 则
+\begin{itemize}
+	\item $R$是整环 $\Leftrightarrow$ $\bar{R}$是整环.
+	\item  $R$是除环 $\Leftrightarrow$ $\bar{R}$是除环.
+	\item  $R$是域 $\Leftrightarrow$ $\bar{R}$是域.
+\end{itemize}
+\end{Theorem}
+
+\begin{Lemma}
+集合$A$和$\bar{A}$之间有一个一一映射$\phi$, 并且$A$有加法和乘法, 于是我们可以在$\bar{A}$中规定加法和乘法，使得$A$与$\bar{A}$关于一对加法和一对乘法来说都同构.
+\end{Lemma}
+
+\begin{Theorem}
+假定$S$是环$R$的一个子环, $S$在$R$中的补集($R$ - $S$)与另一个环$\bar{S}$没有公共元，并且$S \cong \bar{S}$, 那么
+存在一个与$R$同构的环$\bar{R}$，且$\bar{S}$是$\bar{R}$的子环.
+\end{Theorem}
+
+\newcommand{\StubSize}{0.5em}%
+%\newcommand{\BraceForest}[1][]
+%\usetikzlibrary{decorations, decorations.pathmorphing} % in the preamble
+
+
+\begin{Note} 
+\ \\
+\begin{center}
+\begin{forest}
+for tree={grow=west, parent anchor=west, child anchor=east, anchor=east}
+[, s sep=2em,phantom
+	[ 环$S$,
+		  name=RingS 
+		[环R	 ,edge label={node [midway, above, font=\scriptsize] {子环}} 	
+		]
+	]		
+	[ {环$\bar{S}$}, name=RingBarS
+		[ $?$ ,edge label={node [midway, below, font=\scriptsize] {子环}} 
+		]	
+	]
+	[
+		{$ (R-S) \cap \bar{S} = \emptyset $}
+	]
+] {
+	\draw[<->%, out=-130,in=-85
+	] (RingS.south) %.. controls +(south west: 0.5em) and +(north west: 0.5em) .. 
+	--(RingBarS.north) node [midway, right] {$\cong_\phi$}
+	;
+	\draw[decorate, decoration={brace, amplitude=1.5em}]
+     ([yshift=-.5em]current bounding box.north east) --
+      node[right=2em%, font=\sffamily\bfseries\Large
+      ]
+        {
+        %\begin{matrix}
+         {$\Rightarrow \exists$ 环$? = \bar{R}: \left\{ \begin{aligned}
+        	&\bar{R} = {(R-S)} \cup \bar{S} \\ 
+       	    &
+       	    	\forall \bar{x}, \bar{y} \in \bar{R}: 
+       	    	\begin{aligned}
+       	    	& \bar{x} + \bar{y} = \psi(x + y), 
+       	    	\bar{x} \bar{y} = \psi(x y), \\
+       	    	& x = \psi^{-1}(\bar{x}), y = \psi^{-1}(\bar{y})
+       	    	\end{aligned}
+        	 \\ 
+       	   % }
+        	&R \cong \bar{R}, \psi: x \mapsto \begin{cases} x & x \in R-S \\ \phi{(x)} & x \in S \end{cases}
+        \end{aligned} \right.$} 
+%        {subject to $R \cong \bar{R}, \psi: x \mapsto \begin{cases} a \\ b\end{cases}$}
+        %\end{matrix}
+        }
+      ([yshift=-.5em]current bounding box.south east)
+   ;	
+}
+%\BraceForest[red,ultra thick]%
+  % inside environment forest
+\end{forest}
+\end{center}
+%\begin{forest}
+%for tree={grow'=east, parent anchor=east, child anchor=west, anchor=west}
+%[ ,phantom
+%	[环R%,
+%		[ 环S, 
+%		  name=RingS,
+%		  edge label={node [midway, above, font=\scriptsize] {子环}} 
+%		]
+%	]
+%	[ \phantom{环R}
+%		[ {环$\bar{R}$}, 
+%		  name=RingBarR%,
+%		  edge label={node [midway, above, font=\scriptsize] {子环}} 
+%		]
+%	]
+%] %{
+%	\draw[-] (RingS.east) to (RingBarR.east); %node [midway, right] {\scriptsize 子环};
+		%-- (current bounding box.east |- RingS) 
+	%	 -- %++(5pt,5pt) 
+		 %|- 
+		
+		
+%		; % Don't forget semicolon.	
+%}
+%\end{forest}
+\end{Note}
+
+\begin{Proposition}
+一个除环的中心是一个域.
+\end{Proposition}
+
+\subsection{多项式环} %%%%%%%%%%%%%%%
+\begin{Note}
+假定$R_0$是一个有单位元的交换环, $R$是$R_0$的子环, 并且包含$R_0$的单位元. 取$x \in R_0$, 则
+$ \displaystyle \sum_{i=0}^n a_i x^i = a_0 + a_1 x + a_2 x^2 + \cdots + a_n x^n, a_i \in R $有意义, 且$\in R_0$.
+\end{Note}
+
+\begin{Definition}[多项式]
+一个可以写成 $ a_0 + a_1 x + a_2 x^2 \cdots + a_n x^n, a_i \in R, n \in \mathbb{Z}^+ $形式的$R_0$的元叫做$R$上的关于$x$的一个\textbf{多项式}, $a_i$叫做多项式的\textbf{系数}. 我们把所有$R$上的$x$的多项式放在一起, 做成一个集合，用$R[x]$来表示.
+\end{Definition}
+
+\begin{Note}[环上的多项式构成一个环]
+在$R[x]$上定义加法$\displaystyle \sum a_i x^i + \sum b_i x^i = (a_i + b_i) x^i$, 乘法
+$\displaystyle \left(\sum_{i=0}^m a_i x^i \right) \left( \sum_{i=0}^{n} b_i x^i \right) 
+= \sum_{i=0}^{mn} \left(\sum_{j=0}^i a_j b_{i-j} \right) x^i$, 都为初等代数里的计算法, 则$R[x]$构成一个交换环.
+\end{Note}
+
+\begin{Definition}[未定元]
+$R_0$里得一个元$x$叫做$R$上的一个\textbf{未定元}, 如果在$R$里找不到不都等于零的元
+$a_0, a_1, a_2, \cdots, a_n$, 使得$a_0 + a_1 x + a_2 x^2 \cdots + a_n x^n = 0$
+\end{Definition}
+
+\begin{Proposition}
+$R$上的一个未定元x的多项式(简称\textbf{一元多项式})，如果不计入系数是零的项, 只能用一种方式写成
+$a_0 + a_1 x + a_2 x^2 + \cdots + a_n x^n \; (a_i \in R)$
+\end{Proposition}
+
+\begin{Definition}[多项式的次数]
+令$a_0 + a_1 x + a_2 x^2 \cdots + a_n x^n = 0, a_n \neq \mathfrak{0}$是环$R$上的一个一元多项式,
+那么非负整数$n$叫做这个多项式的\textbf{次数}, 多项式$\mathfrak{0}$没有次数.
+\end{Definition}
+
+\begin{Proposition}
+对于给定的$R_0$来说, $R_0$未必含有$R$上的未定元.
+\end{Proposition}
+
+\begin{Theorem}
+给了一个有单位元的交换环$R$, 一定有一个环$R_0$, $R$上的未定元$x \in R_0$存在，因此也就有$R$上的多项式环$R[x]$存在.
+\end{Theorem}
+
+\begin{Note}
+对于一个有单位元的交换环$R_0$, 和它的一个子环$R$, 其中$R$包含$R_0$的单位元. 我们从$R_0$里任意
+取出$n$个元$x_1, x_2, \cdots, x_n$来, 那么我们可以做$R$上的$x_1$的多项式环$R[x_1]$，然后做$R[x_1]$上的$x_2$的多项式环$R[x_1][x_2]$. 这样下去，可以得到$R[x_1][x_2]\cdots[x_n]$. 这个环包括所有可以写成 
+$\displaystyle \sum_{i_1 i_2 \cdots i_n} a_{i_1 i_2 \cdots i_n} x_1^{i_1} x_2^{i_2} \cdots x_n^{i_n}$ ($a_{i_1 i_2 \cdots i_n} \in R$
+, 但只有有限个$a_{i_1 i_2 \cdots i_n} \neq 0$)形式的元.
+\end{Note}
+
+\begin{Definition}
+一个有上述形式的元叫做$R$上的$x_1, x_2, \cdots, x_n$的一个多项式，$a_{i_1 i_2 \cdots i_n}$叫做多项式的系数. 环$R[x_1][x_2]\cdots[x_n]$叫做$R$上的$x_1, x_2, \cdots, x_n$的多项式环. 这个环我们也用符号$R[x_1, x_2, \cdots, x_n]$来表示.
+\end{Definition}
+
+\subsection{理想}
+
+\begin{Definition}[理想]
+环$R$的一个非空子集$I$叫做一个\textbf{理想子环}(简称\textbf{理想}), 如果
+\begin{enumerate}
+	\item $a, b \in I \Rightarrow a - b \in I$
+	\item $a \in I, r \in R \Rightarrow ra, ar \in I$.
+\end{enumerate}
+\end{Definition}
+
+\begin{Proposition}
+一个环至少有两个理想 (1) $I = \{\mathfrak{0}\}$, 叫做$R$的\textbf{零理想}.
+(2) I = R, 叫做$R$的\textbf{单位理想}.
+\end{Proposition}
+
+\begin{Theorem}
+一个除环$R$只有两个理想，就是零理想和单位理想.
+\end{Theorem}
+
+\begin{Note}
+因此，理想这个概念对于除环或者域来说没有多大用处.
+\end{Note}
+
+\begin{Note}
+一个环除了以上两个理想之外，可能有其他理想.
+\end{Note}
+
+\begin{Proposition}
+给定一个环$R$，$a$是$R$中的任意一个元素，考虑最小的理想$I$使得$a \in I$. 作集合
+$I = \{ \left( x_1 a y_1 + x_2 a y_2 + \cdots \right) + s a + a t + na \mid
+x_i, y_i, s, t \in R, n \in \mathbb{Z} \}$, 则$I$是包含$a$的最小理想.
+\end{Proposition}
+
+\begin{Definition}[主理想]
+上面的这样的$I$叫做元$a$生成的\textbf{主理想}, 用符号$(a)$来表示.
+\end{Definition}
+
+\begin{Note}
+一个主理想$(a)$的元的形式并不是永远像上面那样复杂.
+\begin{enumerate}
+	\item 当$R$满足交换律时, 可以写成$ra + na, r \in R, n \in \mathbb{Z}$.
+	\item 当$R$有单位元时, 可以写成$ \displaystyle \sum x_i a y_i, x_i, y_i \in R $.
+
+	\item 当$R$既满足交换律又有单位元时, 可以写成$ \displaystyle ra, r \in R $.
+\end{enumerate}
+\end{Note}
+
+\begin{Proposition}
+给定一个环$R$，$a_1, a_2, \cdots, a_m \in R$，考虑最小的理想$I$使得$a_1, a_2, \cdots, a_m \in I$.
+做集合$I = \{ s_1 + s_2 + \cdots + s_m \mid s_i \in (a_i) \}$, 
+则$I$是包含$a_1, a_2, \dots, a_m$的最小理想.
+\end{Proposition}
+
+\begin{Definition}
+上面的这样的$I$叫做$a_1, a_2, \cdots, a_m$生成的理想, 用符号$(a_1, a_2, \cdots, a_m)$来表示.
+\end{Definition}
+
+\begin{Note}
+两个元素生成的理想, 可能是主理想，也可能不是.
+\end{Note}
+
+\subsection{剩余类环、同态与理想}
+
+\begin{Note}
+给定一个环$R$和$R$的一个理想$I$, 则我们就加法来说, $R$做成一个群, $I$做成$R$的一个不变子群, 从而$I$的陪集$[a], [b], [c], \cdots$做成$R$的一个分类, 叫做\textbf{模$I$的剩余类}. 同时这个分类描述$R$的元素之间的等价关系, 用符号$a \equiv b \text{ mod } I$表示(读作$a$同余$b$模$I$), 即$a \equiv b \text{ mod } I \Leftrightarrow a \sim b \Leftrightarrow a - b \in I$. 且类$[a]$所包含的元素可以写成$\{ a + u \mid u \in I \}$
+\end{Note}
+
+\begin{Theorem}
+假定$R$是一个环, $I$是它的一个理想, $\bar{R}$是所有模$I$的剩余类做成的集合, 如果在$\bar{I}$上规定加法和乘法$[a] + [b] = [a + b], [a][b] = [ab]$.那么$\bar{I}$本身也是一个环, 并且$R$与$\bar{R}$同态.
+\end{Theorem}
+
+\begin{Definition}[模$I$的剩余类环]
+上面的$\bar{R}$叫做环$R$的\textbf{模$I$的剩余类环}, 用符号$R/I$来表示.
+\end{Definition}
+
+\begin{Theorem}
+假定$R$与$\bar{R}$是两个环, 并且$R$与$\bar{R}$同态, 那么这个同态满射的核$I$是$R$的一个理想, 并且$R/I \cong \bar{R}$
+\end{Theorem}
+
+\begin{Theorem}
+在环$R$到环$\bar{R}$的同态满射下:
+\begin{enumerate}[(1)]
+	\item $R$的一个子环的象$\bar{S}$是$\bar{R}$的一个子环.
+	\item $R$的一个理想$I$的象$\bar{I}$是$\bar{R}$的一个理想.
+	\item $\bar{R}$的一个子环$\bar{S}$的原象$S$是R的一个子环.
+	\item $\bar{R}$的一个理想$\bar{I}$的原象$I$是$R$的一个理想.
+\end{enumerate}
+
+\end{Theorem}
+
+\begin{Note}
+	环-群, 子环-子群, 理想-不变子群
+\end{Note}
+
+\subsection{最大理想}
+
+\begin{Definition}[最大理想]
+如果一个环$R$的理想$I (\neq R)$, 除了$R$和$I$以外, 无其他包含$I$的理想，称$I$为$R$的\textbf{最大理想}.
+\end{Definition}
+
+\begin{Lemma}
+假定$I (\neq R)$是环$R$的一个理想: 剩余类环$R/I$除了零理想和单位理想外不再有其他理想 $\Leftrightarrow$ $I$是最大理想.
+\end{Lemma}
+
+\begin{Lemma}
+若有单位元($\neq \mathfrak{0}$)的交换环$R$除了零理想和单位理想以外没有其他理想, 那么$R$一定是一个域.
+\end{Lemma}
+
+\begin{Theorem}
+$R$是有单位元的交换环, $I (\neq R)$是$R$的理想: $R/I$是域 $\Leftrightarrow$
+$I$是$R$的最大理想.
+\end{Theorem}
+
+\begin{Proposition}
+$\mathbb{Z}_n$是域$\Leftrightarrow n$是素数. 
+\end{Proposition}
+
+\subsection{商域}
+
+\begin{Theorem}
+若$R$是无零因子的交换环, 则存在一个包含$R$的域$Q$, 使得$Q$刚好是由所有元$\displaystyle \frac{a}{b} \; (a, b \in R, b \neq \mathfrak{0} )$所做成的，这里$\displaystyle \frac{a}{b} = ab^{-1} = b^{-1}a$.
+\end{Theorem}
+
+\begin{Definition}[商域]
+一个域$Q$叫做环$R$的一个\textbf{商域}, 如果$Q \supseteq R$, 并且$Q$刚好是由所有元$\displaystyle \frac{a}{b} \; (a, b \in R, b \neq 0)$所做成的.
+\end{Definition}
+
+\begin{Theorem}
+假定$R$是一个有两个以上的元的环, $F$是一个包含$R$的域，则$F$包含$R$的一个商域.
+\end{Theorem}
+
+\begin{Note}
+一般来讲, 一个环很可能有两个以上的商域. 不过，同构的环的商域也同构，所以抽象的来讲，一个环最多只有一个商域.
+\end{Note}

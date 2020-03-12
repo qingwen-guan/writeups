@@ -52,7 +52,7 @@
 \end{Theorem}
 
 \begin{Note}
-证明$a^{-1}$是$a$的逆的方法: $a^{-1}a = e$或者$aa^{-1} = e$
+证明$a^{-1}$是$a$的逆的方法: $a^{-1}a = e$或者$aa^{-1} = e$ (不用都说明).
 \end{Note}
 
 \begin{Property}[乘积的逆等于逆的乘积]
@@ -60,12 +60,12 @@ $\forall a, b \in G, {(ab^{-1})}^{-1} = b a^{-1}$
 \end{Property}
 
 \begin{Definition}
-规定$a^n = \underbrace{a a \cdots a}_{n\text{个}}, a^0 = e, a^{-n} = (a^{-1})^n, n \in \mathbb{Z}^{+}$
+规定$\forall n \in \mathbb{Z}^{+}: a^n = \underbrace{a a \cdots a}_{n\text{个}}, a^0 = e, a^{-n} = (a^{-1})^n$
 \end{Definition}
 
-\begin{Theorem}
-$ a^n a^m = a^{n+m}, {(a^n)}^m = a^{mn}, n, m \in \mathbb{Z} $ \marginnote{\small $\Rightarrow {(a^{-1})}^{-1} = a$}
-\end{Theorem}
+\begin{Proposition}
+$ \forall n, m \in \mathbb{Z}: a^n a^m = a^{n+m}, {(a^n)}^m = a^{mn} $ （{$\Rightarrow {(a^{-1})}^{-1} = a$})
+\end{Proposition}
 
 \begin{Definition}[元素的阶]
 在一个群$G$中，使得$a^n = e$的最小正整数, 叫做$a$的\textbf{阶}. 若这样的$n$不存在, 称$a$是无穷阶的，或者叫$a$的阶是无穷.
@@ -101,7 +101,7 @@ $G$与$\bar{G}$关于他们的乘法同态, 则 $G$是群$\Rightarrow \bar{G}$�
 $G$与$\bar{G}$关于他们的乘法同构, 则 $G$是群$\Leftrightarrow \bar{G}$是群.
 \end{Theorem}
 
-\subsection{变换群}
+\subsection{变换群} %%%%%%%%%%%%%%%%%%
 
 \begin{Definition}[变换的乘法]
 $\tau_1 \tau_2: a \mapsto {\left(a^{\tau_1}\right)}^{\tau_2}$
