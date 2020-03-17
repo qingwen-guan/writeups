@@ -1,0 +1,316 @@
+\section{整环里的因子分解}
+
+\subsection{素元、唯一分解}
+
+\begin{Definition}[!整除]
+对于整环$I$，若$a \in I$, 存在$b, c \in I$使$a=bc$, 则称$b$能\textbf{整除}$a$, 记作$b \mid a$, 称$b$为$a$的\textbf{因子}. 若$b$不是$a$的因子，则记作$b \nmid a$.
+\end{Definition}
+
+\begin{Proposition}[整除具有传递性]
+$a \mid b, b \mid c \Rightarrow$ $a \mid c$.
+\end{Proposition}
+
+\begin{Definition}[单位]
+整环$I$的元$\epsilon$叫做$I$的一个\textbf{单位}, 如果$\epsilon$有逆. (整环里面随便一个可逆的元都叫做一个单位)
+\end{Definition}
+
+
+\begin{Theorem}
+$\epsilon_1$和$\epsilon_2$是单位$\Rightarrow$ $\epsilon_1 \epsilon_2$是单位; $\epsilon$是单位$\Rightarrow$ $\epsilon^{-1}$ 也是单位.
+\end{Theorem}
+
+\begin{Proposition}
+$a$和$b$不是单位$\Rightarrow$ $a b$不是单位.
+\end{Proposition}
+
+\begin{Definition}[相伴元]
+元$b$叫做元$a$的\textbf{相伴元}，如果存在一个单位$\epsilon$使得$b = \epsilon a$.
+\end{Definition}
+
+\begin{Note}
+相伴元对应的关系是一个等价关系.
+\end{Note}
+
+\begin{Definition}[平凡因子、真因子]
+$\forall a \in $整环$I$, 所有的单位以及$a$的相伴元，叫做$a$的\textbf{平凡因子}. 其余的$a$的因子，如果还有的话，叫做$a$的\textbf{真因子}.
+\end{Definition}
+
+\begin{Definition}[素元]
+一个整环$I$的一个元$p$叫做一个\textbf{素元}, 如果$p$ (1) 既不是零元，(2)也不是单位，并且 (3) $p$只有平凡因子.
+\end{Definition}
+
+\begin{Theorem}
+$p$是素元, $\epsilon$是单位$\Rightarrow$ $\epsilon p$也是素元.
+\end{Theorem}
+
+\begin{Theorem}[!!]
+若$I$是整环, $a \in I$, $a \neq \mathfrak{0}$，则 $a$有真因子 $\Leftrightarrow$ 
+$\exists\, b,c$都不是单位使得$a = bc$, .
+\end{Theorem}
+
+\begin{Corollary}
+$a\neq 0$, $a$有真因子$b$\;($a = bc$) $\Rightarrow$ $c$也是$a$的真因子.
+\end{Corollary}
+
+\begin{Note}
+$a$有真因子 $\Rightarrow$ $\exists$ $b, c$为$a$的真因子使得$a = bc$
+\end{Note}
+
+\begin{Definition}[唯一分解]
+我们说，$a \in $整环$I$, 在$I$里有\textbf{唯一分解}, 假如以下条件都能被满足
+\begin{enumerate}[(1)]
+	\item[(i)] 能分解: $a = p_1 p_2 \cdots p_r$ ($p_i$是$I$的素元).
+	\item[(ii)] 若同时 $a = q_1 q_2 \cdots q_s$ ($q_i$是$I$的素元), 则$r=s$, 且我们可以把$q_i$的次序调换，使得$q_i = \epsilon_i p_i$ ($\epsilon$是$I$的单位)。
+\end{enumerate}
+\end{Definition}
+
+\begin{Note}
+若$a$在环$I$中有唯一分解, 则$a \neq \mathfrak{0}$ 且 $a$不是单位.
+\end{Note}
+
+\begin{Note}
+一个整环的$\neq \mathfrak{0}$也不是单位的元，不一定都有唯一分解.
+\end{Note}
+
+\begin{Proposition}
+$\mathfrak{0}$不是任何元的真因子.
+\end{Proposition}
+
+\begin{Proposition}
+定义$I$为所有可以写成 $\displaystyle \frac{m}{2^n}, m \in \mathbb{Z}, n \in \mathbb{N}$形式的有理数, 则$I$是整环, 其单位是所有等于$2^n, n \in \mathbb{Z}$的数.
+\end{Proposition}
+
+\subsection{唯一分解环} %%%%%%%%%%%%%
+
+\begin{Definition}[唯一分解环]
+一个整环$I$叫做一个\textbf{唯一分解环}, 如果$I$的每一个既$\neq \mathfrak{0}$也不是单位的元，都有唯一分解.
+\end{Definition}
+
+\begin{Theorem}
+一个唯一分解环有以下性质, 
+\begin{itemize}
+	\item[(iii)] 素元$p \mid ab$ $\Rightarrow$ $p \mid a$或$p \mid b$.
+\end{itemize}
+\end{Theorem}
+
+\begin{Theorem}
+如果一个整环$I$满足:
+\begin{itemize}
+	\item[(i)] $\forall \; a \in I$, $a \neq 0$, $a$不是单位, 都可以写成
+	$a = p_1 p_2 \cdots p_r$ ($p_i$是素元). 
+	\item[(iii)] 素元$p \mid ab$ $\Rightarrow$ $p \mid a$或$p \mid b$. 
+\end{itemize}
+则整环$I$是一个唯一分解环.
+\end{Theorem}
+
+\begin{Definition}[公因子]
+元$c$叫做元$a_1, a_2, \cdots, a_n$的\textbf{公因子}，如果$c$能同时整除$a_1, a_2, \cdots, a_n$. 元$a_1, a_2, \cdots, a_n$的一个公因子$d$叫做$a_1, a_2, \cdots, a_n$的\textbf{最大公因子}, 如果$d$能被$a_1, a_2, \cdots, a_n$的每个公因子整除.
+\end{Definition}
+
+\begin{Theorem}
+若$I$是一个唯一分解环, $a, b \in I$, 则$a, b$在$I$里一定有最大公因子. 若$d, d'$都是$a, b$的最大公因子, 则它们只差一个单位因子: $d' = \epsilon d$ ($\epsilon$是单位).
+\end{Theorem}
+
+\begin{Corollary}
+一个唯一分解环$I$的$n$个元$a_1, a_2, \cdots, a_n$在$I$里一定有最大公因子, $a_1, a_2, \cdots, a_n$的两个最大公因子只能差一个单位因子.
+\end{Corollary}
+
+\begin{Definition}[互素]
+我们说, 一个唯一分解环的元$a_1, a_2, \cdots, a_n$互素，如果他们的最大公因子是单位.
+\end{Definition}
+
+\begin{Proposition}
+假定在一个唯一分解环里
+$a_1 = d b_1, a_2 = d b_2, \cdots a_n = d b_n$($d \ne 0$), 我们有
+\begin{tightcenter}
+$d$是$a_1, a_2, \cdots, a_n$的最大公因子 $\Leftrightarrow$ $b_1, b_2, \cdots, b_n$互素.
+\end{tightcenter}
+\end{Proposition}
+
+%\begin{Proposition}
+%假定$I$是一个整环, $(a), (b)$是$I$的两个主理想, 那么
+%\begin{tightcenter}
+%$(a) = (b)$ $\Leftrightarrow$ $b$是$a$的相伴元.
+%\end{tightcenter}
+%\end{Proposition}
+
+\subsection{主理想环} %%%%%%%%%%%%
+
+\begin{Definition}[主理想环]
+一个整环$I$叫做一个\textbf{主理想环}, 如果$I$的每一个理想都是一个主理想.
+\end{Definition}
+
+\begin{Lemma}
+假定$I$是一个主理想环, 若存在序列$a_1, a_2, \cdots$ $(a_i \in I)$的每一个元素都是前面一个元素的真因子, 则这个序列一定是一个有限序列.
+\end{Lemma}
+
+\begin{Lemma}[!!]
+假定$I$是一个主理想环, $p$是$I$的一个素元, 则$p$生成的理想$(p)$一定是$I$的最大理想.
+\end{Lemma}
+
+\begin{Theorem}
+一个主理想环$I$一定是一个唯一分解环.
+\end{Theorem}
+
+\begin{Proposition}
+假定$I$是一个主理想环, 并且$(a, b) = (d)$, 那么$d$是$a$和$b$的一个最大公因子, 因此$a$和$b$的任何一个最大公因子$d'$都可以写成$d' = sa +tb$\;($s, t \in I$)的形式.
+\end{Proposition}
+
+\begin{Proposition}
+一个主理想环的非零最大理想都是由一个素元所生成的.
+\end{Proposition}
+
+\begin{Proposition}
+两个主理想环$I$和$I_0$, $I_0$是$I$的子环, $a$和$b$是$I_0$的两个元，$d$是这两个元在$I_0$里得一个最大公因子， 则$d$也是这两个元在$I$里的最大公因子.
+\end{Proposition}
+
+\subsection{欧氏环} %%%%%%%%%%%%%
+
+\begin{Definition}[欧氏环]
+一个整环$I$叫做一个\textbf{欧氏环}, 如果
+\begin{itemize}
+	\item 有一个从$I$的非零元所做成的集合到$\ge 0$的整数集合的映射$\phi$存在.
+	\item 给定一个$I$的非零元$a$, 则$I$的任何元$b$都可以写成$b = aq +r$ ($q, r \in I$)的形式，这里或者$r = 0$, 或者$\phi(r) < \phi(a)$.
+\end{itemize}
+\end{Definition}
+
+\begin{Theorem}
+任何欧氏环$I$一定是是主理想环, 从而一定是一个唯一分解环.
+\end{Theorem}
+
+\begin{Note}
+整数环是一个欧式环, 从而是一个主理想环，因而是一个唯一分解环.
+\end{Note}
+
+\begin{Lemma}
+假定$I[x]$是整环$I$上的一个一元多项式环， $I[x]$的元$g(x) = a_n x^n + a_{n-1} x^{n-1} +\cdots + a_0$的最高系数$a_n$是$I$的一个单位. 那么$I[x]$的任意多项式$f(x)$都可以写成
+$f(x) = q(x) g(x) + r(x)$ ($q(x), r(x) \in I[x]$)的形式, 这里或者$r(x) = 0$或者$r(x)$的次数小于$g(x)$的次数$n$.
+\end{Lemma}
+
+\begin{Theorem}[!]
+一个域$F$上的一元多项式环$F[x]$是一个欧式环. ($\Rightarrow F[x]$是主理想环$\Rightarrow F[x]$是唯一分解环).
+\end{Theorem}
+
+\subsection{多项式环的因式分解} %%%%%%%%%%%%%%%%%%%%
+
+\begin{Definition}
+一个素多项式(多项式环的素元)叫做\textbf{不可约多项式}, 一个有真因子的多项式叫做\textbf{可约多项式}.
+\end{Definition}
+
+\begin{Proposition}
+$I$的单位是$I[x]$仅有的单位.
+\end{Proposition}
+
+\begin{Definition}[本原多项式]
+$I[x]$的一个元$f(x)$叫做一个\textbf{本原多项式}, 如果$f(x)$的系数的最大公因子是单位.
+\end{Definition}
+
+\begin{Proposition}
+一个本原多项式$\neq \mathfrak{0}$.
+\end{Proposition}
+
+\begin{Proposition}
+若本原多项式$f(x)$可约, 则$f(x) = g(x) h(x)$, 这里$f(x)$和$g(x)$的次数都$> 0$, 因而都$<$
+$f(x)$的次数.
+\end{Proposition}
+
+\begin{Lemma}
+假定$f(x) = g(x) h(x)$, 那么$f(x)$是本原多项式 $\Leftrightarrow$ $g(x)$和$h(x)$都是本原多项式.
+\end{Lemma}
+
+\begin{Lemma}
+对于一个唯一分解环$I$, 他的商域$Q$做成的一元多项式环$Q[x]$, 
+$Q[x]$中的每个不等于零的多项式$f(x)$都可以写成
+$\displaystyle f(x) = \frac{b}{a} f_0(x)$的样子.
+这里$a, b \in I$, $f_0(x)$是$I[x]$上的本原多项式.
+若$g_0(x)$也有$f_0(x)$的性质(即$f(x)$可以写成$\displaystyle \frac{b'}{a'} g_0(x)$的形式)，则$g_0(x) = \epsilon f_0(x)$ ($\epsilon$是$I$的单位)
+.\end{Lemma}
+
+\begin{Lemma}
+$I[x]$的一个本原多项式$f_0(x)$在$I[x]$里可约$\Leftrightarrow$ $f_0(x)$在$Q[x]$里可约.
+\end{Lemma}
+
+\begin{Lemma}
+$I[x]$中的一个次数$>0$的本原多项式$f_0(x)$在$I[x]$中有唯一分解.
+\end{Lemma}
+
+\begin{Theorem}
+一个唯一分解环$I$上的多项式环$I[x]$也是唯一分解环.
+\end{Theorem}
+
+\begin{Theorem}
+若$I$是唯一分解环, 那么$I[x_1, x_2, \cdots, x_n]$也是, 其中$x_1, x_2, \cdots, x_n$是$I$上的未定元.
+\end{Theorem}
+
+\subsection{因式分解与多项式的根}
+
+\begin{Definition}
+$a $\;($\in $整环$I$)叫做$I[x]$的多项式的\textbf{根}, 如果$f(a) = \mathfrak{0}$.
+\end{Definition}
+
+\begin{Theorem}
+$a $\;($\in$ 整环$I$)是$f(x)$的一个根 $\Leftrightarrow$ $(x - a) \mid f(x)$.
+\end{Theorem}
+
+\begin{Theorem}
+给定整环$I$的$k$个不同的元素$a_1, a_2, \cdots, a_k$, 那么
+$a_1, a_2, \cdots, a_k$都是$f(x)$的根 $\Leftrightarrow$ 
+$(x - a_1)(x - a_2)\cdots(x-a_k) \mid f(x)$.
+\end{Theorem}
+
+\begin{Corollary}
+$I[x]$中的$n$次多项式$f(x)$, 在$I$中最多有$n$个根.
+\end{Corollary}
+
+\begin{Definition}[重根]
+$a$\;($\in I$)叫做$f(x)$的一个\textbf{重根}, 如果$(x - a)^k \mid f(x)$, $k$是$\ge 2$的整数.
+\end{Definition}
+
+\begin{Definition}[导数]
+对于$I[x]$中的多项式$f(x) = a_n x^n +a_{n-1} x^{n-1} + \cdots +a_1 x +a_0$,
+定义它的\textbf{导数}$f'(x) = n a_n x^{n-1} + (n-1) a_{n-1} x^{n-1} + \cdots + a_1$
+\end{Definition}
+
+\begin{Note}
+这只是一个形式上的定义，不能从极限的角度来理解.
+\end{Note}
+
+\begin{Proposition}
+导数适合以下计算规则
+\begin{enumerate}[(i)]
+	\item $[f(x) +g(x)]' = f'(x) + g'(x)$.
+	\item $[f(x)g(x)]' = f(x) g'(x) +f'(x) g(x)$
+	\item $[f(x)^t]' = t f(x)^{t-1}f'(x)$, $t (\in \mathbb{Z})\ge 2$
+\end{enumerate}
+\end{Proposition}
+
+\begin{Theorem}
+假定$a$是$f(x)$的一个根, 我们有 %\vspace*{\fill} 
+ \begin{tightcenter}{ $a$是一个重根 $\Leftrightarrow (x - a) \mid f'(x)$}
+ \end{tightcenter}
+%\vspace*{\fill}
+%} \\
+\end{Theorem}
+
+\begin{Corollary}
+假定$I[x]$是一个唯一分解环, $a \in I[x], f(x) \in I[x]$, 我们有
+\begin{tightcenter}
+$a$是$f(x)$的一个重根 $\Leftrightarrow$ $(x - a)  $ 能够整除 $f(x)$和$f'(x)$的最大公共因子.
+\end{tightcenter}
+\end{Corollary}
+
+\begin{Definition}
+如果$(x-a)^k \mid f(x)$, 但是$(x-a)^{k+1} \nmid f(x)$, $k \in \mathbb{Z}^+$, 则称$a$是
+$f(x)$的$k$重根.
+\end{Definition}
+
+\begin{Theorem}
+$a$是$f(x)$的$k$重根 $\Rightarrow$ $(x-a)^{k-1} \mid f'(x)$.
+\end{Theorem}
+
+\begin{Theorem}
+假定整环$I$的特征是无穷的, 我们有
+\begin{tightcenter}
+$a$是$f(x)$的$k$重根 $\Rightarrow$ $a$是$f'(x)$的$k-1$重根.
+\end{tightcenter}
+\end{Theorem}

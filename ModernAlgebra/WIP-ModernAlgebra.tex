@@ -3,7 +3,7 @@
 \usepackage{amssymb}
 \usepackage[dvipsnames, svgnames, x11names]{xcolor}  % 一般放得靠前
 %\usepackage{xcolor}
-\usepackage{marginnote}
+%\usepackage{marginnote}
 \usepackage{wasysym}
 \usepackage{geometry}
 \usepackage{ntheorem}
@@ -15,7 +15,8 @@
 
 \usetikzlibrary{decorations.pathreplacing}
 
-\geometry{a4paper,left=2cm,right=4cm,top=2cm,bottom=1cm,marginparwidth=3cm}
+%\geometry{a4paper,left=2cm,right=4cm,top=2cm,bottom=1cm,marginparwidth=3cm}
+\geometry{a4paper,left=2cm,right=2cm,top=2cm,bottom=1cm}
 
 \theorembodyfont{\upshape}
 \newtheorem{Definition}{定义}%[subsection]
@@ -37,8 +38,19 @@
 \setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0pt}
 \setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0pt}
 
-\renewcommand\marginfont{%
-    \scriptsize
+%\renewcommand\marginfont{%
+%    \scriptsize
+%}
+
+%\setlength{\parskip}{0pt}
+%  \setlength{\topskip}{0pt}
+
+\newenvironment{tightcenter}{%
+  \setlength\topsep{0pt}
+  \setlength\parskip{0pt}
+  \begin{center}
+}{%
+  \end{center}
 }
 
 \begin{document}
@@ -62,10 +74,27 @@
 就是注解.
 \end{NoteNon}
 
+\begin{NoteNon} \ \\
+\begin{itemize}
+	\item 关于一一映射的说法都被改成了双射(Bijection), 因为在英文资料中, one-to-one表示的是单射(Injection), 容易引起歧义.
+	\item 所有的当且仅当的命题(定理、$\cdots$)都被写成以下形式: 
+	\begin{Proposition}
+	 假定blablabla，那么
+	\begin{tightcenter}
+		$p \Leftrightarrow q$
+	\end{tightcenter}
+	\end{Proposition}
+\end{itemize}
+\end{NoteNon}
+
+
 \setcounter{Definition}{0}
 
+\input{ModernAlgebra/Highlights}
 \input{ModernAlgebra/Section1}
 \input{ModernAlgebra/Section2}
 \input{ModernAlgebra/Section3}
+\input{ModernAlgebra/Section4}
+\input{ModernAlgebra/Section5}
 
 \end{document}

@@ -1,0 +1,120 @@
+\section{扩域}
+
+\begin{Definition}[扩域]
+一个域$E$叫做一个域$F$的\textbf{扩域(扩张)}, 如果$F$是$E$的子域.
+\end{Definition}
+
+\begin{Theorem}
+令$E$是一个域. 
+\begin{itemize}
+\item 若$E$的特征是$\infty$, 则$E$含有一个与有理数同构的子域; 
+\item 若$E$的特征是素数$p$, 则$E$含有一个域$\mathbb{Z}/(p)$同构的子域, 其中$\mathbb{Z}$是整数环.
+\end{itemize}
+\end{Theorem}
+
+\begin{Definition}[素域]
+一个域叫做一个\textbf{素域}, 假如他不包含真子域.
+\end{Definition}
+
+\begin{Note}
+一个素域或者与有理数域$\mathbb{Q}$同构, 或者与$\mathbb{Z}_p = \mathbb{Z}/(p)$同构.
+\end{Note}
+
+\begin{Note}
+令域$E$是与$F$的扩域. 我们从$E$中取一个子集$S$. 我们用$F(S)$表示包含$F$和$S$中的所有元素的$E$的最小子域, 把它叫做添加几个$S$于$F$所得的扩域.
+\end{Note}
+
+\begin{Note}
+$F(S)$刚好包含$E$的一切可以写成
+$\displaystyle \frac
+{f_1(\alpha_1, \alpha_2, \cdots, \alpha_n)}
+{f_2(\alpha_1, \alpha_2, \cdots, \alpha_n)}
+$
+形式的元，其中$\alpha_i$是$S$中的任意有限个元素, $f_1$和 $f_2$ ($ f_2 \neq 0$)是这些$\alpha$的多项式.
+\end{Note}
+
+\begin{Note}
+若$S$是一个有限子集, $S = \{ \alpha_1, \alpha_2, \cdots, \alpha_n \}$, 那么我们也把$F(S)$记作$F(\alpha_1, \alpha_2, \cdots, \alpha_n)$.
+\end{Note}
+
+\begin{Theorem}
+令$E$是$F$的一个扩域, $S_1, S_2$是$E$的两个子集, 那么$F(S_1)(S_2) = F(S_1 \cup S_2) = F(S_2)(S_1)$.
+\end{Theorem}
+
+\begin{Note}
+于是我们可以把添加有限集归结为陆续添加单个元素: $F(\alpha_1, \alpha_2, \cdots, \alpha_n)
+= F(\alpha_1)(\alpha_2)\cdots(\alpha_n)$.
+\end{Note}
+
+\begin{Definition}[单扩域]
+添加一个元素$\alpha$于域$F$所得的扩域$F(\alpha)$叫做域$F$的\textbf{单扩域}(\textbf{单扩张}).
+\end{Definition}
+
+\subsection{单扩域}
+
+\begin{Definition}[代数元、超越元]
+假定$E$是$F$的扩域, $\alpha \in E$. $\alpha$叫做域$F$上的一个\textbf{代数元}, 若$\exists a_0, a_1, \cdots, a_n$不都等于零，使得$a_0 +a_1 \alpha + \cdots + a_n \alpha^n = 0$. 如果这样的$a_0, a_1, \cdots, a_n$不存在, $\alpha$叫做$F$上的一个\textbf{超越元}.
+\end{Definition}
+
+\begin{Definition}[单代数扩域、单超越扩域]
+若$\alpha$是$F$上的一个代数元, $F(\alpha)$叫做$F$的一个\textbf{单代数扩域}; 
+若$\alpha$是$F$上的一个超越元, $F(\alpha)$就叫做$F$的一个\textbf{单超越扩域}.
+\end{Definition}
+
+\begin{Theorem}
+若$\alpha$是$F$上的一个超越元, 那么$F(\alpha) \cong F[x]$的商域, 其中$F[x]$是$F$上的一个未定元$x$的多项式环.
+\end{Theorem}
+
+\begin{Theorem}
+若$\alpha$是$F$上的一个代数元, 那么
+$F(\alpha) \cong F[x]/\left(p(x)\right)$, 其中$p(x)$是$F[x]$的一个\;\fbox{唯一}\;确定的、最高系数为${1}$的不可约多项式, 并且$p(\alpha) = 0$.
+\end{Theorem}
+
+\begin{Theorem}
+令$\alpha$是域$F$上的一个代数元, 并且$F(\alpha) \cong F[x]/\left( p(x) \right)$, 
+那么$F(\alpha)$的每一个元都可以唯一的表达成
+$\displaystyle \sum_{i=0}^{n-1} c_i \alpha_i$
+ ($c_i \in F$)的形式, 这里$n$是$p(x)$的系数. 要把两个多项式$f(\alpha)$和$g(\alpha)$相加，只需把相应的系数相加; $f(\alpha)$与$g(\alpha)$的乘积等于$r(\alpha)$, 这里$r(x)$是用$p(x)$除$f(x)g(x)$所得的余式.
+\end{Theorem}
+
+\begin{Definition}[极小多项式]
+$F[x]$中满足条件$p(\alpha) = 0$的次数最低的多项式
+$p(x) = x_n + c_{n-1} x^{n-1} + \cdots + c_0$ ($c_i \in F$), 叫做元$\alpha$的在$F$上的\textbf{极小多项式}, $n$叫做$\alpha$的在$F$上的\textbf{次数}.
+\end{Definition}
+
+\begin{Note}
+$F$的单超越扩域是存在的, 且它们相互同构.
+\end{Note}
+
+\begin{Theorem}
+对于任一给定的域$F$以及$F$上的一元多项式环$F[x]$的给定不可约多项式
+$p(x) = x^n + c_{n-1} x^{n-1} + \cdots + c_0$, 总存在$F$的单代数扩域$F(\alpha)$, 
+其中$\alpha$在$F$上的极小多项式是$p(x)$.
+\end{Theorem}
+
+\begin{Theorem}
+令$F(\alpha)$和$F(\beta)$是域$F$的两个单代数扩域, 并且$\alpha$和$\beta$在$F$上有相同的极小多项式$p(x)$. 那么$F(\alpha) \cong F(\beta)$.
+\end{Theorem}
+
+\begin{Theorem}
+在同构的意义下，存在且仅存在域$F$的一个单扩域$F(\alpha)$，其中$\alpha$的极小多项式是$F[x]$的给定的，最高次数为$1$的不可约多项式.
+\end{Theorem}
+
+\subsection{代数扩域}
+
+\begin{Theorem}[代数扩域]
+若域$F$的扩域$E$的每一个元都是$F$上的一个代数元, 那么$E$叫做$F$的一个\textbf{代数扩域}(\textbf{代数扩张}).
+\end{Theorem}
+
+\begin{Definition}
+若是域$F$的一个扩域$E$作为$F$上的向量空间有维数$n$, 那么$n$叫做\textbf{扩域$E$在$F$上的次数}, 记作$(E:F)$.
+这时$E$叫做$F$的一个\textbf{有限扩域}, 否则$E$叫做域$F$的一个\textbf{无限扩域}.
+\end{Definition}
+
+\begin{Theorem}
+令$I$是域$F$的有限扩域, 而$E$是$I$的有限扩域. 那么$E$也是$F$的有限扩域, 并且$(E:F) = (E:I)(I:F)$.
+\end{Theorem}
+
+\begin{Note}
+已经听不懂了!!! 感觉需要补高等代数中的向量空间的知识...
+\end{Note}

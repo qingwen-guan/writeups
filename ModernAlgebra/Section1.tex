@@ -121,18 +121,18 @@ $$
 for tree={grow'=east, parent anchor=east, child anchor=west, anchor=west}
 [ 同构映射, color=red
 	[
-		同态满射, color=red, edge={dashed, color=red}, name=IsHomoFullMap
+		同态满射, color=red, edge={dashed, color=red}, name=IsHomoFullMap, tier=1
 		[
-			同态映射, color=red, edge={dashed, color=red}, name=IsHomoMap
+			同态映射, color=red, edge={dashed, color=red}, name=IsHomoMap, tier=2
 			[,phantom]
 			[
-			{同态 $\overline{a \circ b} = \bar{a}\; \bar{\circ} \; \bar{b} $}, name=IsHomo, color=red, edge={color=red}, tier=prop
+			{同态 ${a \circ b} \mapsto \bar{a}\; \bar{\circ} \; \bar{b} $}, name=IsHomo, color=red, edge={color=red}, tier=prop
 			]
 		] 
 		[,phantom]
 	]
-	[ 一一映射, edge={color=red} 
-		[ 满射, name=IsFullMap
+	[ 双射, edge={color=red},tier=1
+		[ 满射, name=IsFullMap, tier=2
 			[ 是映射, name=IsMap, tier=prop 
 				[ 都有象
 				]
@@ -141,7 +141,7 @@ for tree={grow'=east, parent anchor=east, child anchor=west, anchor=west}
 			]
 			[ 满的, tier=prop ]
 		]
-		[ 单射, edge=dashed
+		[ 单射, edge=dashed, tier=2
 			[ {单的 $ \overline{a}  = \overline{b} \Rightarrow a = b $
 			  }
 			  , name=IsSingle
@@ -166,13 +166,13 @@ for tree={grow'=east, parent anchor=east, child anchor=west, anchor=west}
 
 \begin{Definition}[变换]
 从$A$到$A$的映射 $\tau: A \rightarrow A, a \mapsto \tau(a)$ 叫$A$\textbf{变换}, 我们也用$a^\tau$表示$\tau(a)$.
- {{如果$\tau$是满(单、一一)的, 则称为}}\textbf{满变换}(\textbf{单变换}、\textbf{一一变换}).
+ {{如果$\tau$是满射(单射、双射), 则称为}}\textbf{满变换}(\textbf{单变换}、\textbf{双射变换}).
 \end{Definition}
 
 \begin{Definition}[同态映射]
-对于$\phi: A \rightarrow \bar{A}$, $A$上有二元运算$\circ$, $\bar{A}$上有二元运算$\bar{\circ}$.
-如果
-$ \overline{a \circ b} = \bar{a} \, \bar{\circ} \, \bar{b}$, 则称 $\phi$是 $A$到 $\bar{A}$的同态映射.
+对于$\phi: A \rightarrow \bar{A}$, $A$上有二元运算$\circ$, $\bar{A}$上有二元运算$\bar{\circ}$. 称 $\phi$是 $A$到 $\bar{A}$的\textbf{同态映射}, 如果
+$\forall a, b \in A$, $\bar{a} := \phi(a), \bar{b} := \phi(b)$有 
+$ a \circ b \mapsto \bar{a} \, \bar{\circ} \, \bar{b}$.
 \end{Definition}
 
 %\begin{Note}[同态映射判别]
@@ -180,7 +180,7 @@ $ \overline{a \circ b} = \bar{a} \, \bar{\circ} \, \bar{b}$, 则称 $\phi$是 $A
 %\end{Note}
 
 \begin{Definition}[同态满射、同态]
-如果$A$到$\bar{A}\;${\fbox{存在}}\;一个同态映射$\phi$, 且它是满的, 则称$A$与$\bar{A}$\;(关于$\circ$与$\bar{\circ}$来说)\textbf{同态}. 称这个映射是一个\textbf{同态满射}.
+如果$A$到$\bar{A}\;${\fbox{存在}}\;一个同态映射$\phi$, 且它是满射, 则称$A$与$\bar{A}$\;(关于$\circ$与$\bar{\circ}$)\textbf{同态}. 称这个映射是一个\textbf{同态满射}.
 \end{Definition}
 
 %\begin{Note}[同态满射判别]
@@ -188,7 +188,7 @@ $ \overline{a \circ b} = \bar{a} \, \bar{\circ} \, \bar{b}$, 则称 $\phi$是 $A
 %\end{Note}
 
 \begin{Definition}[同构映射、同构]
-如果$A$到$\bar{A}\;${\fbox{存在}}\;一个同态映射$\phi$, 且它是既是满的又是单的(一一的), 则称$A$与$\bar{A}$(关于$\circ$与$\bar{\circ}$)\textbf{同构}, 记为$A \cong
+如果$A$到$\bar{A}\;${\fbox{存在}}\;一个同态映射$\phi$, 且它是双射, 则称$A$与$\bar{A}\;$(关于$\circ$与$\bar{\circ}$)\textbf{同构}, 记为$A \cong
  \bar{A}$. 称这个映射是一个(关于$\circ$与$\bar{\circ}$的)\textbf{同构映射}(简称\text{同构}).
 \end{Definition}
 
@@ -202,7 +202,7 @@ $ \overline{a \circ b} = \bar{a} \, \bar{\circ} \, \bar{b}$, 则称 $\phi$是 $A
 
 \begin{Theorem}
 假定对于代数运算$\circ$和$\bar{\circ}$来说, $A$与$\bar{A}$同态, 那么
-\begin{enumerate}[i)]
+\begin{enumerate}[(1)]
 \item 若 $\circ$ 满足结合律, $\bar{\circ}$也满足结合律;
 \item 若 $\circ$ 满足交换律, $\bar{\circ}$也满足交换律.
 \end{enumerate}
@@ -215,15 +215,15 @@ $ \bar{\astrosun} $和$\bar{\oplus} $ 是 $\bar{A}$的两个代数运算,
 $\phi$既是$A$与$\bar{A}$的关于$ \astrosun $和$\bar{\astrosun}$ 的同态满射，
 $\phi$也是$A$与$\bar{A}$的关于$ \oplus $和$\bar{\oplus}$ 的同态满射，
 则 
-\begin{enumerate}[i)]
-\item 若$ \astrosun$和$ \oplus $  满足第一分配率, 则 $ \bar{\astrosun} $和$\bar{\oplus} $ 也满足第一分配率.
-\item 若$ \astrosun$和$\oplus $  满足第二分配率, 则 $ \bar{\astrosun} $和$\bar{\oplus} $ 也满足第二分配率.
+\begin{enumerate}[(1)]
+\item 若$ \astrosun$和$ \oplus $ 满足第一分配率, 则 $ \bar{\astrosun} $和$\bar{\oplus} $ 也满足第一分配率.
+\item 若$ \astrosun$和$\oplus $ 满足第二分配率, 则 $ \bar{\astrosun} $和$\bar{\oplus} $ 也满足第二分配率.
 \end{enumerate}
 \end{Theorem}
 
-\begin{Definition}[自同构]
-对于$\circ$和$\circ$来说的一个$A$与$A$之间的\;\fbox{同构映射}\;叫做一个对于$\circ$来说的$A$的\textbf{自同构}.
-\end{Definition}
+%\begin{Definition}[自同构]
+%对于$\circ$和$\circ$来说的一个$A$与$A$之间的\;\fbox{同构映射}\;叫做一个对于$\circ$来说的$A$的\textbf{自同构}.
+%\end{Definition}
 
 \subsection{等价关系与集合分类}
 

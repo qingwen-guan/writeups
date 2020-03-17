@@ -45,15 +45,15 @@ $n$个$a$的和$\displaystyle \sum_{i=1}^{n} a$我们用$na$表示.
 \end{itemize}
 \end{Note}
 
-\begin{Definition}[环]
-一个集合$R$叫做一个环, 如果
-\begin{enumerate}
-	\item $R$是一个加群: $R$关于一个叫做加法的代数运算做成一个交换群.
-	\item $R$对于另一个叫做乘法的代数运算是封闭的.
-	\item $R$关于乘法结合
-	\item 分配率: $a(b+c) = bc + ac, (a+b)c = ac + bc$
-\end{enumerate}
-\end{Definition}
+%\begin{Definition}[环]
+%一个集合$R$叫做一个环, 如果
+%\begin{enumerate}
+%	\item $R$是一个加群: $R$关于一个叫做加法的代数运算做成一个交换群.
+%	\item $R$对于另一个叫做乘法的代数运算是封闭的.
+%	\item $R$关于乘法结合
+%	\item 分配率: $a(b+c) = bc + ac, (a+b)c = ac + bc$
+%\end{enumerate}
+%\end{Definition}
 
 \begin{Theorem}
 环还满足以下运算规则
@@ -153,6 +153,29 @@ $ab = \mathfrak{0} \Rightarrow a = \mathfrak{0} $ 或者 $b = \mathfrak{0}$ 在�
 \end{enumerate}
 \end{Definition}
 
+\begin{Note}[!整环的判别] \ \\ \begin{tightcenter}
+\begin{forest}
+%for tree={circle,draw,s sep=0.8cm}
+for tree={grow'=east, parent anchor=east, child anchor=west, anchor=west}
+	[ 整环, name=IntRing, tier=2
+		[ 环, name={Ring}, tier=property
+			[ 加群
+				[ 加法成群: {I II IV V} ]
+				[ 加法交换 ]
+			]
+			[ 乘法: I II
+			]
+			[ 两个分配律
+			]
+		]
+		[乘法交换, name={ProductCommutative}, tier=property]
+		[有$\mathfrak{1}$, name={Has1}, tier=property]
+		[无零因子, name=NonZeroFact, tier=property]
+	]
+\end{forest}
+\end{tightcenter}
+\end{Note}
+
 \begin{Proposition}
 整数环是一个整环.
 \end{Proposition}
@@ -161,9 +184,9 @@ $ab = \mathfrak{0} \Rightarrow a = \mathfrak{0} $ 或者 $b = \mathfrak{0}$ 在�
 对于有单位元的环来说, 加法适合交换律是环定义里其他条件的结果.
 \end{Proposition}
 
-\begin{Proposition}
-二项式定理$\displaystyle (a + b)^n = \binom{n}{0} a^n + \binom{n}{1} a^{n-1}b + \binom{n}{2} a^{n-2}b^2 + \cdots + \binom{n}{n} b^n$在交换环中成立.
-\end{Proposition}
+%\begin{Proposition}
+%二项式定理$\displaystyle (a + b)^n = \binom{n}{0} a^n + \binom{n}{1} a^{n-1}b + \binom{n}{2} a^{n-2}b^2 + \cdots + \binom{n}{n} b^n$在交换环中成立.
+%\end{Proposition}
 
 %\begin{Proposition}
 %$\{ a + b \sqrt{2} \mid a, b \in \mathbb{Z}\}$对于普通加法和乘法来说是一个整环.
@@ -215,17 +238,18 @@ $\displaystyle \frac{b}{a}$表示.
 \end{Property}
 
 \begin{Proposition}
-$R = 
-\left\{ (\alpha, \beta) \mid \alpha, \beta \in \mathbb{C} \right\}, 
-(\alpha_1, \beta_1) + (\alpha_2, \beta_2) = 
-	(\alpha_1 + \alpha_2, \beta_1 + \beta_2), 
-(\alpha_1, \beta_1)(\alpha_2, \beta_2) = 
-	(\alpha_1 \alpha_2 - \beta_1 \overline{\beta_2})
-	(\alpha_1 \beta_2 + \beta_1 \overline{\alpha_2})
-$ 做成一个除环, 叫做\textbf{四元数除环}, 它不是交换环(所以不是域).
+%$R = 
+%\left\{ (\alpha, \beta) \mid \alpha, \beta \in \mathbb{C} \right\}, 
+%(\alpha_1, \beta_1) + (\alpha_2, \beta_2) = 
+%	(\alpha_1 + \alpha_2, \beta_1 + \beta_2), 
+%(\alpha_1, \beta_1)(\alpha_2, \beta_2) = 
+%	(\alpha_1 \alpha_2 - \beta_1 \overline{\beta_2})
+%	(\alpha_1 \beta_2 + \beta_1 \overline{\alpha_2})
+%$ 做成一个除环, 叫做\textbf{四元数除环}, 它不是交换环(所以不是域).
+存在不是域的除环, 例如\textbf{四元数除环}.
 \end{Proposition}
 
-\begin{Note} 环、整环、域之间的关系: \begin{center}
+\begin{Note} !环、整环、域之间的关系: \begin{center}
 \begin{forest}
 %for tree={circle,draw,s sep=0.8cm}
 for tree={grow'=east, parent anchor=east, child anchor=west, anchor=west}
@@ -380,7 +404,7 @@ $R$与$\bar{R}$都是环, 且$R \cong \bar{R}$, 则
 \end{Theorem}
 
 \begin{Lemma}
-集合$A$和$\bar{A}$之间有一个一一映射$\phi$, 并且$A$有加法和乘法, 于是我们可以在$\bar{A}$中规定加法和乘法，使得$A$与$\bar{A}$关于一对加法和一对乘法来说都同构.
+集合$A$和$\bar{A}$之间有一个双射$\phi$, 并且$A$有加法和乘法, 于是我们可以在$\bar{A}$中规定加法和乘法，使得$A$与$\bar{A}$关于一对加法和一对乘法来说都同构.
 \end{Lemma}
 
 \begin{Theorem}
@@ -393,7 +417,7 @@ $R$与$\bar{R}$都是环, 且$R \cong \bar{R}$, 则
 %\usetikzlibrary{decorations, decorations.pathmorphing} % in the preamble
 
 
-\begin{Note} 
+\begin{Note}[!]
 \ \\
 \begin{center}
 \begin{forest}
@@ -445,31 +469,6 @@ for tree={grow=west, parent anchor=west, child anchor=east, anchor=east}
   % inside environment forest
 \end{forest}
 \end{center}
-%\begin{forest}
-%for tree={grow'=east, parent anchor=east, child anchor=west, anchor=west}
-%[ ,phantom
-%	[环R%,
-%		[ 环S, 
-%		  name=RingS,
-%		  edge label={node [midway, above, font=\scriptsize] {子环}} 
-%		]
-%	]
-%	[ \phantom{环R}
-%		[ {环$\bar{R}$}, 
-%		  name=RingBarR%,
-%		  edge label={node [midway, above, font=\scriptsize] {子环}} 
-%		]
-%	]
-%] %{
-%	\draw[-] (RingS.east) to (RingBarR.east); %node [midway, right] {\scriptsize 子环};
-		%-- (current bounding box.east |- RingS) 
-	%	 -- %++(5pt,5pt) 
-		 %|- 
-		
-		
-%		; % Don't forget semicolon.	
-%}
-%\end{forest}
 \end{Note}
 
 \begin{Proposition}
@@ -479,7 +478,7 @@ for tree={grow=west, parent anchor=west, child anchor=east, anchor=east}
 \subsection{多项式环} %%%%%%%%%%%%%%%
 \begin{Note}
 假定$R_0$是一个有单位元的交换环, $R$是$R_0$的子环, 并且包含$R_0$的单位元. 取$x \in R_0$, 则
-$ \displaystyle \sum_{i=0}^n a_i x^i = a_0 + a_1 x + a_2 x^2 + \cdots + a_n x^n, a_i \in R $有意义, 且$\in R_0$.
+$ \displaystyle \sum_{i=0}^n a_i x^i = a_0 + a_1 x + a_2 x^2 + \cdots + a_n x^n\; (a_i \in R) $有意义, 且$\in R_0$.
 \end{Note}
 
 \begin{Definition}[多项式]
@@ -487,9 +486,15 @@ $ \displaystyle \sum_{i=0}^n a_i x^i = a_0 + a_1 x + a_2 x^2 + \cdots + a_n x^n,
 \end{Definition}
 
 \begin{Note}[环上的多项式构成一个环]
-在$R[x]$上定义加法$\displaystyle \sum a_i x^i + \sum b_i x^i = (a_i + b_i) x^i$, 乘法
-$\displaystyle \left(\sum_{i=0}^m a_i x^i \right) \left( \sum_{i=0}^{n} b_i x^i \right) 
-= \sum_{i=0}^{mn} \left(\sum_{j=0}^i a_j b_{i-j} \right) x^i$, 都为初等代数里的计算法, 则$R[x]$构成一个交换环.
+在$R[x]$上定义
+$$
+\begin{aligned}
+\text{加法: }& \displaystyle \sum a_i x^i + \sum b_i x^i = \sum (a_i + b_i) x^i \\
+\text{乘法: }& \displaystyle \left(\sum_{i=0}^m a_i x^i \right) \left( \sum_{j=0}^{n} b_j x^j \right) 
+= \sum_{i=k}^{mn} \left(\sum_{i+j=k} a_i b_{j} \right) x^k
+\end{aligned}
+$$
+ 都为初等代数里的计算方法, 则$R[x]$构成一个交换环.
 \end{Note}
 
 \begin{Definition}[未定元]
@@ -526,9 +531,13 @@ $\displaystyle \sum_{i_1 i_2 \cdots i_n} a_{i_1 i_2 \cdots i_n} x_1^{i_1} x_2^{i
 一个有上述形式的元叫做$R$上的$x_1, x_2, \cdots, x_n$的一个多项式，$a_{i_1 i_2 \cdots i_n}$叫做多项式的系数. 环$R[x_1][x_2]\cdots[x_n]$叫做$R$上的$x_1, x_2, \cdots, x_n$的多项式环. 这个环我们也用符号$R[x_1, x_2, \cdots, x_n]$来表示.
 \end{Definition}
 
-\subsection{理想}
+\begin{Proposition}
+假定$R$是一个整环, 那么$R$上的一元多项式环也是一个整环.
+\end{Proposition}
 
-\begin{Definition}[理想]
+\subsection{理想} %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{Definition}[!理想]
 环$R$的一个非空子集$I$叫做一个\textbf{理想子环}(简称\textbf{理想}), 如果
 \begin{enumerate}
 	\item $a, b \in I \Rightarrow a - b \in I$
@@ -587,7 +596,19 @@ x_i, y_i, s, t \in R, n \in \mathbb{Z} \}$, 则$I$是包含$a$的最小理想.
 两个元素生成的理想, 可能是主理想，也可能不是.
 \end{Note}
 
-\subsection{剩余类环、同态与理想}
+\begin{Proposition} \ \\
+\begin{itemize}
+\item 群$G$的两个子群的交集还是$G$的子群.
+\item 两个不变子群的交集还是不变子群.
+\item 两个子环的交集还是子环.
+\item 两个子整环的交集还是子整环.
+\item 两个子除环的交集还是子除环.
+\item 两个子域的交集还是子域.
+\item 两个理想的交集还是一个理想.
+\end{itemize}
+\end{Proposition}
+
+\subsection{剩余类环、同态与理想} %%%%
 
 \begin{Note}
 给定一个环$R$和$R$的一个理想$I$, 则我们就加法来说, $R$做成一个群, $I$做成$R$的一个不变子群, 从而$I$的陪集$[a], [b], [c], \cdots$做成$R$的一个分类, 叫做\textbf{模$I$的剩余类}. 同时这个分类描述$R$的元素之间的等价关系, 用符号$a \equiv b \text{ mod } I$表示(读作$a$同余$b$模$I$), 即$a \equiv b \text{ mod } I \Leftrightarrow a \sim b \Leftrightarrow a - b \in I$. 且类$[a]$所包含的元素可以写成$\{ a + u \mid u \in I \}$
@@ -601,7 +622,7 @@ x_i, y_i, s, t \in R, n \in \mathbb{Z} \}$, 则$I$是包含$a$的最小理想.
 上面的$\bar{R}$叫做环$R$的\textbf{模$I$的剩余类环}, 用符号$R/I$来表示.
 \end{Definition}
 
-\begin{Theorem}
+\begin{Theorem}[!]
 假定$R$与$\bar{R}$是两个环, 并且$R$与$\bar{R}$同态, 那么这个同态满射的核$I$是$R$的一个理想, 并且$R/I \cong \bar{R}$
 \end{Theorem}
 
@@ -620,6 +641,10 @@ x_i, y_i, s, t \in R, n \in \mathbb{Z} \}$, 则$I$是包含$a$的最小理想.
 	环-群, 子环-子群, 理想-不变子群
 \end{Note}
 
+\begin{Proposition}
+$\phi$是环$R$到环$\bar{R}$的一个同态满射: $\phi$是$R$与$\bar{R}$之间的同构映射 $\Leftrightarrow$ $\phi$的核是零理想.
+\end{Proposition}
+
 \subsection{最大理想}
 
 \begin{Definition}[最大理想]
@@ -634,7 +659,7 @@ x_i, y_i, s, t \in R, n \in \mathbb{Z} \}$, 则$I$是包含$a$的最小理想.
 若有单位元($\neq \mathfrak{0}$)的交换环$R$除了零理想和单位理想以外没有其他理想, 那么$R$一定是一个域.
 \end{Lemma}
 
-\begin{Theorem}
+\begin{Theorem}[!]
 $R$是有单位元的交换环, $I (\neq R)$是$R$的理想: $R/I$是域 $\Leftrightarrow$
 $I$是$R$的最大理想.
 \end{Theorem}
