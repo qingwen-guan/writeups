@@ -1,0 +1,268 @@
+\section{线性方程组解法}
+
+%\subsection{解线性方程组的矩阵消元法}
+
+\begin{Note}
+线性代数的主线是: 研究线性空间和线性映射.
+\end{Note}
+
+\begin{Proposition}
+$n$阶上三角形行列式的值，等于它的主对角线上的$n$个元素的乘积.
+\end{Proposition}
+
+\begin{Property}
+$\mathrm{det}A = \mathrm{det}A'$
+\end{Property}
+
+\begin{Property}
+行列式一行的公因子可以提出去, 即
+$$
+\left| \begin{matrix}
+a_{11} & \cdots & a_{1n} \\
+\vdots & \vdots & \vdots \\
+ka_{i1} &\cdots & k a_{in} \\
+\vdots & \vdots & \vdots \\
+a_{n1} & \cdots & a_{nn} \\
+\end{matrix} \right| = k \left|
+\begin{matrix}
+a_{11} & \cdots & a_{1n} \\
+\vdots & \vdots & \vdots \\
+a_{i1} & \cdots & a_{in} \\
+\vdots & \vdots & \vdots \\
+a_{n1} & \cdots & a_{nn} \\
+\end{matrix} \right| (k \in K)$$
+\end{Property}
+
+\begin{Property}
+$$
+\begin{blockarray}{c|ccc|}
+&a_{11} & \cdots & a_{1n} \\
+&\vdots & \vdots & \vdots \\
+\text{(row $i$)} &b_{1} + c_1 & \cdots & b_{n} +c_{n} \\
+&\vdots & \vdots & \vdots \\
+&a_{n1} & \cdots & a_{nn} \\
+\end{blockarray}
+= 
+\begin{blockarray}{|ccc|}
+a_{11} & \cdots & a_{1n} \\
+\vdots & \vdots & \vdots \\
+b_{1} & \cdots & b_{n} \\
+\vdots & \vdots & \vdots \\
+a_{n1} & \cdots & a_{nn} \\
+\end{blockarray}
++
+\begin{blockarray}{|ccc|}
+a_{11} & \cdots & a_{1n} \\
+\vdots & \vdots & \vdots \\
+c_{1} & \cdots & c_{n} \\
+\vdots & \vdots & \vdots \\
+a_{n1} & \cdots & a_{nn} \\
+\end{blockarray}
+$$
+\end{Property}
+
+\begin{Property}
+两行互换, 行列式反号.
+$$
+\begin{blockarray}{c|ccc|}
+&a_{11} & \cdots & a_{1n} \\
+&\vdots & \vdots & \vdots \\
+\text{(row $i$)} &a_{k1} & \cdots & a_{kn} \\
+&\vdots & \vdots & \vdots \\
+\text{(row $k$)} &a_{j1} & \cdots & a_{jn} \\
+&\vdots & \vdots & \vdots \\
+&a_{n1} & \cdots & a_{nn} \\
+\end{blockarray}
+= 
+-\;
+\begin{blockarray}{|ccc|c}
+a_{11} & \cdots & a_{1n} &\\
+\vdots & \vdots & \vdots &\\
+a_{i1} & \cdots & a_{in} & \text{(row $i$)}\\
+\vdots & \vdots & \vdots &\\
+a_{k1} & \cdots & a_{kn} & \text{(row $k$)}\\
+\vdots & \vdots & \vdots &\\
+a_{n1} & \cdots & a_{nn} &\\
+\end{blockarray}
+$$
+\end{Property}
+
+\begin{Property}
+两行成比例, 行列式值为$0$.
+$$
+\begin{blockarray}{c|ccc|}
+&a_{11} & \cdots & a_{1n} \\
+&\vdots & \vdots & \vdots \\
+\text{(row $i$)} &a_{i1} & \cdots & a_{in} \\
+&\vdots & \vdots & \vdots \\
+\text{(row $k$)} &k a_{i1} & \cdots & k a_{in} \\
+&\vdots & \vdots & \vdots \\
+&a_{n1} & \cdots & a_{nn} \\
+\end{blockarray}
+= 
+0
+$$
+\end{Property}
+
+
+\begin{Property}
+把一行的倍数加到另一行上，行列式值不变.
+$$
+\begin{blockarray}{c|ccc|}
+&a_{11} & \cdots & a_{1n} \\
+&\vdots & \vdots & \vdots \\
+\text{(row $i$)} &a_{i1} & \cdots & a_{in} \\
+&\vdots & \vdots & \vdots \\
+\text{(row $k$)} & a_{k1} +\ell a_{i1} & \cdots & a_{kn} +\ell a_{in} \\
+&\vdots & \vdots & \vdots \\
+&a_{n1} & \cdots & a_{nn} \\
+\end{blockarray}
+= 
+\begin{blockarray}{|ccc|c}
+a_{11} & \cdots & a_{1n} &\\
+\vdots & \vdots & \vdots &\\
+a_{i1} & \cdots & a_{in} & \text{(row $i$)}\\
+\vdots & \vdots & \vdots &\\
+a_{k1} & \cdots & a_{kn} & \text{(row $k$)}\\
+\vdots & \vdots & \vdots &\\
+a_{n1} & \cdots & a_{nn} &\\
+\end{blockarray}
+$$
+\end{Property}
+
+\begin{Proposition}
+$$
+\begin{vmatrix}
+k       & \lambda & \lambda & \cdots & \lambda \\
+\lambda & k       & \lambda & \cdots & \lambda \\
+\vdots  & \vdots  & \vdots  & \vdots & \vdots  \\
+\lambda & \lambda & \lambda & \cdots & k       \\
+\end{vmatrix} = \left[ k + (n-1) \lambda \right] \left( k - \lambda \right)^{n-1}
+$$
+\end{Proposition}
+
+\begin{Definition}
+$n$阶矩阵$A = (a_{ij})$, 划去A的第$i$行第$j$列剩下元素按原来顺序排列构成余子式$M_{ij}$, 代数余子式$A_{ij} = {(-1)}^{i+j} M_{ij}$.
+\end{Definition}
+
+\begin{Theorem}
+$n$阶行列式$|A|$等于它的第$i$行元素与自己的代数余子式的乘积之和, 即
+$$
+\mathrm{det} A = \sum_{j=1}^n a_{ij} A_{ij}.
+$$
+\end{Theorem}
+
+
+\begin{Theorem}
+$n$阶行列式$|A|$等于它的第$j$列元素与自己的代数余子式的乘积之和, 即
+$$
+\mathrm{det} A = \sum_{i=1}^n a_{ij} A_{ij}.
+$$
+\end{Theorem}
+
+\begin{Theorem}
+$n$阶矩阵$A = (a_{ij})$, $i \neq k$时$a_{i1} A_{k1} + a_{i2} A_{k2} + \cdots + a_{in} A_{kn} = 0$.
+\end{Theorem}
+
+\begin{Theorem}
+$n$阶矩阵$A = (a_{ij})$, $j \neq \ell$时$a_{1j} A_{1\ell} + a_{2j} A_{2\ell} + \cdots + a_{nj} A_{n\ell} = 0$.
+\end{Theorem}
+
+\begin{Proposition} $n$阶范德蒙行列式($n \ge 2$)
+$$
+\begin{vmatrix} 
+1      & 1      & \cdots & 1 \\
+a_1    & a_2    & \cdots & a_n \\
+\vdots & \vdots & \vdots & \vdots \\
+a_1^n  & a_2^n  & \cdots & a_n^n \\
+\end{vmatrix} = \prod_{1 \le j < i \le n} {(a_i - a_j)}
+$$
+\end{Proposition}
+
+\begin{Theorem}
+数域$K$上的$n$个方程的$n$元线性方程组有唯一解的充要条件是他的系数行列式不等于$0$.
+\end{Theorem}
+
+\begin{Corollary}
+数域$K$上的$n$个方程的$n$元齐次线性方程组只有零解的充要条件是它的系数行列式不等于0; 它有非零解的充分必要条件是它的系数行列式等于0.
+\end{Corollary}
+
+\begin{Note}
+克莱姆法则等到第四章再给.
+\end{Note}
+
+\begin{Note}
+数学上凡是重要的概念, 虽然可能是因为研究某一类内容提出的, 但是它一经提出来就不仅仅是解决这个问题了, 它可能解决高等代数里很多其他特定的问题, 而且还能解决几何学、分析学的好多问题.
+\end{Note}
+
+\begin{Definition}
+$n$阶行列式$A$中任意取定$k$行$k$列($1 \le k < n$), 位于这些行和列的交叉处的$k^2$个元素按原来的排发组成的$k$阶行列式，
+称为$|A|$的一个\textbf{$k$阶子式}. 取定$|A|$的第$i_1, i_2, \cdots i_k$行($i_1 < i_2 < \cdots < i_k$), 第$j_1, j_2, \cdots, j_k$列($j_1 < j_2 < \cdots < j_k$), 所得到的$k$阶子式记作
+\begin{equation} \label{eq:1}
+A \begin{pmatrix}
+i_1, i_2, \cdots, i_k \\
+j_1, j_2, \cdots, j_k \\
+\end{pmatrix}
+\end{equation}
+划去这个$k$阶子式所在的行和列, 剩下的预算按照原来的排法组成的$(n-k)$阶行列式, 称为这个子式(\ref{eq:1})的\textbf{余子式},
+令
+$$
+\begin{aligned}
+\{ i'_1, i'_2, \cdots, i'_{n-k} \} &= \{ 1, 2, \cdots, n \} - \{ i_1, i_2, \cdots, i_k \} \\
+\{ j'_1, j'_2, \cdots, j'_{n-k} \} &= \{ 1, 2, \cdots, n \} - \{ j_1, j_2, \cdots, j_k \} \\
+\end{aligned}
+$$
+其中$i'_1 < i'_2 < \cdots < i'_{n-k}, j'_1 < j'_2 < \cdots < j'_{n-k}$, 则子式(\ref{eq:1})的余子式为
+$$
+A \begin{pmatrix}
+i'_1, i'_2, \cdots, i'_{n-k} \\
+j'_1, j'_2, \cdots, j'_{n-k} \\
+\end{pmatrix}
+$$
+它的前面乘以 
+$${(-1)}^{(i_1 + i_2 + \cdots + i_k ) + (j_1 +j_2 + \cdots + j_k)}$$
+则称为这个子式(\ref{eq:1})的\textbf{代数余子式}.
+\end{Definition}
+
+\begin{Theorem}[Laplace定理]
+在$n$阶行列式$|A| = |a_{ij}|$中, 取定第$i_1, i_2, \cdots, i_k$行($i_1 < i_2 < \cdots < i_k$), 则
+这$k$行元素形成的所有$k$阶子式与它们自己的代数余子式的乘积之和等于$|A|$, 即
+$$
+|A| = \sum_{1 \le j_1 < j_2 < \cdots < j_k \le n} A\begin{pmatrix}
+i_1, i_2, \cdots, i_k \\
+j_1, j_2, \cdots, j_k \\
+\end{pmatrix} (-1)^{(i_1 + i_2 + \cdots + i_k) + (j_1 + j_2 + \cdots + j_k)} A \begin{pmatrix}
+i'_1, i'_2, \cdots, i'_{n-k} \\
+j'_1, j'_2, \cdots, j'_{n-k} \\
+\end{pmatrix}
+$$
+\end{Theorem}
+
+\begin{Corollary}
+$$
+\begin{vmatrix}
+a_{11} & \cdots & a_{1k} & 0      & \cdots & 0 \\
+\vdots &        & \vdots & \vdots &        & \vdots \\
+a_{k1} & \cdots & a_{kk} & 0      & \cdots & 0 \\
+c_{11} & \cdots & c_{1k} & d_{11} & \cdots & d_{1r} \\
+\vdots &        & \vdots & \vdots &        & \vdots \\
+c_{r1} & \cdots & c_{rk} & d_{r1} & \cdots & d_{rr} 
+\end{vmatrix} = \begin{vmatrix}
+a_{11} & \cdots & a_{1k}  \\
+\vdots &        & \vdots  \\
+a_{k1} & \cdots & a_{kk} \\
+\end{vmatrix} \cdot
+\begin{vmatrix}
+d_{11} & \cdots & d_{1r}  \\
+\vdots &        & \vdots  \\
+d_{r1} & \cdots & d_{rr} \\
+\end{vmatrix}
+$$
+也记成
+$$
+\begin{vmatrix}
+A_{k \times k} & 0 \\
+C & D_{r \times r} \\
+\end{vmatrix} = |A| \cdot |D|
+$$
+\end{Corollary}

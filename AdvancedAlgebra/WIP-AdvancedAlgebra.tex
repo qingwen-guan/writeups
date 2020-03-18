@@ -1,0 +1,83 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[dvipsnames, svgnames, x11names]{xcolor}  % 一般放得靠前
+%\usepackage{xcolor}
+%\usepackage{marginnote}
+\usepackage{wasysym}
+\usepackage{geometry}
+\usepackage{ntheorem}
+%\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem} %https://tex.stackexchange.com/questions/229540/customized-enumerate-items
+\usepackage{forest}
+\usepackage{hyperref}
+\usepackage{blkarray,bigstrut}
+
+
+\usetikzlibrary{decorations.pathreplacing}
+
+%\geometry{a4paper,left=2cm,right=4cm,top=2cm,bottom=1cm,marginparwidth=3cm}
+\geometry{a4paper,left=2cm,right=2cm,top=2cm,bottom=1cm}
+
+\theorembodyfont{\upshape}
+\newtheorem{Definition}{定义}%[subsection]
+\newtheorem{Theorem}[Definition]{定理}
+
+\newtheorem{Remark}[Definition]{注意}
+\newtheorem*{RemarkNon}[Definition]{注意}
+
+\newtheorem{Lemma}[Definition]{引理}
+\newtheorem{Corollary}[Definition]{推论}
+\newtheorem{Proposition}[Definition]{命题}
+
+\newtheorem{Property}[Definition]{性质}
+\newtheorem*{PropertyNon}[Definition]{性质}
+
+\newtheorem{Note}[Definition]{说明}
+\newtheorem*{NoteNon}[Definition]{说明}
+
+\setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0pt}
+\setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0pt}
+
+%\renewcommand\marginfont{%
+%    \scriptsize
+%}
+
+%\setlength{\parskip}{0pt}
+%  \setlength{\topskip}{0pt}
+
+\newenvironment{tightcenter}{%
+  \setlength\topsep{0pt}
+  \setlength\parskip{0pt}
+  \begin{center}
+}{%
+  \end{center}
+}
+
+\begin{document}
+
+\title{高等代数笔记}
+\author{管清文}
+\maketitle
+\tableofcontents
+\clearpage
+
+% http://blog.sina.com.cn/s/blog_4b3651ad0101nk4o.html
+\begin{PropertyNon}[Property]
+结果值得一记, 但是没有定理深刻.
+\end{PropertyNon}
+
+\begin{RemarkNon}[Remark]
+涉及到一些结论，更像是非正式的定理.
+\end{RemarkNon}
+
+\begin{NoteNon}[Note]
+就是注解.
+\end{NoteNon}
+
+\setcounter{Definition}{0}
+
+\input{AdvancedAlgebra/Section1}
+
+\end{document}
