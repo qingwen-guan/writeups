@@ -1,10 +1,12 @@
-\section{线性方程组解法}
+%\section{线性方程组解法}
 
 %\subsection{解线性方程组的矩阵消元法}
 
 \begin{Note}
 线性代数的主线是: 研究线性空间和线性映射.
 \end{Note}
+
+\section{$n$阶行列式}
 
 \begin{Proposition}
 $n$阶上三角形行列式的值，等于它的主对角线上的$n$个元素的乘积.
@@ -196,15 +198,15 @@ $$
 \end{Note}
 
 \begin{Definition}
-$n$阶行列式$A$中任意取定$k$行$k$列($1 \le k < n$), 位于这些行和列的交叉处的$k^2$个元素按原来的排发组成的$k$阶行列式，
-称为$|A|$的一个\textbf{$k$阶子式}. 取定$|A|$的第$i_1, i_2, \cdots i_k$行($i_1 < i_2 < \cdots < i_k$), 第$j_1, j_2, \cdots, j_k$列($j_1 < j_2 < \cdots < j_k$), 所得到的$k$阶子式记作
+$n$阶行列式$|A|$中任意取定$k$行$k$列($1 \le k < n$), 位于这些行和列的交叉处的$k^2$个元素按原来的排法组成的$k$阶行列式，
+称为$|A|$的一个\textbf{$k$阶子式}\index{$k$阶子式}. 取定$|A|$的第$i_1, i_2, \cdots i_k$行($i_1 < i_2 < \cdots < i_k$), 第$j_1, j_2, \cdots, j_k$列($j_1 < j_2 < \cdots < j_k$), 所得到的$k$阶子式记作
 \begin{equation} \label{eq:1}
 A \begin{pmatrix}
 i_1, i_2, \cdots, i_k \\
 j_1, j_2, \cdots, j_k \\
 \end{pmatrix}
 \end{equation}
-划去这个$k$阶子式所在的行和列, 剩下的预算按照原来的排法组成的$(n-k)$阶行列式, 称为这个子式(\ref{eq:1})的\textbf{余子式},
+划去这个$k$阶子式所在的行和列, 剩下的预算按照原来的排法组成的$(n-k)$阶行列式, 称为子式(\ref{eq:1})的\textbf{余子式},
 令
 $$
 \begin{aligned}
@@ -221,7 +223,7 @@ j'_1, j'_2, \cdots, j'_{n-k} \\
 $$
 它的前面乘以 
 $${(-1)}^{(i_1 + i_2 + \cdots + i_k ) + (j_1 +j_2 + \cdots + j_k)}$$
-则称为这个子式(\ref{eq:1})的\textbf{代数余子式}.
+则称为子式(\ref{eq:1})的\textbf{代数余子式}.
 \end{Definition}
 
 \begin{Theorem}[Laplace定理]
@@ -266,3 +268,644 @@ C & D_{r \times r} \\
 \end{vmatrix} = |A| \cdot |D|
 $$
 \end{Corollary}
+
+\section{线性空间}
+\subsection{域上的线性空间的定义}
+
+\begin{Definition}[线性空间]
+一个非空集合$V$, 如果它有加法运算(即$V \times V \rightarrow V: (\alpha, \beta) \mapsto \alpha + \beta$), 其元素与域$F$的元素之间有纯量乘法运算
+(即$F \times V \rightarrow V: k \times \alpha \mapsto k \alpha$), 并且满足下面的$8$条运算法则($\forall \alpha, \beta, \gamma \in V, 
+\forall k, \ell \in F$),
+\begin{enumerate}[(1)]
+	\item 加法交换: $\alpha + \beta = \beta + \alpha$
+	\item II(加法结合): $(\alpha + \beta) + \gamma = \alpha + (\beta + \gamma)$
+	\item IV: $\exists \mathbf{0} \in V$使得$\alpha + \mathbf{0} = \alpha$, 具有该性质的元素$\mathbf{0}$称为$V$的\textbf{零元}.
+	\item V: $\forall \alpha \in V, \exists \beta \in V$使得$\alpha + \beta = \mathbf{0}$, 具有该性质的元素$b$称为$a$的\textbf{负元}
+	\item $\mathfrak{1} \alpha = \alpha$, 其中$\mathfrak{1}$是$F$的单位元.
+	\item $(k \ell) \alpha = k (\ell \alpha)$
+	\item $(k+\ell) \alpha = k \alpha + \ell \alpha$
+	\item $k(\alpha + \beta) = k \alpha + k\beta$
+\end{enumerate}
+则称$V$是域$F$上的一个\textbf{线性空间}.
+\end{Definition}
+
+\begin{Property}
+设$V$是域$K$上的一个线性空间，则它满足以下性质($\forall k \in F, \forall \alpha \in V$):
+\begin{enumerate}[(1)]
+\item $V$的零元唯一
+\item $\alpha$的负元唯一
+\item $0 \alpha = \mathbf{0}$
+\item $k \mathbf{0} = \mathbf{0}$
+\item $k \alpha = 0 \Rightarrow k = 0$或$\alpha = \mathbf{0}$
+\item $(-1) \alpha = - \alpha$
+\end{enumerate}
+\end{Property}
+
+\subsection{线性子空间}
+
+\begin{Definition}[线性子空间]
+设$V$是域$F$上的一个线性空间, $U$是$V$的一个非空子集, 如果$U$对于$V$的加法和纯量乘法, 也构成域$F$上的一个线性空间, 则称$U$是$V$的一个\textbf{线性子空间}, 简称\textbf{子空间}.
+\end{Definition}
+
+\begin{Theorem}[!!!]
+设$U$是域$F$上的线性空间$V$的一个非空子集, 则$U$是$V$的一个子空间的充分必要条件是: $U$对于$V$的加法和纯量乘法都封闭, 即
+$$
+\begin{aligned}
+\alpha, \beta \in U \Rightarrow \alpha + \beta \in U \\
+k \in F, \alpha \in U \Rightarrow k \alpha \in U
+\end{aligned}
+$$
+\end{Theorem}
+
+\begin{Note}
+$\{ 0 \}, V$都是$V$的子空间，称为$V$的\textbf{平凡子空间}, $\{ 0 \}$称为\textbf{零子空间}, 可记作$\mathfrak{0}$.
+\end{Note}
+
+\begin{Definition}
+对于$V$中的一组向量$\alpha_1, \alpha_2, \cdots, \alpha_s$和域$F$中的一组元素$k_1, k_2, \cdots, k_s$, 作纯量乘法和加法得到
+$$
+k_1 \alpha_1 + k_2 \alpha_2 + \cdots +k_s \alpha_s
+$$
+仍然是$V$中的一个向量, 称这个向量是$\alpha_1, \alpha_2, \cdots, \alpha_s$的一个\textbf{线性组合}.
+像$\alpha_1, \alpha_2, \cdots, \alpha_s$这样按照一定顺序写出的\;\fbox{有限}\;多个向量(允许有相同的向量)称为$V$的一个\textbf{向量组}.
+\end{Definition}
+
+\begin{Definition}[线性表出]
+$V$中的一个向量$\beta$如果能够表示成向量组$\alpha_1, \alpha_2, \cdots, \alpha_s$的一个线性组合, 那么称$\beta$可由向量组$\alpha_1, \alpha_2, \cdots, \alpha_s$\textbf{线性表出}.
+\end{Definition}
+
+\begin{Definition}[由向量组生成的线性子空间]
+设$V$是域$F$上的一个线性空间, 给定$V$的一个向量组$\alpha_1, \alpha_2, \cdots, \alpha_s$. 考虑$\alpha_1, \alpha_2, \cdots, \alpha_s$的所有线性组合构成的集合
+$$
+W = \{ k_1 \alpha_1 + k_2 \alpha_2 + \cdots + k_s \alpha_s \mid k_i \in F, i = 1, \cdots, s\}
+$$
+则$W$是$V$的一个子空间. 把$W$称为向量组\textbf{生成}(或\textbf{张成})\textbf{的线性子空间},
+记作$\langle \alpha_1, \alpha_2, \cdots, \alpha_s \rangle$或者$L(\alpha_1, \alpha_2, \cdots, \alpha_s)$.
+\end{Definition}
+
+%\subsection{线性方程组的列视角}
+
+\begin{Note}
+对于数域$K$上的$n$元线性方程组
+$$
+\left\{
+\begin{matrix}
+a_{11} x_1 + a_{12}x_2 + \cdots + a_{1n} x_n = b_1 \\
+a_{21} x_1 + a_{22}x_2 + \cdots + a_{2n} x_n = b_2 \\
+\vdots \\
+a_{s1} x_1 + a_{s2}x_2 + \cdots + a_{sn} x_n = b_s \\
+\end{matrix}
+\right.
+$$%
+可以写成
+$$
+x_1 \begin{pmatrix} a_{11} \\ a_{21} \\ \vdots \\ a_{s1} \end{pmatrix}
++x_2 \begin{pmatrix} a_{12} \\ a_{22} \\ \vdots \\ a_{s2} \end{pmatrix}
++\cdots
++x_n \begin{pmatrix} a_{1n} \\ a_{2n} \\ \vdots \\ a_{sn} \end{pmatrix}
+= \begin{pmatrix} b_{1} \\ b_{2} \\ \vdots \\ b_{n} \end{pmatrix}
+$$
+即
+$$
+x_1 \mathbf{\alpha_1} +
+x_2 \mathbf{\alpha_2} + 
+\cdots + 
+x_n \mathbf{\alpha_n} = 
+\mathbf{\beta}
+$$
+其中
+$\mathbf{\alpha_1}, \mathbf{\alpha_2}, \cdots, \mathbf{\alpha_n}$
+是原线性方程组的系数矩阵的列向量组; $\beta$是由常数项组成的列向量.
+\end{Note}
+
+\begin{Note} \ \\
+$$
+\begin{aligned}
+& \text{数域$K$上线性方程组\;} x_1 \mathbf{\alpha_1} +
+\cdots + 
+x_n \mathbf{\alpha_n} = 
+\mathbf{\beta}\text{\;有解} \\
+\Leftrightarrow\;
+& \beta \text{\;可以由\;} \mathbf{\alpha_1}, \cdots, \alpha_n \text{\;线性表出} \\
+\Leftrightarrow\; & \beta \in \langle \alpha_1, \cdots, \alpha_n \rangle 
+\end{aligned}
+$$
+\end{Note}
+
+\begin{Note}于是下一步的任务: 研究线性空间和它的子空间的结构.
+\end{Note}
+
+\subsection{线性相关与线性无关的向量组}
+
+\begin{Definition}[线性相关]
+设$V$是数域$K$上的一个线性空间, 对于$V$中的一个向量组$\mathbf{\alpha_1}, \mathbf{\alpha_2}, \cdots, \mathbf{\alpha_s}$ ($s \ge 0$)
+如果有$K$中不全为$0$的数$k_1, k_2, \cdots, k_s$, 使得
+$$
+k_1 \alpha_1 + k_2 \alpha_2 + \cdots + k_s \alpha_s = 0
+$$
+被称向量组$\mathbf{\alpha_1}, \mathbf{\alpha_2}, \cdots, \mathbf{\alpha_s}$\textbf{线性相关} 
+; 否则(也就是$k_1 \mathbf{\alpha}_1 + k_2 \mathbf{\alpha}_2 + \cdots + k_s \mathbf{\alpha}_s = 0 \Rightarrow k_1 = k_2 = \cdots = k_s = 0$), 称$\alpha_1, \alpha_2, \cdots, \alpha_s$\textbf{线性无关}.
+\end{Definition}
+
+\begin{Note}[!]
+$K^s$中, 列向量组$\alpha_1, \cdots, \alpha_n$线性相关 \\
+$\Leftrightarrow$ $K$上的$n$元齐次线性方程组$x_1 \alpha_1 + \cdots +x_n \alpha_n = 0$有非零解
+\end{Note}
+
+\begin{Note}[!]
+$K^s$中, 列向量组$\alpha_1, \cdots, \alpha_n$线性无关 \\
+$\Leftrightarrow$ $K$上的$n$元齐次线性方程组$x_1 \alpha_1  + \cdots +x_n \alpha_n = 0$只有零解
+\end{Note}
+
+\begin{Note}
+$K^{n}$中, 列向量组$\alpha_1, \cdots, \alpha_n$线性相关 \\
+$\Leftrightarrow$ $K$上的$n$元齐次线性方程组$x_1 \alpha_1 + \cdots +x_n \alpha_n = 0$有非零解 \\
+$\Leftrightarrow$ 以$\alpha_1, \cdots, \alpha_n$为列向量组的矩阵$A$的行列式$=0$.
+\end{Note}
+
+\begin{Note}[!!!!]
+$K^{n}$中, 
+\begin{tightcenter}
+列向量组$\alpha_1, \cdots, \alpha_n$线性无关
+$\Leftrightarrow$ 以$\alpha_1, \cdots, \alpha_n$为列向量组的矩阵$A$的行列式$\neq 0$.
+\end{tightcenter}
+\end{Note}
+
+\begin{Note}
+设$V$是数域$K$上的一个线性空间, 
+\begin{enumerate}[(1)]
+\item $\alpha$线性相关$\Leftrightarrow$有$k \neq 0$使得$k \alpha = 0$ 
+$\Leftrightarrow \alpha = \mathbf{0}$
+\item 从而, $\alpha$线性无关 $\Leftrightarrow \alpha \neq \mathbf{0}$
+\item[! (3)] 向量组$\alpha_1, \alpha_2, \cdots, \alpha_s$如果有一个部分组线性相关, 那么向量组$\alpha_1, \alpha_2, \cdots, \alpha_s$线性相关.
+\item[(4)] 向量组$\alpha_1, \alpha_2, \cdots, \alpha_s$如果线性无关, 那么$\alpha_1, \alpha_2, \cdots, \alpha_s$任何一个部分组都线性无关.
+\item[(5)] 含有$\mathbf{0}$的任何一个向量组都线性相关.
+\item[(6)] 向量组$\alpha_1, \alpha_2, \cdots, \alpha_s$ ($s \ge 2$)线性相关 $\Leftrightarrow$ 其中至少有一个向量可以由其余的向量线性表出.
+\item[(7)] 向量组$\alpha_1, \alpha_2, \cdots, \alpha_s$ ($s \ge 2$)线性无关 $\Leftrightarrow$ 其中每一个向量都不能由其余的向量线性表出.
+\item[!!!! (8)] 如果向量组线性无关, 那么把每个向量填上$m$个分量(所填分量的位置对于每个向量都一样)得到的\textbf{延伸组}也线性无关.
+\item[! (9)] 如果向量组线性相关, 那么把每个向量去掉$m$个分量(去掉的分量的位置对于每个向量都一样)得到的\textbf{缩短组}也线性相关.
+\end{enumerate}
+\end{Note}
+
+\begin{Proposition}[!!]
+设$\beta$可以由向量组$\alpha_1, \alpha_2, \cdots, \alpha_s$线性表出, 则
+\begin{tightcenter}
+表出方式唯一$\Leftrightarrow$
+$\alpha_1, \alpha_2, \cdots, \alpha_s$线性无关. 
+\end{tightcenter}
+\end{Proposition}
+
+\begin{Proposition}[!!!]
+设向量组$\alpha_1, \alpha_2, \cdots, \alpha_s$线性无关, 如果
+$\alpha_1, \alpha_2, \cdots, \alpha_s, \beta$线性相关, 则$\beta$可以由$\alpha_1, \alpha_2, \cdots, \alpha_s$线性表出.
+\end{Proposition}
+
+\subsection{极大线性无关组, 向量组的秩}
+
+\begin{Definition}[极大线性无关组]
+向量组的一个部分组如果满足以下两个条件
+\begin{enumerate}[(1)]
+\item 这个部分组本身是线性无关的
+\item 从这个向量组的其余向量(如果还有的话)中任取一个添进去, 得到的新的部分组都线性相关.
+\end{enumerate}
+那么称这个部分组是向量组的一个\textbf{极大线性无关组}.
+\end{Definition}
+
+\begin{Definition}
+若向量组$\alpha_1, \cdots, \alpha_s$中每一个向量都可以由向量组$\beta_1, \cdots, \beta_r$线性表出, 则称
+向量组$\alpha_1, \cdots, \alpha_s$可以由向量组$\beta_1,\cdots, \beta_r$线性表出. 如果向量组$\alpha_1, \cdots, \alpha_s$
+和向量组$\beta_1, \cdots, \beta_r$可以互相线性表出, 那么称向量组$\alpha_1, \cdots, \alpha_s$与向量组$\beta_1, \cdots, \beta_r$\textbf{等价}, 记作
+$$\{ \alpha_1, \cdots, \alpha_s \} \cong \{ \beta_1, \cdots, \beta_r \}$$
+
+\end{Definition}
+
+\begin{Remark}
+$\{ \mathbf{0} \}$不能由空集线性表出.
+\end{Remark}
+
+\begin{Proposition}[!]
+一个向量组和它的任意一个极大线性无关组等价.
+\end{Proposition}
+
+\begin{Corollary}
+向量组的任意两个极大线性无关组等价.
+\end{Corollary}
+
+%\begin{Corollary}
+%$\beta$可以由向量组$\alpha_1, \cdots, \alpha_s$线性表出 $\Leftrightarrow$ $\beta$可以由$\alpha_1, \cdots, \alpha_s$的一个极大线性无关组线性表出.
+%\end{Corollary}
+
+\begin{Lemma}[!!]
+设向量组$\beta_1, \cdots, \beta_r$可以由向量组$\alpha_1, \cdots, \alpha_s$线性表出, 
+\begin{tightcenter}
+$r > s \Rightarrow \beta_1, \cdots, \beta_r$线性相关.
+\end{tightcenter}
+\end{Lemma}
+
+\begin{Corollary}
+设向量组$\beta_1, \cdots, \beta_r$可以由向量组$\alpha_1, \cdots, \alpha_s$线性表出, 
+\begin{tightcenter}
+$\beta_1, \cdots, \beta_r$线性无关$\Rightarrow r \le s$.
+\end{tightcenter}
+\end{Corollary}
+
+\begin{Corollary}
+等价的线性无关的向量组的个数相等.
+\end{Corollary}
+
+\begin{Corollary}
+向量组的任意两个极大线性无关组所含向量的个数相等.
+\end{Corollary}
+
+\begin{Definition}[!!!!!, 向量组的秩]
+向量组$\alpha_1, \cdots, \alpha_s$的极大线性无关组所含向量的个数称为向量组$\alpha_1, \cdots, \alpha_s$的\textbf{秩}, 记作
+$$ \rank \{ \alpha_1, \cdots, \alpha_s \}  $$
+全由零向量租组成向量组的秩规定为$0$.
+\end{Definition}
+
+\begin{Proposition}
+向量组的任意一个线性无关组都可以扩充成一个极大线性无关组.
+\end{Proposition}
+
+\begin{Proposition}[!!!]
+向量组$\alpha_1, \cdots, \alpha_s$线性无关 $\Leftrightarrow $ $\text{rank} \{ \alpha_1, \cdots, \alpha_s\} = s$. 
+\end{Proposition}
+
+\begin{Proposition}[!!]
+向量组(I)可以由向量组(II)线性表出, 则$\text{rank(I)} \le \text{rank(II)}$.
+\end{Proposition}
+
+\begin{Corollary}[!!]
+等价的向量组的秩相等.
+\end{Corollary}
+
+\subsection{基与维数、坐标}
+
+\begin{Definition}[!]
+设$V$是数域$K$上的线性空间, 
+\begin{tightcenter}
+$V$的一个有限多重子集$[[ \alpha_1, \cdots, \alpha_s ]]$线性相关 $\stackrel{\text{def}}{\iff}$ 向量组$\alpha_1, \cdots, \alpha_s$线性相关. \\
+$V$的一个有限多重子集$[[ \alpha_1, \cdots, \alpha_s ]]$线性无关 $\stackrel{\text{def}}{\iff}$ 向量组$\alpha_1, \cdots, \alpha_s$线性无关. \\
+$V$的一个无限多重子集$\mathfrak{S}$线性相关 $\stackrel{\text{def}}{\iff}$ $\mathfrak{S}$有一个有限子集是线性相关的. \\
+$V$的一个无限多重子集$\mathfrak{S}$线性无关 $\stackrel{\text{def}}{\iff}$ $\mathfrak{S}$任何一个有限子集都线性无关. \\
+$\mathfrak{S} = \emptyset$ $\stackrel{\text{def}}{\iff}$ $\mathfrak{S}$是线性无关的.
+\end{tightcenter}
+\end{Definition}
+
+\begin{Definition}[!!, 基] \label{def:base}
+设$V$是数域$K$上的线性空间, $V$的一个多重子集$\mathfrak{S}$如果满足下述两个条件
+\begin{enumerate}[(1)]
+	\item $\mathfrak{S}$是线性无关的
+	\item $V$中任一向量可以由$\mathfrak{S}$中的\;\fbox{有限多个向量}\;线性表出
+\end{enumerate}
+则称$\mathfrak{S}$是$V$中的\;\fbox{一个}\;\textbf{基}. $\{ 0 \}$的一个基\;\fbox{规定}\;为$\emptyset$.
+\end{Definition}
+
+\begin{Definition}[有序基]
+在~\textbf{定义\ref{def:base}}中, 若$S = \{ \alpha_1, \cdots, \alpha_s \}$, 
+则向量组 $\alpha_1, \cdots, \alpha_s$
+是$V$中的一个\textbf{(有序)基}.
+\end{Definition}
+
+
+\begin{Theorem}[！依赖选择公理]
+任何一个数域上的任一线性空间都有一个基.
+\end{Theorem}
+
+\begin{Definition}
+若$V$有一个基是有限子集, 则称$V$是\textbf{有限维}的; 若$V$有一个基是无限子集, 则称$V$是\textbf{无限维}的. 
+\end{Definition}
+
+\begin{Theorem}
+若$V$是有限维的, 则$V$的任意两个基所含向量的个数相等.
+\end{Theorem}
+
+\begin{Corollary}
+若$V$是无限维的, 则$V$的任何一个基都是无限子集.
+\end{Corollary}
+
+\begin{Definition}[!!!, 维数]
+设$V$是有限维的, 则把$V$的一个基所含向量的个数称为$V$的\textbf{维数}, 记作${\dim}_K V$或$\dim V$;
+若$V$是无限维的，则把$V$的维数 $\dim = \infty$ (只是暂不区分无限可数和无限不可数).%; $\{ 0 \}$的维数为$0$.
+\end{Definition}
+
+\begin{Proposition}[!]
+设$\text{dim}V = n$, 则$V$中任意$n+1$个向量都线性相关.
+\end{Proposition}
+
+\begin{Definition}[坐标]
+设$\text{dim}V = n$, 取$V$的一个(有序)基$\alphas{n}$.
+则$V$中任一向量可以由$\alpha_1, \cdots, \alpha_n$表出，$\alpha = c_1 \alpha_1 + \cdots + c_n \alpha_n$且表出方式唯一. 
+\begin{tightcenter}
+把$\begin{pmatrix} c_1 \\ \vdots \\ c_n \end{pmatrix}$称为$\alpha$在(有序)基$\alphas{n}$下的\textbf{坐标} \index{坐标}.
+\end{tightcenter}
+\end{Definition}
+
+\begin{Remark}
+坐标要写成列向量.
+\end{Remark}
+
+\begin{Example}
+$K^n$中，向量组
+$$
+\epsilon_1 = \begin{pmatrix} 1 \\ \vdots \\ 0 \end{pmatrix},
+\cdots,
+\epsilon_n = \begin{pmatrix} 0 \\ \vdots \\ 1 \end{pmatrix}
+$$
+是$K^n$的一个基, 称为\textbf{标准基}.
+ $K^n$中任一向量 $\displaystyle \alpha = \begin{pmatrix} c_1 \\ \vdots \\ c_n \end{pmatrix} $在基$\epsilon_1, \cdots, \epsilon_n$下的坐标是
+$
+\begin{pmatrix} c_1 \\ \vdots \\ c_n
+\end{pmatrix} = \alpha
+$
+\end{Example}
+
+\begin{Proposition}[!!]
+设$\dim V = n$, 则$V$中任意$n$个线性无关的向量都是$V$的一个基.
+\end{Proposition}
+
+\begin{Proposition}[!]
+设$\dim V = n$, 则
+\begin{tightcenter}
+$V$中的每一个向量可以由向量组$\alphas{n}$线性表出 $\implies$ $\alphas{n}$是$V$的一个基.
+\end{tightcenter}
+\end{Proposition}
+
+\begin{Proposition}
+设$\dim V = n$, 则
+$V$中任意一个线性无关的向量组都可以扩充成$V$的一个基.
+\end{Proposition}
+
+\begin{Proposition}[!!]
+设$\dim V = n$, $W$是$V$的一个子空间, 则$\dim W \le \dim V$; 若$\dim W = \dim V$, 则$W = V$.
+\end{Proposition}
+
+\begin{Definition}[极大线性无关集]
+设$V$是数域$K$上的线性空间, $V$的一个子集$S$如果满足,
+\begin{enumerate}[(1)]
+\item $S$是线性无关的
+\item 对于$\beta \notin S$(如果存在的话), 有$S \cup \{ \beta \}$线性相关
+\end{enumerate}
+那么称$S$是$V$的\textbf{极大线性无关集}.
+\end{Definition}
+
+\begin{Proposition}
+$S$是$V$的一个基 $\iff$ $S$是$V$的一个极大线性无关集.
+\end{Proposition}
+
+\begin{Proposition}[!!]
+在数域$K$中, 向量组$\alphas{s}$的一个极大线性无关组, 是$\langle \alphas{s} \rangle$的一个基. 从而$\dim \langle \alphas{s} \rangle = \rank \{
+\alphas{s} \}$.
+\end{Proposition}
+
+\begin{Proposition}
+$ \langle \alpha_1, \cdots, \alpha_s \rangle = \langle \beta_1, \cdots, \beta_s \rangle 
+\iff 
+\{ \alpha_1, \cdots, \alpha_s \} \cong  \{ \beta_1, \cdots, \beta_s \} $
+\end{Proposition}
+
+\subsection{矩阵的秩}
+
+\begin{Definition}
+$$
+A = 
+\begin{blockarray}{cccc}
+\alpha_1 & \cdots & \alpha_n & \\
+\begin{block}{(ccc)c}
+c_{11}     & \cdots & c_{1n} & \gamma_1 \\
+\cdots     &        & \vdots & \vdots \\
+c_{s1}     & \cdots & c_{sn} & \gamma_s \\
+\end{block}
+\end{blockarray}
+$$
+对于$A$的列向量组$ \alpha_1, \cdots, \alpha_n$, $\text{rank} \{ \alpha_1, \cdots, \alpha_n \}$称为$A$的\textbf{列秩}, $\langle \alpha_1, \cdots, \alpha_n \rangle$称为$A$的\textbf{列空间}.
+对于$A$的行向量组$ \gamma_1, \cdots, \gamma_n$, $\text{rank} \{ \gamma_1, \cdots, \gamma_n \}$称为$A$的\textbf{行秩}, $\langle \gamma_1, \cdots, \gamma_n \rangle$称为$A$的\textbf{行空间}.
+
+\end{Definition}
+
+\begin{Theorem}
+阶梯型矩阵$J$的行秩 $=$ 列秩 $=$ $J$的非零行的个数; 并且$J$的主元所在的列构成列向量的一个极大线性无关组.
+\end{Theorem}
+
+\begin{Theorem}
+矩阵的初等行变换不改变矩阵的行秩.
+\end{Theorem}
+
+\begin{Theorem}
+矩阵的初等行变换不改变矩阵的列向量组的线性相关性， 从而不改变矩阵的列秩.
+\end{Theorem}
+
+\begin{Theorem}
+任一矩阵$A$的行秩等与它的列秩.
+\end{Theorem}
+
+\begin{Definition}
+矩阵$A$的行秩与列秩统称为$A$的秩, 记作$\text{rank}(A)$
+\end{Definition}
+
+\begin{Corollary}
+设矩阵$A$经过初等行变换化成阶梯型矩阵$J$, 则$\text{rank}(A) =$ $J$的非零行个数. 设$J$的主元所在的列是$j_1, j_2, \cdots, j_r$列, 则$A$的第$j_1, j_2, \cdots, j_r$列构成$A$的列向量组的一个极大线性无关组.
+\end{Corollary}
+
+\begin{Corollary}
+$\text{rank} A = \text{rank} A' $
+\end{Corollary}
+
+\begin{Corollary}
+矩阵的初等列变换不改变矩阵的秩.
+\end{Corollary}
+
+\begin{Theorem}
+任一非零矩阵$A$的秩等于它的不为零的子式的最高阶数.
+\end{Theorem}
+
+\begin{Corollary}
+设$\text{rank}(A) = r$, 则$A$的不为$0$的$r$阶子式所在的列(行)构成$A$的列(行)向量组的一个极大线性无关组.
+\end{Corollary}
+
+\begin{Definition}[满秩矩阵]
+$n$级矩阵$A$的秩如果等于它的级数$n$, 则$A$称为\textbf{满秩矩阵}.
+\end{Definition}
+
+\begin{Corollary}
+$n$级矩阵满秩 $\Leftrightarrow |A| \neq 0$
+\end{Corollary}
+
+\subsection{线性方程组有解判别定理}
+
+\begin{Theorem}
+数域$K$上$n$元线性方程组有解 $\iff$ 增广矩阵$\tilde{A}$的秩 $=$ 系数矩阵$A$的秩.
+\end{Theorem}
+
+\begin{Theorem}
+数域$K$上$n$元线性方程组有解时, 如果它的系数矩阵$A$的秩$=n$, 那么原方程组有唯一解; 如果$A$的秩$<n$, 那么原方程组有无穷多个解.
+\end{Theorem}
+
+\begin{Corollary}
+数域$K$上$n$元其次线性方程组$Ax = 0$
+\begin{tightcenter}
+有非零解 $\iff$ $\rank A < n$
+\end{tightcenter}
+\end{Corollary}
+
+\subsection{其次线性方程组解集结构}
+
+\begin{Note}
+数域$K$上$n$元其次线性方程组
+\begin{equation} \label{eq:lin_eq}
+x_1 \alpha_1 + \cdots +x_n \alpha_n = \textbf{0}
+\end{equation}
+的解集记作$W$. 则$W \subseteq K^n$, 且满足以下性质
+\begin{enumerate}[(1)]
+\item $\forall \eta, \delta \in W \implies \eta + \delta \in W$
+\item $\gamma \in W, k \in K \implies k \gamma \in W$
+\end{enumerate}
+则$W$是$K^n$的一个子空间, 称$W$为(\ref{eq:lin_eq})
+的\textbf{解空间}. 
+\end{Note}
+
+\begin{Note}
+目标: 当(\ref{eq:lin_eq})有非零解时, 求$W$的一个基和维数.
+\end{Note}
+
+\begin{Theorem}
+设$K$上$n$元其次线性方程组(\ref{eq:lin_eq})有非零解时，它的解空间$W$
+的维数$\text{dim}\;W = n - \text{rank}(A)$. 
+\end{Theorem}
+
+\begin{Note}
+把$W$的一个基称为齐次线性方程组(\ref{eq:lin_eq})
+的一个\textbf{基础解系}. 
+若$\eta_1, \cdots, \eta_{n-r}$
+是
+$n$元其次线性方程组(\ref{eq:lin_eq})的一个基础解系, 则(\ref{eq:lin_eq})的全部解为
+\begin{tighteq*}
+ k_1 \eta_1 + \cdots + k_{n-r} \eta_{n-r}  \;
+(k_1, \cdots, k_{n-r} \in K)
+\end{tighteq*}
+\end{Note}
+
+\subsection{非其次线性方程组的解集的结构}
+
+\begin{Note}
+数域$K$上的$n$元非其次线性方程组
+\begin{equation} \label{eq:lin_eq2}
+x_1 \alpha_1 + \cdots + x_n \alpha_n = \beta
+\end{equation}
+的解集记作$U$, 相应的非其次线性方程组
+\begin{tighteq*}
+x_1 \alpha_1 + \cdots + x_n \alpha_n = \mathbf{0}
+\end{tighteq*}
+的解集记作$W$, 则满足性质
+\begin{enumerate}[(1)]
+\item $\gamma, \delta \in U \Rightarrow \gamma - \delta \in W$
+\item $\gamma \in U, \eta \in W \Rightarrow \gamma +\eta \in U$
+\end{enumerate}
+\end{Note}
+
+\begin{Theorem}
+如果数域$K$上的非其次线性方程组有解, 设$\gamma_0 \in U$, 称为$\gamma_0$是非其次线性方程组(\ref{eq:lin_eq})的一个\textbf{特解}, 则
+$$
+\gamma_0 + W := \{ \gamma_0 + \eta \mid \eta \in W \} = U
+$$
+\end{Theorem}
+
+\begin{Definition}
+$\gamma_0 + W$称为$W$形的\textbf{线性流形}, 或子空间$W$的一个\textbf{陪集}.
+\end{Definition}
+
+\subsection{子空间的运算}
+
+\begin{Theorem}
+设$V$是域$F$上的一个线性空间, $V_1$与$V_2$都是$V$的子空间, 则$V_1 \cap V_2$也是$V$的子空间.
+\end{Theorem}
+
+\begin{Theorem}
+设$V_1$与$V_2$都是域$F$上的一个线性空间$V$的子空间, 则$V_1 + V_2$也是$V$的子空间, 且是包含$V_1 \cup V_2$的最小的子空间.
+\end{Theorem}
+
+\begin{Proposition}
+$ 
+\langle \alpha_1, \cdots, \alpha_s \rangle + 
+\langle \beta_1, \cdots, \beta_r \rangle = 
+\langle \alpha_1, \cdots, \alpha_s, \beta_1, \cdots, \beta_r \rangle
+$
+\end{Proposition}
+
+\begin{Theorem}[!, 子空间的维数公式]
+设$V_1, V_2$都是$V$的\;\fbox{有限维}\;子空间, 则$V_1 \cap V_2$和$V_1 + V_2$也是有限维的, 并且
+$$
+\text{dim} V_1 + \text{dim} V_2 = \text{dim} (V_1 + V_2) +\text{dim}(V_1 \cap V_2)
+$$
+\end{Theorem}
+
+\begin{Corollary}
+设$V_1, V_2$都是$V$的\;\fbox{有限维}\;子空间, 则 
+\begin{tighteq*}
+V_1 \cap V_2 = 0 \Leftrightarrow \text{dim} V_1 + \text{dim} V_2 = \text{dim} (V_1 + V_2) 
+\end{tighteq*}
+\end{Corollary}
+
+%\subsubsection{子空间的直和}
+
+\begin{Definition}[直和]
+设$V_1, V_2$都是$V$的子空间, 如果$V_1 +V_2$中每个向量$\alpha$表示成$\alpha_1 + \alpha_2\;(\alpha_1 \in V_1, \alpha_2 \in V_2)$的表法唯一, 那么称$V_1 + V_2$是\textbf{直和},
+记作$V_1 \oplus V_2$.
+\end{Definition}
+
+\begin{Theorem}
+设$V_1$与$V_2$都是$V$的子空间, 则下列命题互相等价
+\begin{enumerate}[(1)]
+\item $V_1 + V_2$是直和
+\item $V_1 + V_2$ 中零向量表法唯一, 即$0 = \alpha_1 + \alpha_2\;(\alpha_1 \in V_1, \alpha_2 \in V_2) \Rightarrow \alpha_1 = \alpha_2 = 0$
+\item $V_1 \cap V_2 = 0$
+\item $V_1$和$V_2$的一个基分别是多重集合$\mathfrak{S}_1$和$\mathfrak{S}_2$, 则合起来$\mathfrak{S}_1 \cup \mathfrak{S}_2$是$V_1 + V_2$的一个基
+\end{enumerate}
+\end{Theorem}
+
+\begin{Theorem}
+设$V_1, V_2$都是$V$有限维的子空间, 则
+\begin{tightcenter}
+$V_1 + V_2$是直和 $\Leftrightarrow$ $\text{dim}(V_1 + V_2) = \text{dim}V_1 + \text{dim}V_2$
+\end{tightcenter}
+\end{Theorem}
+
+\begin{Definition}[补空间]
+若$V = V_1 \oplus V_2$, 则称$V_2$是$V_1$的一个\textbf{补空间}, 也称$V_1$是$V_2$的一个补空间.
+\end{Definition}
+
+\begin{Proposition}
+设$\text{dim}V = n$, 则$V$的每一个子空间$U$都在$V$中有一个补空间.
+\end{Proposition}
+
+\begin{Remark}
+$U$的补空间不唯一.
+\end{Remark}
+
+\begin{Definition}
+设$V_1, \cdots, V_m$都是$V$的子空间, 如果$V_1 + \cdots + V_m$中每个向量表示成$\alpha_1 + \cdots + \alpha_m$, 其中$\alpha_i \in V_i, i = 1, \cdots, m$,
+表法唯一, 那么称$V_1 + \cdots + V_m$是\textbf{直和}\index{子空间!直和}, 记作
+$ %\overset{n}{\underset{i=1}\bigoplus} V_i
+\bigoplus_{i=1}^n V_i
+$.
+\end{Definition}
+
+\begin{Theorem}
+设$V_1, \cdots, V_m$都是$V$的子空间, 则下列命题等价:
+\begin{enumerate}[(1)]
+\item $V_1 + \cdots + V_m$是直和
+\item $V_1 + \cdots + V_m$中$0$的表法唯一
+\item $\displaystyle V_i \cap (\sum_{j \neq i} V_j) = 0, i = 1, \cdots, m$ % 这是一个例外
+\item 设$V_i$的一个基为多重集合$\mathfrak{S}_i$, $i = 1, \cdots, m$, 则合起来$\mathfrak{S}_1 \cup \cdots \cup \mathfrak{S}_m$是$V_1 + \cdots + V_m$的一个基
+\end{enumerate}
+\end{Theorem}
+
+\begin{Theorem}
+设$V_1, \cdots, V_m$都是$V$的有限维子空间, 则下列命题等价:
+\begin{enumerate}[(1)]
+\item $V_1 + \cdots + V_m$是直和
+\item $\dim {(V_1 + \cdots + V_m)} = \dim V_1 + \cdots + \dim V_m$
+%\item 设$V_i$的一个基为$S_i$, $i = 1, \cdots, m$, 
+%且$S_i \cap S_j = \emptyset$\;($\forall i \neq j$), 则$S_1 \cup \cdots \cup S_m$是$V_1 + \cdots + V_m$的一个基
+\end{enumerate}
+\end{Theorem}

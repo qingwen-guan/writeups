@@ -1,6 +1,7 @@
-\documentclass[UTF8]{ctexart}
+\documentclass[UTF8,hyperref,titlepage,draft]{ctexart}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{mathrsfs}
 \usepackage[dvipsnames, svgnames, x11names]{xcolor}  % 一般放得靠前
 %\usepackage{xcolor}
 %\usepackage{marginnote}
@@ -13,23 +14,31 @@
 \usepackage{forest}
 \usepackage{hyperref}
 \usepackage{blkarray,bigstrut}
-
+\usepackage{txfonts}
+\usepackage{imakeidx}
 
 \usetikzlibrary{decorations.pathreplacing}
 
 %\geometry{a4paper,left=2cm,right=4cm,top=2cm,bottom=1cm,marginparwidth=3cm}
-\geometry{a4paper,left=2cm,right=2cm,top=2cm,bottom=1cm}
+%\geometry{a4paper,left=2cm,right=2cm,top=2cm,bottom=1cm}
+\geometry{a4paper,centering,scale=0.8}
+
 
 \theorembodyfont{\upshape}
 \newtheorem{Definition}{定义}%[subsection]
 \newtheorem{Theorem}[Definition]{定理}
+\newtheorem{thm}[Definition]{定理}
 
 \newtheorem{Remark}[Definition]{注意}
 \newtheorem*{RemarkNon}[Definition]{注意}
 
 \newtheorem{Lemma}[Definition]{引理}
+\newtheorem{lemma}[Definition]{引理}
 \newtheorem{Corollary}[Definition]{推论}
 \newtheorem{Proposition}[Definition]{命题}
+\newtheorem{prop}[Definition]{命题}
+\newtheorem{Example}[Definition]{例子}
+
 
 \newtheorem{Property}[Definition]{性质}
 \newtheorem*{PropertyNon}[Definition]{性质}
@@ -55,6 +64,20 @@
   \end{center}
 }
 
+\newenvironment{tighteq*}{%
+  \begin{tightcenter}
+  $ \displaystyle 
+}{%
+  $
+  \end{tightcenter}
+}
+
+\DeclareMathOperator{\rank}{rank}
+\newcommand*\norm[1]{\lvert#1\rvert}
+\newcommand\alphas[2][1]{\alpha_{#1}, \cdots, \alpha_{#2}}
+
+\makeindex
+
 \begin{document}
 
 \title{高等代数笔记}
@@ -79,5 +102,7 @@
 \setcounter{Definition}{0}
 
 \input{AdvancedAlgebra/Section1}
+
+\printindex
 
 \end{document}
