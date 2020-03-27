@@ -1,4 +1,5 @@
-\documentclass[UTF8,hyperref,titlepage,draft]{ctexart}
+\documentclass[UTF8,titlepage]{ctexart}
+\usepackage{hyperref}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{mathrsfs}
@@ -12,10 +13,12 @@
 \usepackage{enumerate}
 \usepackage[shortlabels]{enumitem} %https://tex.stackexchange.com/questions/229540/customized-enumerate-items
 \usepackage{forest}
-\usepackage{hyperref}
 \usepackage{blkarray,bigstrut}
-\usepackage{txfonts}
+%\usepackage{txfonts}
 \usepackage{imakeidx}
+\usepackage{verbatim}
+\usepackage{relsize} % for \mathlarger
+
 
 \usetikzlibrary{decorations.pathreplacing}
 
@@ -102,6 +105,7 @@
 \setcounter{Definition}{0}
 
 \input{AdvancedAlgebra/Section1}
+\input{AdvancedAlgebra/Section4}
 
 \printindex
 

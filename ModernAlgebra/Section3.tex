@@ -1,59 +1,18 @@
+\chapter{环}
+
 \section{环与域}
 
-\subsection{加群、环的定义}
+\subsection{环的定义}
 
-\begin{Definition}[加群]
-一个交换群叫做一个的\textbf{加群}, 如果我们把这个群的代数运算称为加法, 并且用符号$+$表示.
-\end{Definition}
-
-\begin{Definition}[$\Sigma$]
-{{
-$n$个元的和$a_1 + a_2 + \cdots + a_n$用符号$\displaystyle \sum_{i=1}^{n} a_n$ 来表示.
-}
-}
-\end{Definition}
-
-\begin{Definition}
-$n$个$a$的和$\displaystyle \sum_{i=1}^{n} a$我们用$na$表示.
-\end{Definition}
-
-\begin{Definition}[零元]
-加群唯一的单位元用$\mathfrak{0}$来表示, 并且把它叫做\textbf{零元}.
-\end{Definition}
-
-\begin{Definition}[负元]
-元$a$的唯一的逆元我们用$-a$来表示，并且把它叫做$a$的\textbf{负元}. $a + (-b)$我们简写成$a - b$.
-\end{Definition}
-
-\begin{Theorem}
-加群满足以下运算规则
+\begin{Definition}[环]
+一个集合$R$叫做一个环, 如果
 \begin{enumerate}[(1)]
-\item $\mathfrak{0} + a = a + \mathfrak{0} = a$
-\item $-a + a = a - a = \mathfrak{0}$
-\item $-(-a) = a$
-\item[(4: 移项)] $a + c = b \Leftrightarrow c = b - a$
-\item $-(a +b) = -a - b, -(a-b) = -a +b$
-\item $ma + na = (m+n)a, m(na) = (mn)a, n(a+b) = na + nb, \forall m, n \in \mathbb{Z}^+$
+	\item $R$是一个加群: $R$关于一个叫做加法的代数运算做成一个交换群.
+	\item $R$对于另一个叫做乘法的代数运算是封闭的.
+	\item $R$关于乘法结合
+	\item 分配率: $a(b+c) = bc + ac, (a+b)c = ac + bc$
 \end{enumerate}
-\end{Theorem}
-
-\begin{Note}
-非空子集$S$做成子群的充要条件变成了 
-\begin{itemize}
-\item (i) $a, b \in S \Rightarrow a+b \in S$ (ii) $a \in S \Rightarrow -a \in S$
-\item 或者 (iii) $a, b \in S \Rightarrow a - b \in S$.
-\end{itemize}
-\end{Note}
-
-%\begin{Definition}[环]
-%一个集合$R$叫做一个环, 如果
-%\begin{enumerate}
-%	\item $R$是一个加群: $R$关于一个叫做加法的代数运算做成一个交换群.
-%	\item $R$对于另一个叫做乘法的代数运算是封闭的.
-%	\item $R$关于乘法结合
-%	\item 分配率: $a(b+c) = bc + ac, (a+b)c = ac + bc$
-%\end{enumerate}
-%\end{Definition}
+\end{Definition}
 
 \begin{Theorem}
 环还满足以下运算规则
@@ -81,246 +40,6 @@ a_1b_1 + a_1 b_2 + &\cdots + a_1 b_n \\
 \end{enumerate}
 \end{Theorem}
 
-\subsection{交换律、单位元、零因子、整环}
-
-\begin{Definition}[交换环]
-一个环$R$叫做\textbf{交换环}， 如果$ab = ba,  \forall a, b \in R$.
-\end{Definition}
-
-\begin{Proposition}
-在一个交换环中${(ab)}^n = a^n b^n$.
-\end{Proposition}
-
-\begin{Definition}[单位元]
-对于环$R$, 如果$ea = ae = a, \forall a \in R$, 则称$e$是环$R$的单位元. 一般，一个环未必有单位元.
-\end{Definition}
-
-\begin{Proposition}
-一个环如果有单位元, 则唯一. 用$\mathfrak{1}$来表示.
-\end{Proposition}
-
-\begin{Definition}[整数环]
-整数关于普通加法和乘法构成的环.
-\end{Definition}
-
-\begin{Definition}[逆元]
-若$ba = \mathfrak{1}$, 则称$b$为$a$的\textbf{左逆元}. 若$ba = ab = \mathfrak{1}$, 则称$b$为$a$的\textbf{逆元}. 
-\end{Definition}
-
-\begin{Proposition}
-如果$a$有逆元, 则唯一.
-\end{Proposition}
-
-\begin{Proposition}
-如果$a$有逆元, 则规定$a^{-m} = {(a^{-1})}^m, a^0 = \mathfrak{1}$. 则$a^m a^n = a^{m+n}, {(a^m)}^n = a^{mn}, \forall m, n \in \mathbb{Z}$.
-\end{Proposition}
-
-\begin{Proposition}[模$n$的剩余类环]
-$R = \{ [0], [1], \cdots, [n-1] \}$, 加法: $[a] + [b] = [a+b]$, 乘法: $[a][b] = [ab]$做成一个交换环, 被称为\textbf{模$n$的剩余类环}, 零元$\mathfrak{0} = [0]$, 单位元$\mathfrak{1} = [1]$.
-\end{Proposition}
-
-\begin{Proposition}
-$ab = \mathfrak{0} \Rightarrow a = \mathfrak{0} $ 或者 $b = \mathfrak{0}$ 在环里不一定对.
-\end{Proposition}
-
-\begin{Definition}[零因子]
-在一个环$R$中, 若$a \neq \mathfrak{0}, b \neq \mathfrak{0}$但$ab = \mathfrak{0}$, 则称$a$是$R$的\textbf{左零因子}, $b$是$R$的\textbf{右零因子}.
-\end{Definition}
-
-\begin{Remark}
-左零因子不一定是右零因子. 但是如果有左零因子, 就一定有右零因子. 如果$R$是交换环, 则左零因子一定是右零因子.
-\end{Remark}
-
-\begin{Theorem}
-在一个没有零因子的环里, 两个消去律都成立.
-\begin{enumerate}
-	\item $a \neq \mathfrak{0}, ab = ac \Rightarrow b = c$
-	\item $a \neq \mathfrak{0}, ba = ca \Rightarrow b = c$
-\end{enumerate}
-反过来, 在一个环里如果\;\fbox{有一个}\;消去律成立，那么这个环没有零因子.
-\end{Theorem}
-
-\begin{Corollary}
-在一个环$R$中如果有一个消去律成立，那么另一个消去律也成立.
-\end{Corollary}
-
-\begin{Definition}[整环]
-一个环$R$叫做一个\textbf{整环}, 如果
-\begin{enumerate}
-	\item 乘法适合交换律: $ab = ba$.
-	\item $R$有单位元1: $\mathfrak{1}a = a\mathfrak{1} = a$.
-	\item $R$没有零因子: $ab = \mathfrak{0} \Rightarrow a = \mathfrak{0}$或$b = \mathfrak{0}$
-\end{enumerate}
-\end{Definition}
-
-\begin{Note}[!整环的判别] \ \\ \begin{tightcenter}
-\begin{forest}
-%for tree={circle,draw,s sep=0.8cm}
-for tree={grow'=east, parent anchor=east, child anchor=west, anchor=west}
-	[ 整环, name=IntRing, tier=2
-		[ 环, name={Ring}, tier=property
-			[ 加群
-				[ 加法成群: {I II IV V} ]
-				[ 加法交换 ]
-			]
-			[ 乘法: I II
-			]
-			[ 两个分配律
-			]
-		]
-		[乘法交换, name={ProductCommutative}, tier=property]
-		[有$\mathfrak{1}$, name={Has1}, tier=property]
-		[无零因子, name=NonZeroFact, tier=property]
-	]
-\end{forest}
-\end{tightcenter}
-\end{Note}
-
-\begin{Proposition}
-整数环是一个整环.
-\end{Proposition}
-
-\begin{Proposition}
-对于有单位元的环来说, 加法适合交换律是环定义里其他条件的结果.
-\end{Proposition}
-
-%\begin{Proposition}
-%二项式定理$\displaystyle (a + b)^n = \binom{n}{0} a^n + \binom{n}{1} a^{n-1}b + \binom{n}{2} a^{n-2}b^2 + \cdots + \binom{n}{n} b^n$在交换环中成立.
-%\end{Proposition}
-
-%\begin{Proposition}
-%$\{ a + b \sqrt{2} \mid a, b \in \mathbb{Z}\}$对于普通加法和乘法来说是一个整环.
-%\end{Proposition}
-
-\subsection{除环、域} %%%%%%%%%%%%%%%%%%%%%
-
-\begin{Proposition}
-对于元素个数$\ge 2$的环, $\mathfrak{1} \neq \mathfrak{0}$, 且$\mathfrak{0}$没有逆元.
-\end{Proposition}
-
-\begin{Definition}[除环]
-一个环$R$叫做一个\textbf{除环}, 如果
-\begin{enumerate}
-	\item $R$至少含有一个不等于零的元.
-	\item $R$有单位元.
-	\item $R$的任何一个非零元都有逆.
-\end{enumerate}
-\end{Definition}
-
-\begin{Definition}[域]
-一个交换除环叫做一个\textbf{域}.
-\end{Definition}
-
-\begin{Property}
-除环没有零因子.
-\end{Property}
-
-\begin{Property}
-除环$R$的所有非零元对于乘法来说做成一个群$R^*$, 我们把$R^*$叫做\textbf{除环$R$的乘群}.
-\end{Property}
-
-\begin{Note}
-对于一个环$R$来说, 从$R^*$是对于乘法做成一个群, 也能推出$R$是除环.
-\end{Note}
-
-\begin{Note}
-在除环$R$中, 方程$ax = b, ya = b (a \neq \mathfrak{0})$都有唯一解, 分别是$a^{-1}b$和$ba^{-1}$, 他们未必相等. 在一个域里$a^{-1}b = ba^{-1}$, 用符号
-$\displaystyle \frac{b}{a}$表示.
-\end{Note}
-
-\begin{Property}
-域满足以下计算法则
-\begin{enumerate}
-	\item $\displaystyle \frac{a}{b} = \frac{c}{d} \Leftrightarrow ad = bc$.
-	\item $\displaystyle \frac{a}{b} + \frac{c}{d} = \frac{ad + bc}{bd}$.
-	\item $\displaystyle \frac{a}{b} \frac{c}{d} = \frac{ac}{bd}$.
-\end{enumerate}
-\end{Property}
-
-\begin{Proposition}
-%$R = 
-%\left\{ (\alpha, \beta) \mid \alpha, \beta \in \mathbb{C} \right\}, 
-%(\alpha_1, \beta_1) + (\alpha_2, \beta_2) = 
-%	(\alpha_1 + \alpha_2, \beta_1 + \beta_2), 
-%(\alpha_1, \beta_1)(\alpha_2, \beta_2) = 
-%	(\alpha_1 \alpha_2 - \beta_1 \overline{\beta_2})
-%	(\alpha_1 \beta_2 + \beta_1 \overline{\alpha_2})
-%$ 做成一个除环, 叫做\textbf{四元数除环}, 它不是交换环(所以不是域).
-存在不是域的除环, 例如\textbf{四元数除环}.
-\end{Proposition}
-
-\begin{Note} !环、整环、域之间的关系: \begin{center}
-\begin{forest}
-%for tree={circle,draw,s sep=0.8cm}
-for tree={grow'=east, parent anchor=east, child anchor=west, anchor=west}
-[,phantom
-	[ 整环, name=IntRing, tier=2
-		[ 环, name={Ring}, tier=property
-			[ 加群
-				[ 加法成群: {I II IV V} ]
-				[ 加法交换 ]
-			]
-			[ 乘法: I II
-			]
-			[ 两个分配律
-			]
-		]
-		[乘法交换, name={ProductCommutative}, tier=property]
-		[有$\mathfrak{1}$, name={Has1}, tier=property]
-		[无零因子, name=NonZeroFact, tier=property]
-	]
-	[ 域
-		[ 除环, for tree={edge={color=Blue}}, tier=2
-			[有非零元, tier=property, for tree={edge={color=red}}]
-			[非零元有逆, tier=property, for tree={edge={color=red}}] {
-				\draw[->, color=DarkGreen] () to[out=east, in=east] (NonZeroFact);
-			}
-		] {
-			\draw[-, color=red] (.east) to (Ring.west);	
-			\draw[-, color=red] (.east) to (Has1.west);
-		}
-	] {
-		\draw[-, color=Blue] (.east) to (ProductCommutative.west); % Don't forget semicolon.
-		\draw[-, color=Blue, dotted] (.east) to (IntRing.west); % Don't forget semicolon.
-	}
-]
-\end{forest}
-\end{center}
-\end{Note}
-
-\begin{Proposition}
-一个至少有两个元且没有零因子的有限环，是一个除环.
-\end{Proposition}
-
-\subsection{无零因子环的特征}  %%%%%%%%%%%%%%%%%%%%%
-
-\begin{Proposition}
-对于模$p$的剩余类环$\mathbb{Z}_p$, $p$是素数 $\Leftrightarrow $ $\mathbb{Z}_p$做成一个域.
-\end{Proposition}
-
-\begin{Proposition}
-在一个环$R$里, 对于加法的阶, 可能有的元素是无限的，有的元素是有限的.
-\end{Proposition}
-
-\begin{Theorem}
-在一个无零因子环中, 所有非零元素$R$对于加法的阶都相同: 要么都无限大, 要么都有限且相等.
-\end{Theorem}
-
-\begin{Definition}[无零因子环的特征]
-在一个无零因子环$R$中, 所有非零元关于加法的阶，叫做$R$的\textbf{特征}.
-\end{Definition}
-
-\begin{Theorem}
-如果无零因子环$R$的特征是一个有限整数$n$, 则$n$一定是素数.
-\end{Theorem}
-
-\begin{Corollary}
-整环、除环以及域的特征或者是无限大，或者是一个素数.
-\end{Corollary}
-
-%\begin{Proposition}
-%{\color{gray}{一个的特征是$p$的交换环里, $(a+b)^p = a^p +b^p$.}}
-%\end{Proposition}
 
 \subsection{子环、环的同态} %%%%%%%%%%%%
 
@@ -329,19 +48,7 @@ for tree={grow'=east, parent anchor=east, child anchor=west, anchor=west}
 \end{Definition}
 
 \begin{Theorem}
-若$S$是环$R$的一个非空子集, 则$S$是$R$的子环 的充要条件是 $a, b \in S \Rightarrow a-b \in S, ab \in S$.
-\end{Theorem}
-
-\begin{Theorem}
-若$S$是整环$R$的一个非空子集, 则$S$是$R$的子整环 的充要条件是 (1)$a, b \in S \Rightarrow a-b \in S, ab \in S; (2) \mathfrak{1} \in S$.
-\end{Theorem}
-
-\begin{Theorem}
-若$S$是除环$R$的一个非空子集, 则$S$是$R$的子除环 的充要条件是 (1) $S$有非零元; (2) $a, b \in S \Rightarrow a-b \in S$; (3) $\forall a, b \in S, b \neq 0 \Rightarrow ab^{-1} \in S$.
-\end{Theorem}
-
-\begin{Theorem}
-若$S$是域$R$的一个非空子集, 则$S$是$R$的子域 的充要条件是 (1) $S$有非零元; (2) $a, b \in S \Rightarrow a-b \in S$; (3) $\forall a, b \in S, b \neq 0 \Rightarrow ab^{-1} \in S$.
+若$S$是环$R$的一个非空子集, 则$S$是$R$的子环 $\iff$ $a, b \in S \Rightarrow a-b \in S, ab \in S$.
 \end{Theorem}
 
 \begin{Proposition}
@@ -351,6 +58,10 @@ for tree={grow'=east, parent anchor=east, child anchor=west, anchor=west}
 \begin{Theorem}
 若$R$是环, $R$到$\bar{R}$有一个满射使得对于两个运算都同态, 则$\bar{R}$也是一个环.
 \end{Theorem}
+
+\begin{Note}[环的同态、环的同构]
+我们说两个环$R$和$\bar{R}$\textbf{同态}(\textbf{同构}), 如果存在一个$R$到$\bar{R}$的满射(双射), 使得$R$与$\bar{R}$对于两个环的一对加法以及一对乘法来说都同态.
+\end{Note}
 
 \begin{Remark}
 总结下来, 如果$A$与$\bar{A}$同态，那么前面有什么后面就也有什么:
@@ -369,7 +80,7 @@ for tree={grow'=east, parent anchor=east, child anchor=west, anchor=west}
 	\item $R$的零元的象是$\bar{R}$的零元.
 	\item $R$的元$a$的负元的象是$a$的象的负元{($\overline{-a} = -\overline{a}$)}
 	\item $R$是交换环 $\Rightarrow$ $\bar{R}$也是交换环
-	\item $R$有单位元$\mathfrak{1}$ $\Rightarrow$ $\bar{R}$也有单位元$\bar{\mathfrak{1}}$, 且$\bar{\mathfrak{1}}$是$\mathfrak{1}$的象.
+	\item[!] $R$有单位元$\mathfrak{1}$ $\Rightarrow$ $\bar{R}$也有单位元$\bar{\mathfrak{1}}$, 且$\bar{\mathfrak{1}}$是$\mathfrak{1}$的象.
 	\item $R$无零因子 $\not\Rightarrow$ $\bar{R}$无零因子
 	\item $R$有零因子 $\not\Rightarrow$ $\bar{R}$有零因子
 	\item $R$是整环(除环、域) $\not\Rightarrow$ $\bar{R}$是整环(除环、域)
@@ -402,6 +113,7 @@ $R$与$\bar{R}$都是环, 且$R \cong \bar{R}$, 则
 	\item  $R$是域 $\Leftrightarrow$ $\bar{R}$是域.
 \end{itemize}
 \end{Theorem}
+
 
 \begin{Lemma}
 集合$A$和$\bar{A}$之间有一个双射$\phi$, 并且$A$有加法和乘法, 于是我们可以在$\bar{A}$中规定加法和乘法，使得$A$与$\bar{A}$关于一对加法和一对乘法来说都同构.
@@ -473,66 +185,6 @@ for tree={grow=west, parent anchor=west, child anchor=east, anchor=east}
 
 \begin{Proposition}
 一个除环的中心是一个域.
-\end{Proposition}
-
-\subsection{多项式环} %%%%%%%%%%%%%%%
-\begin{Note}
-假定$R_0$是一个有单位元的交换环, $R$是$R_0$的子环, 并且包含$R_0$的单位元. 取$x \in R_0$, 则
-$ \displaystyle \sum_{i=0}^n a_i x^i = a_0 + a_1 x + a_2 x^2 + \cdots + a_n x^n\; (a_i \in R) $有意义, 且$\in R_0$.
-\end{Note}
-
-\begin{Definition}[多项式]
-一个可以写成 $ a_0 + a_1 x + a_2 x^2 \cdots + a_n x^n, a_i \in R, n \in \mathbb{Z}^+ $形式的$R_0$的元叫做$R$上的关于$x$的一个\textbf{多项式}, $a_i$叫做多项式的\textbf{系数}. 我们把所有$R$上的$x$的多项式放在一起, 做成一个集合，用$R[x]$来表示.
-\end{Definition}
-
-\begin{Note}[环上的多项式构成一个环]
-在$R[x]$上定义
-$$
-\begin{aligned}
-\text{加法: }& \displaystyle \sum a_i x^i + \sum b_i x^i = \sum (a_i + b_i) x^i \\
-\text{乘法: }& \displaystyle \left(\sum_{i=0}^m a_i x^i \right) \left( \sum_{j=0}^{n} b_j x^j \right) 
-= \sum_{i=k}^{mn} \left(\sum_{i+j=k} a_i b_{j} \right) x^k
-\end{aligned}
-$$
- 都为初等代数里的计算方法, 则$R[x]$构成一个交换环.
-\end{Note}
-
-\begin{Definition}[未定元]
-$R_0$里得一个元$x$叫做$R$上的一个\textbf{未定元}, 如果在$R$里找不到不都等于零的元
-$a_0, a_1, a_2, \cdots, a_n$, 使得$a_0 + a_1 x + a_2 x^2 \cdots + a_n x^n = 0$
-\end{Definition}
-
-\begin{Proposition}
-$R$上的一个未定元x的多项式(简称\textbf{一元多项式})，如果不计入系数是零的项, 只能用一种方式写成
-$a_0 + a_1 x + a_2 x^2 + \cdots + a_n x^n \; (a_i \in R)$
-\end{Proposition}
-
-\begin{Definition}[多项式的次数]
-令$a_0 + a_1 x + a_2 x^2 \cdots + a_n x^n = 0, a_n \neq \mathfrak{0}$是环$R$上的一个一元多项式,
-那么非负整数$n$叫做这个多项式的\textbf{次数}, 多项式$\mathfrak{0}$没有次数.
-\end{Definition}
-
-\begin{Proposition}
-对于给定的$R_0$来说, $R_0$未必含有$R$上的未定元.
-\end{Proposition}
-
-\begin{Theorem}
-给了一个有单位元的交换环$R$, 一定有一个环$R_0$, $R$上的未定元$x \in R_0$存在，因此也就有$R$上的多项式环$R[x]$存在.
-\end{Theorem}
-
-\begin{Note}
-对于一个有单位元的交换环$R_0$, 和它的一个子环$R$, 其中$R$包含$R_0$的单位元. 我们从$R_0$里任意
-取出$n$个元$x_1, x_2, \cdots, x_n$来, 那么我们可以做$R$上的$x_1$的多项式环$R[x_1]$，然后做$R[x_1]$上的$x_2$的多项式环$R[x_1][x_2]$. 这样下去，可以得到$R[x_1][x_2]\cdots[x_n]$. 这个环包括所有可以写成 
-$\displaystyle \sum_{i_1 i_2 \cdots i_n} a_{i_1 i_2 \cdots i_n} x_1^{i_1} x_2^{i_2} \cdots x_n^{i_n}$ ($a_{i_1 i_2 \cdots i_n} \in R$
-, 但只有有限个$a_{i_1 i_2 \cdots i_n} \neq 0$)形式的元.
-\end{Note}
-
-\begin{Definition}
-一个有上述形式的元叫做$R$上的$x_1, x_2, \cdots, x_n$的一个多项式，$a_{i_1 i_2 \cdots i_n}$叫做多项式的系数. 环$R[x_1][x_2]\cdots[x_n]$叫做$R$上的$x_1, x_2, \cdots, x_n$的多项式环. 这个环我们也用符号$R[x_1, x_2, \cdots, x_n]$来表示.
-\end{Definition}
-
-\begin{Proposition}
-假定$R$是一个整环, 那么$R$上的一元多项式环也是一个整环.
 \end{Proposition}
 
 \subsection{理想} %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -684,4 +336,501 @@ $\mathbb{Z}_n$是域$\Leftrightarrow n$是素数.
 
 \begin{Note}
 一般来讲, 一个环很可能有两个以上的商域. 不过，同构的环的商域也同构，所以抽象的来讲，一个环最多只有一个商域.
+\end{Note}
+
+\section{特殊的环}
+
+\subsection{交换环}
+
+\begin{Definition}[交换环]
+一个环$R$叫做\textbf{交换环}， 如果$ab = ba,  \forall a, b \in R$.
+\end{Definition}
+
+\begin{Proposition}
+在一个交换环中${(ab)}^n = a^n b^n$.
+\end{Proposition}
+
+\subsection{无零因子环}  %%%%%%%%%%%%%%%%%%%%%
+
+\begin{Note}
+$ab = 0 \Rightarrow a = 0 $ 或者 $b = 0$ 在环里不一定成立.
+\end{Note}
+
+\begin{Definition}[零因子]
+在一个环$R$中, 若$a \neq 0, b \neq 0$但$ab = 0$, 则称$a$是$R$的\textbf{左零因子}, $b$是$R$的\textbf{右零因子}. 左零因子和右零因子统称为\textbf{零因子}.
+\end{Definition}
+
+\begin{Remark}
+左零因子不一定是右零因子. 但是如果有左零因子, 就一定有右零因子. 如果$R$是交换环, 则左零因子一定是右零因子.
+\end{Remark}
+
+\begin{Theorem}[!]
+在一个没有零因子的环里, 左右消去律都成立.
+\begin{enumerate}
+	\item $a \neq 0, ab = ac \implies b = c$
+	\item $d \neq 0, bd = cd \implies b = c$
+\end{enumerate}
+反过来, 在一个环里如果\;\fbox{有一个}\;消去律成立，那么这个环没有零因子.
+\end{Theorem}
+
+\begin{Corollary}
+在一个环$R$中如果有一个消去律成立，那么另一个消去律也成立.
+\end{Corollary}
+
+\begin{Proposition}
+对于模$p$的剩余类环$\mathbb{Z}_p$, $p$是素数 $\Leftrightarrow $ $\mathbb{Z}_p$做成一个域.
+\end{Proposition}
+
+\begin{Proposition}
+在一个环$R$里, 对于加法的阶, 可能有的元素是无限的，有的元素是有限的.
+\end{Proposition}
+
+\begin{Theorem}
+在一个无零因子环中, 所有非零元素$R$对于加法的阶都相同: 要么都无限大, 要么都有限且相等.
+\end{Theorem}
+
+\begin{Definition}[无零因子环的特征]
+在一个无零因子环$R$中, 所有非零元关于加法的阶，叫做$R$的\textbf{特征}.
+\end{Definition}
+
+\begin{Theorem}
+如果无零因子环$R$的特征是一个有限整数$n$, 则$n$一定是素数.
+\end{Theorem}
+
+\begin{Corollary}
+整环、除环以及域的特征或者是无限大，或者是一个素数.
+\end{Corollary}
+
+%\begin{Proposition}
+%{\color{gray}{一个的特征是$p$的交换环里, $(a+b)^p = a^p +b^p$.}}
+%\end{Proposition}
+
+\subsection{整环}
+
+\begin{Note}[!!整环的判别] \ \\ \begin{tightcenter}
+\begin{forest}
+%for tree={circle,draw,s sep=0.8cm}
+for tree={grow'=east, parent anchor=east, child anchor=west, anchor=west}
+	[ 整环, name=IntRing, tier=2
+		[ 环, name={Ring}, tier=property
+			[ 加群
+				[ 加法成群: {I II IV V} ]
+				[ 加法交换 ]
+			]
+			[ 乘法: I II
+			]
+			[ 两个分配律
+			]
+		]
+		[乘法交换, name={ProductCommutative}, tier=property]
+		[有$\mathfrak{1}$, name={Has1}, tier=property]
+		[无零因子, name=NonZeroFact, tier=property]
+	]
+\end{forest}
+\end{tightcenter}
+\end{Note}
+
+\begin{Definition}[单位元]
+对于环$R$, 如果$ea = ae = a$~($\forall a \in R$), 则称$e$是环$R$的单位元. 一般，一个环未必有单位元.
+\end{Definition}
+
+\begin{Proposition}
+一个环如果有单位元, 则唯一. 用$\mathfrak{1}$来表示.
+\end{Proposition}
+
+\begin{Definition}[逆元]
+若$ba = \mathfrak{1}$, 则称$b$为$a$的\textbf{左逆元}. 若$ba = ab = \mathfrak{1}$, 则称$b$为$a$的\textbf{逆元}. 
+\end{Definition}
+
+\begin{Proposition}
+如果$a$有逆元, 则唯一.
+\end{Proposition}
+
+\begin{Proposition}
+如果$a$有逆元, 则规定$a^{-m} = {(a^{-1})}^m, a^0 = \mathfrak{1}$. 则$a^m a^n = a^{m+n}, {(a^m)}^n = a^{mn}, \forall m, n \in \mathbb{Z}$.
+\end{Proposition}
+
+\begin{Proposition}[模$n$的剩余类环]
+$R = \{ [0], [1], \cdots, [n-1] \}$, 加法: $[a] + [b] = [a+b]$, 乘法: $[a][b] = [ab]$做成一个交换环, 被称为\textbf{模$n$的剩余类环}, 零元$\mathfrak{0} = [0]$, 单位元$\mathfrak{1} = [1]$.
+\end{Proposition}
+
+\begin{Definition}[整环]
+一个环$R$叫做一个\textbf{整环}, 如果
+\begin{enumerate}
+	\item 乘法适合交换律: $ab = ba$.
+	\item $R$有单位元1: $\mathfrak{1}a = a\mathfrak{1} = a$.
+	\item $R$没有零因子: $ab = \mathfrak{0} \Rightarrow a = \mathfrak{0}$或$b = \mathfrak{0}$
+\end{enumerate}
+\end{Definition}
+
+\begin{Proposition}
+对于有单位元的环来说, 加法适合交换律是环定义里其他条件的结果.
+\end{Proposition}
+
+
+\begin{Theorem}
+若$S$是整环$R$的一个非空子集, 则$S$是$R$的子整环的充要条件是 (1)$a, b \in S \implies a-b \in S, ab \in S$; (2) $1 \in S$.
+\end{Theorem}
+
+%\begin{Proposition}
+%二项式定理$\displaystyle (a + b)^n = \binom{n}{0} a^n + \binom{n}{1} a^{n-1}b + \binom{n}{2} a^{n-2}b^2 + \cdots + \binom{n}{n} b^n$在交换环中成立.
+%\end{Proposition}
+
+%\begin{Proposition}
+%$\{ a + b \sqrt{2} \mid a, b \in \mathbb{Z}\}$对于普通加法和乘法来说是一个整环.
+%\end{Proposition}
+
+\begin{Definition}[!整除]
+对于整环$I$，若$a \in I$, 存在$b, c \in I$使$a=bc$, 则称$b$能\textbf{整除}$a$, 记作$b \mid a$, 称$b$为$a$的\textbf{因子}. 若$b$不是$a$的因子，则记作$b \nmid a$.
+\end{Definition}
+
+\begin{Definition}[因式]
+如果$b \mid a$, 则$b$称为$a$的一个\textbf{因式}, $a$称为$b$的一个\textbf{倍式}.
+\end{Definition}
+
+\begin{Proposition}
+整除关系是一个二元关系, 满足
+\begin{enumerate}[(1)]
+\item 反身性, $a \mid a$ 
+\item \xout{对称性}
+\item 传递性, $a \mid b, b \mid c \implies a \mid c$
+\end{enumerate}
+\end{Proposition}
+
+\begin{Definition}[相伴]
+如果$a \mid b$且$b \mid $a, 则称$a$与$b$\textbf{相伴}, 记作$a \sim b$. 
+\end{Definition}
+
+\begin{Definition}[相伴等价定义]
+{元$b$叫做元$a$的\textbf{相伴元}，如果存在一个单位$\epsilon$使得$b = \epsilon a$}.
+\end{Definition}
+
+\subsection{除环、域} %%%%%%%%%%%%%%%%%%%%%
+
+\begin{Proposition}
+对于元素个数$\ge 2$的环, $\mathfrak{1} \neq \mathfrak{0}$, 且$\mathfrak{0}$没有逆元.
+\end{Proposition}
+
+\begin{Definition}[除环]
+一个环$R$叫做一个\textbf{除环}, 如果
+\begin{enumerate}
+	\item $R$至少含有一个不等于零的元.
+	\item $R$有单位元.
+	\item $R$的任何一个非零元都有逆.
+\end{enumerate}
+\end{Definition}
+
+\begin{Definition}[域]
+一个交换除环叫做一个\textbf{域}.
+\end{Definition}
+
+\begin{Property}
+除环没有零因子.
+\end{Property}
+
+\begin{Property}
+除环$R$的所有非零元对于乘法来说做成一个群$R^*$, 我们把$R^*$叫做\textbf{除环$R$的乘群}.
+\end{Property}
+
+\begin{Note}
+对于一个环$R$来说, 从$R^*$是对于乘法做成一个群, 也能推出$R$是除环.
+\end{Note}
+
+\begin{Note}
+在除环$R$中, 方程$ax = b, ya = b (a \neq \mathfrak{0})$都有唯一解, 分别是$a^{-1}b$和$ba^{-1}$, 他们未必相等. 在一个域里$a^{-1}b = ba^{-1}$, 用符号
+$\displaystyle \frac{b}{a}$表示.
+\end{Note}
+
+\begin{Property}
+域满足以下计算法则
+\begin{enumerate}
+	\item $\displaystyle \frac{a}{b} = \frac{c}{d} \Leftrightarrow ad = bc$.
+	\item $\displaystyle \frac{a}{b} + \frac{c}{d} = \frac{ad + bc}{bd}$.
+	\item $\displaystyle \frac{a}{b} \frac{c}{d} = \frac{ac}{bd}$.
+\end{enumerate}
+\end{Property}
+
+\begin{Proposition}
+%$R = 
+%\left\{ (\alpha, \beta) \mid \alpha, \beta \in \mathbb{C} \right\}, 
+%(\alpha_1, \beta_1) + (\alpha_2, \beta_2) = 
+%	(\alpha_1 + \alpha_2, \beta_1 + \beta_2), 
+%(\alpha_1, \beta_1)(\alpha_2, \beta_2) = 
+%	(\alpha_1 \alpha_2 - \beta_1 \overline{\beta_2})
+%	(\alpha_1 \beta_2 + \beta_1 \overline{\alpha_2})
+%$ 做成一个除环, 叫做\textbf{四元数除环}, 它不是交换环(所以不是域).
+存在不是域的除环, 例如\textbf{四元数除环}.
+\end{Proposition}
+
+\begin{Note} !环、整环、域之间的关系: \begin{center}
+\begin{forest}
+%for tree={circle,draw,s sep=0.8cm}
+for tree={grow'=east, parent anchor=east, child anchor=west, anchor=west}
+[,phantom
+	[ 整环, name=IntRing, tier=2
+		[ 环, name={Ring}, tier=property
+			[ 加群
+				[ 加法成群: {I II IV V} ]
+				[ 加法交换 ]
+			]
+			[ 乘法: I II
+			]
+			[ 两个分配律
+			]
+		]
+		[乘法交换, name={ProductCommutative}, tier=property]
+		[有$\mathfrak{1}$, name={Has1}, tier=property]
+		[无零因子, name=NonZeroFact, tier=property]
+	]
+	[ 域
+		[ 除环, for tree={edge={color=Blue}}, tier=2
+			[有非零元, tier=property, for tree={edge={color=red}}]
+			[非零元有逆, tier=property, for tree={edge={color=red}}] {
+				\draw[->, color=DarkGreen] () to[out=east, in=east] (NonZeroFact);
+			}
+		] {
+			\draw[-, color=red] (.east) to (Ring.west);	
+			\draw[-, color=red] (.east) to (Has1.west);
+		}
+	] {
+		\draw[-, color=Blue] (.east) to (ProductCommutative.west); % Don't forget semicolon.
+		\draw[-, color=Blue, dotted] (.east) to (IntRing.west); % Don't forget semicolon.
+	}
+]
+\end{forest}
+\end{center}
+\end{Note}
+
+\begin{Proposition}
+一个至少有两个元且没有零因子的有限环，是一个除环.
+\end{Proposition}
+
+\begin{Theorem}
+若$S$是除环$R$的一个非空子集, 则$S$是$R$的子除环 的充要条件是 (1) $S$有非零元; (2) $a, b \in S \Rightarrow a-b \in S$; (3) $\forall a, b \in S, b \neq 0 \Rightarrow ab^{-1} \in S$.
+\end{Theorem}
+
+\begin{Theorem}
+若$S$是域$R$的一个非空子集, 则$S$是$R$的子域 的充要条件是 (1) $S$有非零元; (2) $a, b \in S \Rightarrow a-b \in S$; (3) $\forall a, b \in S, b \neq 0 \Rightarrow ab^{-1} \in S$.
+\end{Theorem}
+
+
+\subsection{一元多项式环$R[x]$} %%%%%%%%%%%%%%%
+\begin{Note}
+假定$R_0$是一个有单位元的交换环, $R$是$R_0$的子环, 并且包含$R_0$的单位元. 取$\alpha \in R_0$, 则
+$ \displaystyle \sum_{i=0}^n a_i \alpha^i = a_0 + a_1 \alpha + a_2 \alpha^2 + \cdots + a_n \alpha^n\; (a_i \in R) $有意义, 且$\in R_0$.
+\end{Note}
+
+\begin{Definition}[多项式]
+一个可以写成 $ a_0 + a_1 \alpha + \cdots + a_n \alpha^n $($a_i \in R$, $n \in \mathbb{Z}^+ $)形式的$R_0$的元叫做$R$上的关于$\alpha$的一个\textbf{多项式}, $a_i$叫做多项式的\textbf{系数}. 我们把所有$R$上的$x$的多项式放在一起, 做成一个集合，用$R[\alpha]$来表示.
+\end{Definition}
+
+\begin{Note}[环上的多项式构成一个环]
+在$R[x]$上定义
+$$
+\begin{aligned}
+\text{加法: }& \sum\limits_i a_i \alpha^i + \sum\limits_i b_i \alpha^i = \sum\limits_i (a_i + b_i) \alpha^i \\
+\text{乘法: }& \displaystyle \left(\sum_{i=0}^m a_i \alpha^i \right) \left( \sum_{j=0}^{n} b_j \alpha^j \right) 
+= \sum\limits_{i=0}^m \sum\limits_{j=0}^{n} a_i b_j \alpha^{i+j}
+= \sum_{i=s}^{mn} \left(\sum_{i+j=s} a_i b_{j} \right) \alpha^s
+\end{aligned}
+$$
+ 都为初等代数里的计算方法, 则$R[\alpha]$构成一个交换环.
+\end{Note}
+
+\begin{Definition}[未定元]
+$R_0$里得一个元$x$叫做$R$上的一个\textbf{未定元}, 如果在$R$里找不到不都等于零的元
+$a_0$, $a_1$, $a_2$, $\cdots$, $a_n$, 使得$a_0 + a_1 x + a_2 x^2 \cdots + a_n x^n = 0$
+\end{Definition}
+
+\begin{Proposition}[!]
+$R$上的一个未定元x的多项式$f(x)$(简称\textbf{一元多项式})的表法唯一，即如果不计入系数是零的项, 只能用一种方式写成
+$a_0 + a_1 x + a_2 x^2 + \cdots + a_n x^n \; (a_i \in R)$
+\end{Proposition}
+
+\begin{Definition}[多项式的次数]
+令$f(x) = a_0 + a_1 x + a_2 x^2 \cdots + a_n x^n = 0, a_n \neq \mathbf{0}$是环$R$上的一个一元多项式,
+那么非负整数$n$叫做这个多项式的\textbf{次数}, 记作$\deg f(x)$. $0$次多项式等同于$R$中的非零元, 多项式$0$(称为\textbf{零多项式})的次数规定为$-\infty$.
+\end{Definition}
+
+\begin{Note}
+数域$K$上的一元多项式$K[x]$对于加法和数量乘法成为数域$K$上的一个无限维线性空间, 
+$\Omega = \{ 1, x, x^2, \cdots, x^n, \cdots \}$是$K[x]$的一个基.
+\end{Note}
+
+\begin{Proposition}
+对于给定的$R_0$来说, $R_0$未必含有$R$上的未定元.
+\end{Proposition}
+
+\begin{Theorem}
+给了一个有单位元的交换环$R$, 一定有一个环$R_0$, $R$上的未定元$x \in R_0$存在，因此也就有$R$上的多项式环$R[x]$存在.
+\end{Theorem}
+
+\begin{Note}
+对于一个有单位元的交换环$R_0$, 和它的一个子环$R$, 其中$R$包含$R_0$的单位元. 我们从$R_0$里任意
+取出$n$个元$x_1, x_2, \cdots, x_n$来, 那么我们可以做$R$上的$x_1$的多项式环$R[x_1]$，然后做$R[x_1]$上的$x_2$的多项式环$R[x_1][x_2]$. 这样下去，可以得到$R[x_1][x_2]\cdots[x_n]$. 这个环包括所有可以写成 
+$\displaystyle \sum_{i_1 i_2 \cdots i_n} a_{i_1 i_2 \cdots i_n} x_1^{i_1} x_2^{i_2} \cdots x_n^{i_n}$ ($a_{i_1 i_2 \cdots i_n} \in R$
+, 但只有有限个$a_{i_1 i_2 \cdots i_n} \neq 0$)形式的元.
+\end{Note}
+
+\begin{Definition}
+一个有上述形式的元叫做$R$上的$x_1, x_2, \cdots, x_n$的一个多项式，$a_{i_1 i_2 \cdots i_n}$叫做多项式的系数. 环$R[x_1][x_2]\cdots[x_n]$叫做$R$上的$x_1, x_2, \cdots, x_n$的多项式环. 这个环我们也用符号$R[x_1, x_2, \cdots, x_n]$来表示.
+\end{Definition}
+
+\begin{Proposition}
+假定$R$是一个整环, 那么$R$上的一元多项式环也是一个整环.
+\end{Proposition}
+
+\subsection{数域$K$上的一元多项式环$K[x]$} %%%%%%%%%%%%%%%%%
+
+\begin{Note}
+数域$K$上的一元多项式环$K[x]$是一个欧式环、主理想环、唯一分解环、整环.
+\end{Note}
+
+\begin{Property}
+设$f(x), g(x) \in K[x]$, 则
+\[
+\begin{aligned}
+\deg \Big( f(x) + g(x) \Big) &\le \max \Big( \deg f(x), \deg g(x) \Big) \\
+\deg \Big( f(x) g(x) \Big) &= \deg f(x) + \deg g(x) 
+\end{aligned}
+\]
+\end{Property}
+
+\begin{Corollary}
+设$f(x), g(x) \in K[x]$, 则
+\[
+f(x) \neq 0, g(x) \neq 0 \implies f(x) g(x) \neq 0
+\]
+\end{Corollary}
+
+\begin{Corollary}[消去律]
+设$f(x), g(x), h(x) \in K[x]$, 则
+\[
+f(x) g(x) = f(x) h(x) \And f(x) \neq 0 \implies g(x) = h(x)
+\]
+\end{Corollary}
+
+\begin{Note}
+任给$A \in M_n(K)$, 矩阵$A$的多项式组成的集合$K[A]$. 容易验证非空集合$K[A]$对于矩阵的减法和乘法封闭, 从而$K[A]$是环$M_n(K)$的一个子环. 且$K[A]$是有单位元的交换环.
+\end{Note}
+
+\begin{Note}
+$KI$是$K[A]$的一个子环.
+\end{Note}
+
+\begin{Theorem}[一元多项式环的通用性质]
+设$K$是一个数域, $R$是一个有单位元$1'$的交换环. 且$K$到$R$的一个子环$R_1$(含有$1'$)
+有一个同构映射$\tau$. 任给$t \in R$, 令
+\[
+\begin{aligned}
+\sigma_t: K[X] &\rightarrow R \\
+          f(x) = \sum\limits_{i=0}^n a_i x^i &\mapsto \sum\limits_{i=0}^n \tau(a_i) t^i \triangleq f(t)
+\end{aligned}
+\]
+则$\sigma_t$是$K[x]$到$R$的一个映射, 且$\sigma_t(x) = t$, 且$\sigma_t$保持加法、乘法运算, 即
+\[
+f(x) +g(x) = h(x), f(x)g(x) = p(x) \implies f(t) + g(t) = h(t), f(t) g(t) = p(t)
+\]
+称$\sigma_t$是$x$用$t$带入.
+\end{Theorem}
+
+\begin{Note}定理回答了为什么多项式环的未定元可以带入特定的值.
+\begin{center}
+\begin{forest}
+for tree={grow=west, parent anchor=west, child anchor=east, anchor=east}
+[, s sep=2em,phantom
+	[ 数域$K$, name=FieldK
+		[{$K[x]$} , tier=x, name=Kx, edge label={node [midway, above, font=\scriptsize] {子环}} 	
+		]
+	]		
+	[ {含幺子环${R_1}$}, name=R1
+		[ {含幺交换环$R$} ,tier=x, name=R, edge label={node [midway, below, font=\scriptsize] {子环}} 
+		]
+	]
+] {
+	\draw[->%, out=-130,in=-85
+	] ([xshift=-1em]FieldK.south east)
+	--([xshift=-1em]R1.north east) node [midway, left] {$\tau$}  node [midway, right] {$\cong$}
+	;
+	\draw[->
+	] ([xshift=-1em]Kx.south east)
+	--([xshift=-1em]R.north east) node [midway, left] {$\sigma$}
+	;
+	\draw[decorate, decoration={brace, amplitude=1.5em}]
+     ([yshift=-.5em]current bounding box.north east) --
+      node[right=2em%, font=\sffamily\bfseries\Large
+      ]{{
+      	$\implies  \left\{ \begin{aligned}
+      		& \begin{aligned}
+      		\forall t \in R, \exists \sigma_t: K[X] &\rightarrow R \\
+          		f(x) = \sum\limits_{i=0}^n a_i x^i &\mapsto \sum\limits_{i=0}^n \tau(a_i) t^i \triangleq f_\tau(t) \\
+          	\end{aligned} \\
+          	& \text{满足} \\
+          	& 
+          		\quad \sigma_t(x) = t \\
+          	& \quad
+          		f(x) + g(x) = h(x) \Rightarrow f_\tau(t) + g_\tau(t) = h_\tau(t) \\
+          	& \quad
+          		f(x) g(x) = p(x) \Rightarrow f_\tau(t) g_\tau(t) = p_\tau(t) \\
+        \end{aligned} \right.$
+      }}
+      ([yshift=-.5em]current bounding box.south east)
+   ;	
+}
+%\BraceForest[red,ultra thick]%
+  % inside environment forest
+\end{forest}
+\end{center}
+
+\end{Note}
+
+\begin{Proposition}
+在$K[x]$中, 如果$g(x) \mid f(x)$, 其中$f(x) \neq 0$, 则$\deg g(x) \le \deg f(x)$.
+\end{Proposition}
+
+\begin{Proposition}
+若$f(x), g(x) \in K[x]$, 那么
+\begin{tightcenter}
+$f(x) \sim g(x) \iff f(x) = c g(x)~(c \in K^*)$
+\end{tightcenter}
+\end{Proposition}
+
+\begin{Theorem}[带余除法]
+设$f(x), g(x) \in K[x]$, 且$g(x) \neq 0$, 则\;\fbox{唯一}\;的存在$K[x]$中一对多项式$h(x), r(x)$,
+使得$f(x) = h(x) g(x) + r(x)$, $\deg r(x) < \deg g(x)$. 我们把$h(x)$叫做\textbf{商式},
+$r(x)$叫做\textbf{余式}.
+\end{Theorem}
+
+\begin{Note}
+因为证明用到逆元, 所以要是至少是除环(我还没确定够不够), 普通环肯定不行.
+\end{Note}
+
+\begin{Corollary}
+设$f(x), g(x) \in K[x]$, 且$g(x) \neq 0$, 则
+\begin{tightcenter}
+$g(x) \mid f(x)$ $\iff$ $g(x)$除$f(x)$的余式是$0$.
+\end{tightcenter}
+\end{Corollary}
+
+%\begin{Proposition}
+%在$K[x]$中, 若$g(x) \mid f_i (x)$~($i=1,\cdots, s$), 则对任意$u_1(x), \cdots, u_s(x)$, 都有
+%$g(x) \mid u_1(x) f_1(x) + \cdots + u_s(x) f_s(x)$.
+%\end{Proposition}
+
+\section{具体的环}
+
+\subsection{整数环} %%%%%%%%%%%%%%%
+
+\begin{Definition}[整数环]
+整数关于普通加法和乘法构成的环.
+\end{Definition}
+
+\begin{Proposition}
+整数环是一个整环.
+\end{Proposition}
+
+\subsection{$M_n[K]$}
+
+\begin{Note}
+数域$K$上的所有$n$级矩阵$M_n[K]$, 对于矩阵的加法和乘法构成一个环.
 \end{Note}

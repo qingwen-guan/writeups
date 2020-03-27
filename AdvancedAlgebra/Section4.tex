@@ -1,0 +1,656 @@
+\section{矩阵的运算}
+
+\subsection{矩阵的加法, 数量乘法, 乘法}
+
+\begin{Definition}
+$M_{s \times n}(K) \triangleq \{$ 数域$K$上$s \times n$矩阵 $\}$. $s = n$时, $M_{n}(K) \triangleq M_{n \times n}(K)$.
+\end{Definition}
+
+\begin{Definition}
+两个矩阵相等 $\stackrel{\text{def}}{\iff}$ 行数相等, 列数相等, 对应元素相等.
+\end{Definition}
+
+\begin{Definition} 在$M_{s \times n}(K)$中, 
+\[
+\begin{pmatrix}
+a_{11} & \cdots & a_{1n} \\
+\vdots &        & \vdots \\
+a_{s1} & \cdots & a_{sn} \\
+\end{pmatrix}
++
+\begin{pmatrix}
+b_{11} & \cdots & b_{1n} \\
+\vdots &        & \vdots \\
+b_{s1} & \cdots & b_{sn} \\
+\end{pmatrix}
+\triangleq
+\begin{pmatrix}
+a_{11} + b_{11} & \cdots & a_{1n} + b_{1n} \\
+\vdots          &        & \vdots \\
+a_{s1} + b_{s1} & \cdots & a_{sn} + b_{sn} \\
+\end{pmatrix}
+\]
+\end{Definition}
+
+
+\begin{Definition} 在$M_{s \times n}(K)$中, 
+\[
+k
+\begin{pmatrix}
+a_{11} & \cdots & a_{1n} \\
+\vdots &        & \vdots \\
+a_{s1} & \cdots & a_{sn} \\
+\end{pmatrix}
+\triangleq
+\begin{pmatrix}
+k a_{11} & \cdots & k a_{1n} \\
+\vdots &        & \vdots \\
+k a_{s1} & \cdots & k a_{sn} \\
+\end{pmatrix}
+\]
+\end{Definition}
+
+\begin{Definition} 在$M_{s \times n}(K)$中, 
+元素全为$0$的矩阵称为\textbf{零矩阵}, 记作$0$.
+\end{Definition}
+
+\begin{Note}
+易验证, $M_{s \times n}(K)$成为数域$K$上的一个线性空间.
+\end{Note}
+
+\begin{Definition}
+设$A = (a_{ij})_{s \times n}$, 
+$B = (b_{ij})_{n \times n}$
+, 定义矩阵$A$与$B$的乘积$AB \mapsto C = (c_{ij})_{s \times m}$, 其中
+\[
+c_{ij} = a_{i1}b_{1j} + \cdots + a_{in} b_{nj} = 
+\sum_{k=1}^n a_{ik} b_{kj}, i = 1, \cdots, s; j = 1, \cdots, m
+\]
+\end{Definition}
+
+\begin{Note}
+矩阵的乘法不满足交换律.
+\end{Note}
+
+\begin{Note}
+矩阵的乘法满足
+\begin{enumerate}[(1)]
+\item 结合律: $(AB)C = A(BC)$
+\item 左分配率: $A(B + C) = AB + AC$
+\item 右分配率: $(B + C)D = BD + CD$
+\item 主对角线上的元素都是$1$, 其余元素都是$0$的$n$级矩阵称为\textbf{$n$级单位矩阵}, 记作$I_n$, 
+或简记作$I$. 容易计算得$I_s A_{s \times n} = A_{s \times n}$, $A_{s \times n} I_n = A_{s \times n}$.
+特别的, 若$A \in M_n(K)$, 则$IA = AI = A$.
+\item $k(AB) = (kA)B = A(kB)$
+\item 设$A \in M_n(K)$, 则$A^m \triangleq A A \cdots A$ ($m$个), $m \in N^*$; $A^0 \triangleq I$. 易得$A^{k + \ell} = A^k A^\ell, (A^k)^\ell = A^{k\ell}$, $k, \ell \in N$.
+\item $(A + B)' = A' + B'$
+\item $(kA)' = kA'$
+\item $(AB)' = B'A'$
+\end{enumerate}
+\end{Note}
+
+\begin{Note}
+对于数域$K$上的$n$元线性方程组
+$$
+\left\{
+\begin{matrix}
+a_{11} x_1 +\cdots + a_{1n} x_n = b_1 \\
+\vdots \\
+a_{s1} x_1 +\cdots + a_{sn} x_n = b_n \\
+\end{matrix}
+\right.
+$$%
+可以写成
+\[
+\begin{pmatrix} 
+a_{11} & \cdots & a_{1n} \\ 
+\vdots &        & \vdots \\ 
+a_{s1} & \cdots & a_{sn} \\
+\end{pmatrix}
+\begin{pmatrix} x_1 \\ \vdots \\ x_{n} \end{pmatrix}
+= 
+\begin{pmatrix} b_{1} \\ \vdots \\ b_{n} \end{pmatrix}
+\]
+记作$AX = \beta$. 相应的其次线性方程组为$AX = \mathbf{0}$
+\end{Note}
+
+\begin{Note}
+\[
+A B = 
+\begin{blockarray}{ccc}
+\alpha_1 & \cdots & \alpha_n \\
+\begin{block}{(ccc)}
+a_{11} & \cdots & a_{1n} \\
+\vdots & \vdots & \vdots \\
+a_{s1} & \cdots & a_{sn} \\
+\end{block}
+\end{blockarray}
+\begin{pmatrix}
+b_{11} & \cdots & b_{1j} & \cdots&  b_{1m} \\
+\vdots &        & \vdots &       & \vdots \\
+b_{n1} & \cdots & b_{nj} & \cdots & b_{nm} \\
+\end{pmatrix}
+\]
+的第$j$列是
+\[
+\begin{pmatrix}
+a_{11} b_{1j} + \cdots + a_{1n} b_{nj} \\
+\vdots \\
+a_{s1} b_{1j} + \cdots + a_{sn} b_{nj} \\
+\end{pmatrix} = b_{1j} \alpha_1 + \cdots + b_{nj} \alpha_n
+\]
+于是
+\[ 
+AB = (\alpha_1, \cdots, \alpha_n) 
+\begin{pmatrix}
+b_{11} & \cdots & b_{1m} \\
+\vdots &        & \vdots \\
+b_{n1} & \cdots & b_{nm} \\
+\end{pmatrix}
+= 
+\left(
+\sum_{k=1}^n b_{k1} \alpha_k, \cdots, \sum_{k=1}^n b_{km} \alpha_k
+\right)
+\]
+\end{Note}
+
+
+\begin{Note}
+\[
+A B = 
+\begin{pmatrix}
+a_{11} & \cdots & a_{1n} \\
+\vdots &        & \vdots \\
+a_{i1} & \cdots & a_{in} \\
+\vdots &        & \vdots \\
+a_{s1} & \cdots & a_{sn} \\
+\end{pmatrix}
+\begin{blockarray}{cccc}
+\begin{block}{(ccc)c}
+b_{11} & \cdots & b_{1m} & \gamma_1 \\
+\vdots & \vdots & \vdots & \vdots \\
+b_{n1} & \cdots & b_{nm} & \gamma_n\\
+\end{block}
+\end{blockarray}
+\]
+的第$i$行是
+\[
+\begin{pmatrix}
+\sum\limits_{j=1}^n a_{ij} b_{j1}, \ldots, \sum\limits_{j=1}^n a_{ij} b_{jm} \end{pmatrix} = 
+\sum\limits_{j=1}^n a_{ij} \gamma_j =
+a_{i1} \gamma_1 + \cdots + a_{in} \gamma_n
+\]
+于是
+\[ 
+AB = \begin{pmatrix}
+a_{11} & \cdots & a_{1n} \\
+\vdots &        & \vdots \\
+a_{s1} & \cdots & a_{sn} \\
+\end{pmatrix}
+\begin{pmatrix}
+\gamma_1 \\
+\vdots \\
+\gamma_n \\
+\end{pmatrix}
+= 
+\begin{pmatrix}
+a_{11} \gamma_1 + \cdots + a_{1n} \gamma_n \\
+\vdots \\
+a_{s1} \gamma_1 + \cdots + a_{sn} \gamma_n \\
+\end{pmatrix}
+\]
+\end{Note}
+
+%\begin{Note}
+%从而$AB$的列向量组，可由$A$的列向量组线性表出. 于是$\rank(AB) \le \rank(A)$
+%\end{Note}
+
+\begin{Theorem}
+$ \rank(AB) \le \min \{ \rank(A), \rank(B) \} $
+\end{Theorem}
+
+\subsection{特殊矩阵}
+
+\begin{Definition}[基本矩阵]
+只有第$i$行第$j$列为$1$, 其余元素都为$0$的矩阵，记作$E_{ij}$, 称为一个\textbf{基本矩阵}. 
+\end{Definition}
+
+\begin{Note}
+矩阵组$E_{11}, \cdots, E_{1n}, \cdots, E_{s1}, \cdots, E_{sn}$是$M_{s \times n}(K)$的一个基, $\dim M_{s \times n}(K) = sn$.
+\end{Note}
+
+\begin{Definition}[对角矩阵]
+$M_n(K)$中，主对角线上的元素依次为$d_1, \cdots, d_n$, 其余元素都为$0$的矩阵
+\[
+\begin{pmatrix}
+d_1 &   &    \\
+    & \ddots & \\
+    &        &d_n
+\end{pmatrix} 
+\]
+称为\textbf{对角矩阵}.
+\end{Definition}
+
+\begin{Note}
+$\{$ 数域$K$上$n$级对角矩阵 $\}$ 是 $M_n(K)$的一个子空间. 
+\end{Note}
+
+\begin{Note}
+\[
+\begin{aligned}
+\begin{pmatrix}
+d_1 &   &    \\
+    & \ddots & \\
+    &        &d_s
+\end{pmatrix} 
+\begin{pmatrix}
+\gamma_1 \\
+\vdots \\
+\gamma_s \\
+\end{pmatrix} 
+&= 
+\begin{pmatrix}
+d_1 \gamma_1 \\
+\vdots \\
+d_s \gamma_s \\
+\end{pmatrix} \\
+\begin{pmatrix}
+\alpha_1, \cdots, \alpha_n \\
+\end{pmatrix} 
+\begin{pmatrix}
+d_1 &   &    \\
+    & \ddots & \\
+    &        &d_n
+\end{pmatrix} 
+&=
+\begin{pmatrix}
+d_1 \alpha_1, \cdots, d_n \alpha_n \\
+\end{pmatrix} \\
+\begin{pmatrix}
+d_1 &   &    \\
+    & \ddots & \\
+    &        &d_n
+\end{pmatrix} 
+\begin{pmatrix}
+d'_1 &   &    \\
+    & \ddots & \\
+    &        &d'_n
+\end{pmatrix} 
+&=
+\begin{pmatrix}
+d_1 d'_1 &   &    \\
+    & \ddots & \\
+    &        &d_n d'_n
+\end{pmatrix} 
+\end{aligned} 
+\]
+\end{Note}
+
+\subsubsection{数量矩阵}
+
+\begin{Definition}[数量矩阵]
+\[
+kI = \begin{pmatrix}
+k &   &    \\
+    & \ddots & \\
+    &        &k \\
+\end{pmatrix} 
+\]
+称为\textbf{数量矩阵}.
+\end{Definition}
+
+\begin{Note}
+$ KI \triangleq \{ kI \mid k \in K \} $ 是 $M_n(K)$的一个子空间. 
+\end{Note}
+
+\begin{Note} \ \\
+\begin{enumerate}[(1)]
+\item $ (kI) (\ell I) = (k\ell) I $
+\item $A(kI) = (kI)A = kA$
+\end{enumerate}
+\end{Note}
+
+\subsubsection{上(下)三角矩阵}
+
+\begin{Definition}[上三角矩阵]
+\[
+\begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+       & a_{22} & \cdots & a_{2n} \\
+       &        & \ddots & \vdots \\
+       &        &        & a_{nn} \\
+\end{pmatrix}
+\]
+称为\textbf{$n$级上三角矩阵}.
+
+\end{Definition}
+
+\begin{Note}
+$\{$ 数域$K$上$n$级上三角矩阵 $\}$ 是 $M_n(K)$的一个子空间. 
+\end{Note}
+
+\begin{Note}
+两个上三角矩阵的乘积还是上三角矩阵
+\end{Note}
+
+\begin{Definition}[下三角矩阵]
+\[
+\begin{pmatrix}
+a_{11} &        &        &        \\
+a_{21} & a_{22} &        & \\
+\vdots & \vdots & \ddots &  \\
+a_{n1} & a_{n2} &        & a_{nn} \\
+\end{pmatrix}
+\]
+称为\textbf{$n$级下三角矩阵}.
+\end{Definition}
+
+\subsubsection{初等矩阵}
+
+\begin{Definition} 把$I$的第$i$行的$k$倍加到第$j$行，(或者第$j$列$k$倍加到第$i$列)，得到
+\[
+P(j, i(k)) \triangleq 
+\begin{blockarray}{cccccccc}
+\begin{block}{(ccccccc)c}
+1 &        &   &        &   &        &   & \\
+  & \ddots &   &        &   &        &   & \text{row $i$} \\
+  &        & 1 &        &   &        &   & \\
+  &        &   & \ddots &   &        &   & \\
+  &        & k &        & 1 &        &   & \text{row $j$} \\
+  &        &   &        &   & \ddots &   & \\
+  &        &   &        &   &        & 1 & \\
+\end{block}
+\end{blockarray}
+\]
+第$i$行和第$j$行互换，(或者第$i$列和第$j$列互换), 得到
+\[
+P(i, j) \triangleq 
+\begin{blockarray}{cccccccc}
+\begin{block}{(ccccccc)c}
+1 &        &   &        &   &        &   & \\
+  & \ddots &   &        &   &        &   & \text{row $i$} \\
+  &        & 0 &        & 1 &        &   & \\
+  &        &   & \ddots &   &        &   & \\
+  &        & 1 &        & 0 &        &   & \text{row $j$} \\
+  &        &   &        &   & \ddots &   & \\
+  &        &   &        &   &        & 1 & \\
+\end{block}
+\end{blockarray}
+\]
+第$i$行乘以非零数$c$，(或者第$i$列乘以非零数$c$), 得到
+\[
+P(i(c)) \triangleq 
+\begin{blockarray}{cccccccc}
+\begin{block}{(ccccccc)c}
+1 &        &   &        &   &        &   & \\
+  & \ddots &   &        &   &        &   & \text{row $i$} \\
+  &        & c &        & 0 &        &   & \\
+  &        &   & \ddots &   &        &   & \\
+  &        & 0 &        & 1 &        &   & \text{row $j$} \\
+  &        &   &        &   & \ddots &   & \\
+  &        &   &        &   &        & 1 & \\
+\end{block}
+\end{blockarray}
+\]
+\end{Definition}
+
+\begin{Note} 用初等矩阵左乘一个矩阵相当于对这个矩阵做相应的初等行变换; 用初等矩阵右乘一个矩阵相当于对这个矩阵做相应的初等列变换.
+
+\begin{comment}
+
+\[
+%%%%%%%%%%%%%%%%
+\begin{aligned}
+P(j, i(k))\;A &=
+\begin{pmatrix}
+\gamma_1 \\
+\vdots \\
+\gamma_i \\
+\vdots \\
+\gamma_j \\
+\vdots \\
+\gamma_s \\
+\end{pmatrix} =
+\begin{pmatrix}
+1 &        &   &        &   &        &   \\
+  & \ddots &   &        &   &        &   \\
+  &        & 1 &        &   &        &   \\
+  &        &   & \ddots &   &        &   \\
+  &        & k &        & 1 &        &   \\
+  &        &   &        &   & \ddots &   \\
+  &        &   &        &   &        & 1 \\
+\end{pmatrix}
+\begin{pmatrix}
+\gamma_1 \\
+\vdots \\
+\gamma_i \\
+\vdots \\
+\gamma_j \\
+\vdots \\
+\gamma_s \\
+\end{pmatrix} 
+= 
+\begin{pmatrix}
+\gamma_1 \\
+\vdots \\
+\gamma_i \\
+\vdots \\
+k \gamma_i +\gamma_j \\
+\vdots \\
+\gamma_s \\
+\end{pmatrix} \\
+%%%%%%%%%%%%%%%%%%
+A\;P(j, i(k)) &= (\alpha_1, \cdots, \alpha_i, \cdots, \alpha_j, \cdots, \alpha_n)
+\begin{pmatrix}
+1 &        &   &        &   &        &   \\
+  & \ddots &   &        &   &        &   \\
+  &        & 1 &        &   &        &   \\
+  &        &   & \ddots &   &        &   \\
+  &        & k &        & 1 &        &   \\
+  &        &   &        &   & \ddots &   \\
+  &        &   &        &   &        & 1 \\
+\end{pmatrix} \\
+&= (\alpha_1, \cdots, \alpha_i + k \alpha_j, \cdots, \alpha_j, \cdots, \alpha_n)  \\
+%%%%%%%%%%%%%%%%%%%%
+P(i,j)\;A &=
+\begin{pmatrix}
+\gamma_1 \\
+\vdots \\
+\gamma_i \\
+\vdots \\
+\gamma_j \\
+\vdots \\
+\gamma_s \\
+\end{pmatrix} =
+\begin{pmatrix}
+1 &        &   &        &   &        &   \\
+  & \ddots &   &        &   &        &   \\
+  &        & 0 &        & 1 &        &   \\
+  &        &   & \ddots &   &        &   \\
+  &        & 1 &        & 0 &        &   \\
+  &        &   &        &   & \ddots &   \\
+  &        &   &        &   &        & 1 \\
+\end{pmatrix}
+\begin{pmatrix}
+\gamma_1 \\
+\vdots \\
+\gamma_i \\
+\vdots \\
+\gamma_j \\
+\vdots \\
+\gamma_s \\
+\end{pmatrix} 
+= 
+\begin{pmatrix}
+\gamma_1 \\
+\vdots \\
+\gamma_j \\
+\vdots \\
+\gamma_i \\
+\vdots \\
+\gamma_s \\
+\end{pmatrix} \\
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+A\;P(i,j) &= (\alpha_1, \cdots, \alpha_i, \cdots, \alpha_j, \cdots, \alpha_n)
+\begin{pmatrix}
+1 &        &   &        &   &        &   \\
+  & \ddots &   &        &   &        &   \\
+  &        & 0 &        & 1 &        &   \\
+  &        &   & \ddots &   &        &   \\
+  &        & 1 &        & 0 &        &   \\
+  &        &   &        &   & \ddots &   \\
+  &        &   &        &   &        & 1 \\
+\end{pmatrix} \\
+&= (\alpha_1, \cdots, \alpha_i + k \alpha_j, \cdots, \alpha_i, \cdots, \alpha_n)  \\
+\end{aligned} 
+]\]
+\end{comment}
+\end{Note}
+
+\subsection{x}
+
+\begin{Definition}[对称矩阵]
+数域上$K$上的$n$级矩阵是\textbf{对称矩阵} $\stackrel{\text{def}}{\iff}$ $A' = A$.
+\end{Definition}
+
+\begin{Note}
+$\{$数域$K$上$n$级对称矩阵$\}$ 是 $M_n(K)$ 的一个子空间.
+\end{Note}
+
+\begin{Definition}[斜对称矩阵]
+数域上$K$上的$n$级矩阵是\textbf{斜对称矩阵} $\stackrel{\text{def}}{\iff}$ $A' = -A$.
+\end{Definition}
+
+\begin{Note}
+斜对称矩阵的形状
+\[
+\begin{pmatrix}
+0       & a_{12}   & \cdots & a_{1n} \\
+-a_{12} & 0        & \cdots & a_{2n} \\
+\vdots  & \vdots   & \ddots & \vdots \\
+-a_{1n} & -a_{2n}  & \cdots & 0      \\
+\end{pmatrix}
+\]
+\end{Note}
+
+\begin{Note}
+$\{$数域$K$上$n$级斜对称矩阵$\}$ 是 $M_n(K)$ 的一个子空间.
+\end{Note}
+
+\subsection{可逆矩阵}
+
+\begin{Definition}[可逆矩阵]
+设$A \in M_n(K)$, 如果存在$B \in M_n(K)$, 使得$AB = BA = I$, 那么称$A$是\textbf{可逆矩阵}, $B$称为$A$的\textbf{逆矩阵}. 把$A$的逆矩阵记作$A^{-1}$.
+\end{Definition}
+
+\begin{Definition}[伴随矩阵]
+\[
+A^* \triangleq
+\begin{pmatrix}
+A_{11} & A_{21} & \cdots & A_{n1} \\
+A_{12} & A_{22} & \cdots & A_{n2} \\
+\vdots & \vdots &        & \vdots \\
+A_{1n} & A_{2n} & \cdots & A_{nn} \\
+\end{pmatrix}
+\]
+称为$A$的\textbf{伴随矩阵}.
+\end{Definition}
+
+\begin{Note}
+数域$K$上的$n$级矩阵$A$可逆 $\iff$ $|A| \neq 0$ $\iff$ $A$满秩; 且$A$可逆时, $A^{-1} = \dfrac{1}{|A|}A^{*}$.
+\end{Note}
+
+\begin{Proposition}
+设$A, B \in M_n(K)$, 若$AB = I$, 则$A$, $B$都可逆, 且$A^{-1} = B$, $B^{-1} = A$.
+\end{Proposition}
+
+\begin{Proposition}
+初等矩阵都是可逆矩阵, 且$P(j, i(k))^{-1} = P(j, i(-k))$, $P(i, j)^{-1} = P(i, j)$, $P(i(c))^{-1} = P(i(c^{-1}))$.
+\end{Proposition}
+
+\begin{Proposition}
+若$A$, $B$都是$n$级可逆矩阵, 则$AB$可逆, 且$(AB)^{-1} = B^{-1} A^{-1}$.
+\end{Proposition}
+
+\begin{Note}
+若$A_1$, $\cdots$, $A_s$都是$n$级可逆矩阵, 则$A_1 \cdots A_s$也是可逆矩阵, 且$\left( A_1 \cdots A_s \right)^{-1} = A_s^{-1} \cdots A_1^{-1}$.
+\end{Note}
+
+\begin{Proposition}
+若$A$可逆, 则$A'$可逆, 且$\left(A'\right)^{-1} = \left(A^{-1}\right)'$.
+\end{Proposition}
+
+\begin{Proposition}
+$n$级矩阵$A$可逆, 则它可以通过初等行变换, 化成$I$.
+\end{Proposition}
+
+\begin{Proposition}
+$n$级矩阵$A$可逆 $\iff$ $A$等于一些初等矩阵的乘积.
+\end{Proposition}
+
+\begin{Proposition}
+用可逆矩阵左(右)乘矩阵$A$, 不改变$A$的秩.
+\end{Proposition}
+
+\begin{Note}
+求$A^{-1}$的基本方法, 称为\textbf{初等变换法}
+\[
+\begin{pmatrix}
+A~I
+\end{pmatrix}
+\xrightarrow{\text{初等行变换}}
+\begin{pmatrix}
+I~A^{-1}
+\end{pmatrix}
+\]
+\end{Note}
+
+\subsection{矩阵的分块}
+
+\begin{Note}
+分块矩阵的乘法可以和普通矩阵的乘法一样做.
+\end{Note}
+
+\begin{Note}
+分块矩阵的初等行变换
+\begin{enumerate}[(1)]
+\item 把一个块行的左$P$倍加到另一个块行中
+\item 交换两个块行的位置
+\item 用一个可逆矩阵左乘某一块行
+\end{enumerate}
+\end{Note}
+
+\begin{Note}
+分块矩阵的初等列变换
+\begin{enumerate}[(1)]
+\item 把一个块列的右$P$倍加到另一个块列中
+\item 交换两个块列的位置
+\item 用一个可逆矩阵右乘某一块列
+\end{enumerate}
+\end{Note}
+
+\begin{Note} \ \\
+\begin{itemize}
+\item 分块初等矩阵都是可逆矩阵. 
+\item 用分块初等矩阵左乘一个矩阵相当于对这个矩阵做相应的初等行变换; 用分块初等矩阵右乘一个矩阵相
+当于对这个矩阵做相应的初等列变换.
+\item 分块矩阵的初等行变换不改变矩阵的秩. 
+\end{itemize}
+\end{Note}
+
+\begin{Theorem}[Binet-Cauchy公式]
+设$A = (a_{ij})_{s \times n}$, $B = (b_{ij})_{n \times s}$
+\[
+\norm{AB} = \begin{cases}
+0 & s > n \\
+\norm{A} \norm{B} & s = n \\
+\mathlarger{\mathlarger{\mathlarger{\sum}}}\limits_{1 \le v_1 \le v_2 \le \cdots \le v_s \le n} A \begin{pmatrix}
+1,   & 2,   & \cdots, & s \\
+v_1, & v_2, & \cdots, & v_s
+\end{pmatrix} B \begin{pmatrix}
+v_1, & v_2, & \cdots, & v_s \\
+1,   & 2,   & \cdots, & s
+\end{pmatrix} & s \le n \\
+\end{cases}
+\]
+\end{Theorem}

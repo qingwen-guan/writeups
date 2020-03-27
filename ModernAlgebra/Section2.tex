@@ -1,3 +1,5 @@
+\chapter{群}
+
 \section{群论}
 
 \subsection{群的定义和性质}
@@ -446,3 +448,51 @@ $ G/N \sim \bar{G}/\bar{N} $.
 \begin{Proposition}
 假定群$G$是一个循环群, $N$是$G$的一个子群, 则$G/N$也是循环群.
 \end{Proposition}
+
+\section{特殊的群}
+
+\subsection{加群}
+
+\begin{Definition}[加群]
+一个交换群叫做一个的\textbf{加群}, 如果我们把这个群的代数运算称为加法, 并且用符号$+$表示.
+\end{Definition}
+
+\begin{Definition}[$\Sigma$]
+{{
+$n$个元的和$a_1 + a_2 + \cdots + a_n$用符号$\displaystyle \sum_{i=1}^{n} a_n$ 来表示.
+}
+}
+\end{Definition}
+
+\begin{Definition}
+$n$个$a$的和$\displaystyle \sum_{i=1}^{n} a$我们用$na$表示.
+\end{Definition}
+
+\begin{Definition}[零元]
+加群唯一的单位元用$\mathfrak{0}$来表示, 并且把它叫做\textbf{零元}.
+\end{Definition}
+
+\begin{Definition}[负元]
+元$a$的唯一的逆元我们用$-a$来表示，并且把它叫做$a$的\textbf{负元}. $a + (-b)$我们简写成$a - b$.
+\end{Definition}
+
+\begin{Theorem}
+加群满足以下运算规则
+\begin{enumerate}[(1)]
+\item $\mathfrak{0} + a = a + \mathfrak{0} = a$
+\item $-a + a = a - a = \mathfrak{0}$
+\item $-(-a) = a$
+\item[(4: 移项)] $a + c = b \Leftrightarrow c = b - a$
+\item $-(a +b) = -a - b, -(a-b) = -a +b$
+\item $ma + na = (m+n)a, m(na) = (mn)a, n(a+b) = na + nb, \forall m, n \in \mathbb{Z}^+$
+\end{enumerate}
+\end{Theorem}
+
+\begin{Note}
+非空子集$S$做成子群的充要条件变成了 
+\begin{itemize}
+\item (i) $a, b \in S \Rightarrow a+b \in S$ (ii) $a \in S \Rightarrow -a \in S$
+\item 或者 (iii) $a, b \in S \Rightarrow a - b \in S$.
+\end{itemize}
+\end{Note}
+

@@ -1,4 +1,4 @@
-\documentclass[UTF8]{ctexart}
+\documentclass[UTF8]{ctexrep}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage[dvipsnames, svgnames, x11names]{xcolor}  % 一般放得靠前
@@ -12,6 +12,7 @@
 \usepackage[shortlabels]{enumitem} %https://tex.stackexchange.com/questions/229540/customized-enumerate-items
 \usepackage{forest}
 \usepackage{hyperref}
+\usepackage[normalem]{ulem} % either use this (simple) or
 
 \usetikzlibrary{decorations.pathreplacing}
 
@@ -37,6 +38,9 @@
 
 \setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0pt}
 \setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0pt}
+
+\DeclareMathOperator{\OpIm}{Im}
+%\DeclareMathOperator{\deg}{deg}
 
 %\renewcommand\marginfont{%
 %    \scriptsize
@@ -94,6 +98,7 @@
 \input{ModernAlgebra/Section1}
 \input{ModernAlgebra/Section2}
 \input{ModernAlgebra/Section3}
+\input{ModernAlgebra/SectionLinSpace}
 \input{ModernAlgebra/Section4}
 \input{ModernAlgebra/Section5}
 
