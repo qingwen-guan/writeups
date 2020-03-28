@@ -1,0 +1,158 @@
+\chapter{套娃}
+
+\section{数域$K$上的一元多项式环$K[x]$} %%%%%%%%%%%%%%%%%
+
+\begin{Note}
+数域$K$上的一元多项式环$K[x]$是一个欧式环、主理想环、唯一分解环、整环.
+\end{Note}
+
+\begin{Property}
+设$f(x), g(x) \in K[x]$, 则
+\[
+\begin{aligned}
+\deg \Big( f(x) + g(x) \Big) &\le \max \Big( \deg f(x), \deg g(x) \Big) \\
+\deg \Big( f(x) g(x) \Big) &= \deg f(x) + \deg g(x) 
+\end{aligned}
+\]
+\end{Property}
+
+\begin{Corollary}
+设$f(x), g(x) \in K[x]$, 则
+\[
+f(x) \neq 0, g(x) \neq 0 \implies f(x) g(x) \neq 0
+\]
+\end{Corollary}
+
+\begin{Corollary}[消去律]
+设$f(x), g(x), h(x) \in K[x]$, 则
+\[
+f(x) g(x) = f(x) h(x) \And f(x) \neq 0 \implies g(x) = h(x)
+\]
+\end{Corollary}
+
+
+\begin{Note}
+任给$A \in M_n(K)$, 矩阵$A$的多项式组成的集合$K[A]$. 容易验证非空集合$K[A]$对于矩阵的减法和乘法封闭, 从而$K[A]$是环$M_n(K)$的一个子环. 且$K[A]$是有单位元的交换环.
+\end{Note}
+
+\begin{Note}
+$KI$是$K[A]$的一个子环.
+\end{Note}
+
+\begin{Theorem}[一元多项式环的通用性质]
+设$K$是一个数域, $R$是一个有单位元$1'$的交换环. 且$K$到$R$的一个子环$R_1$(含有$1'$)
+有一个同构映射$\tau$. 任给$t \in R$, 令
+\[
+\begin{aligned}
+\sigma_t: K[X] &\rightarrow R \\
+          f(x) = \sum\limits_{i=0}^n a_i x^i &\mapsto \sum\limits_{i=0}^n \tau(a_i) t^i \triangleq f(t)
+\end{aligned}
+\]
+则$\sigma_t$是$K[x]$到$R$的一个映射, 且$\sigma_t(x) = t$, 且$\sigma_t$保持加法、乘法运算, 即
+\[
+f(x) +g(x) = h(x), f(x)g(x) = p(x) \implies f(t) + g(t) = h(t), f(t) g(t) = p(t)
+\]
+称$\sigma_t$是$x$用$t$带入.
+\end{Theorem}
+
+\begin{Note}定理回答了为什么多项式环的未定元可以带入特定的值.
+\begin{center}
+\begin{forest}
+for tree={grow=west, parent anchor=west, child anchor=east, anchor=east}
+[, s sep=2em,phantom
+	[ 数域$K$, name=FieldK
+		[{$K[x]$} , tier=x, name=Kx, edge label={node [midway, above, font=\scriptsize] {子环}} 	
+		]
+	]		
+	[ {含幺子环${R_1}$}, name=R1
+		[ {含幺交换环$R$} ,tier=x, name=R, edge label={node [midway, below, font=\scriptsize] {子环}} 
+		]
+	]
+] {
+	\draw[->%, out=-130,in=-85
+	] ([xshift=-1em]FieldK.south east)
+	--([xshift=-1em]R1.north east) node [midway, left] {$\tau$}  node [midway, right] {$\cong$}
+	;
+	\draw[->
+	] ([xshift=-1em]Kx.south east)
+	--([xshift=-1em]R.north east) node [midway, left] {$\sigma$}
+	;
+	\draw[decorate, decoration={brace, amplitude=1.5em}]
+     ([yshift=-.5em]current bounding box.north east) --
+      node[right=2em%, font=\sffamily\bfseries\Large
+      ]{{
+      	$\implies  \left\{ \begin{aligned}
+      		& \begin{aligned}
+      		\forall t \in R, \exists \sigma_t: K[X] &\rightarrow R \\
+          		f(x) = \sum\limits_{i=0}^n a_i x^i &\mapsto \sum\limits_{i=0}^n \tau(a_i) t^i \triangleq f_\tau(t) \\
+          	\end{aligned} \\
+          	& \text{满足} \\
+          	& 
+          		\quad \sigma_t(x) = t \\
+          	& \quad
+          		f(x) + g(x) = h(x) \Rightarrow f_\tau(t) + g_\tau(t) = h_\tau(t) \\
+          	& \quad
+          		f(x) g(x) = p(x) \Rightarrow f_\tau(t) g_\tau(t) = p_\tau(t) \\
+        \end{aligned} \right.$
+      }}
+      ([yshift=-.5em]current bounding box.south east)
+   ;	
+}
+%\BraceForest[red,ultra thick]%
+  % inside environment forest
+\end{forest}
+\end{center}
+
+\subsection{整除关系, 带余除法}
+
+\end{Note}
+\begin{Proposition}
+在$K[x]$中, 如果$g(x) \mid f(x)$, 其中$f(x) \neq 0$, 则$\deg g(x) \le \deg f(x)$.
+\end{Proposition}
+
+\begin{Proposition}
+若$f(x), g(x) \in K[x]$, 那么
+\begin{tightcenter}
+$f(x) \sim g(x) \iff f(x) = c g(x)~(c \in K^*)$
+\end{tightcenter}
+\end{Proposition}
+
+\begin{Theorem}[带余除法]
+设$f(x), g(x) \in K[x]$, 且$g(x) \neq 0$, 则\;\fbox{唯一}\;的存在$K[x]$中一对多项式$h(x), r(x)$,
+使得$f(x) = h(x) g(x) + r(x)$, $\deg r(x) < \deg g(x)$. 我们把$h(x)$叫做\textbf{商式},
+$r(x)$叫做\textbf{余式}.
+\end{Theorem}
+
+\begin{Note}
+因为证明用到逆元, 所以要是至少是除环(我还没确定够不够), 普通环肯定不行.
+\end{Note}
+
+\begin{Corollary}
+设$f(x), g(x) \in K[x]$, 且$g(x) \neq 0$, 则
+\begin{tightcenter}
+$g(x) \mid f(x)$ $\iff$ $g(x)$除$f(x)$的余式是$0$.
+\end{tightcenter}
+\end{Corollary}
+
+\begin{Proposition}[整除性不随数域的扩大而改变]
+设$f(x), g(x) \in K[x]$, $g(x) \neq 0$, 数域$E$包含$K$, 则
+\begin{tightcenter}
+在$K[x]$中$g(x) \mid f(x)$ $\iff$ 在$E[x]$中$g(x) \mid f(x)$ 
+\end{tightcenter}
+\end{Proposition}
+
+%\begin{Proposition}
+%在$K[x]$中, 若$g(x) \mid f_i (x)$~($i=1,\cdots, s$), 则对任意$u_1(x), \cdots, u_s(x)$, 都有
+%$g(x) \mid u_1(x) f_1(x) + \cdots + u_s(x) f_s(x)$.
+%\end{Proposition}
+
+\subsection{最大公因式}
+
+\begin{Definition}[因式]
+如果$g(x) \mid f(x)$, 则$g(x)$称为$f(x)$的一个\textbf{因式}, $f(x)$称为$g(x)$的一个\textbf{倍式}.
+\end{Definition}
+
+\begin{Definition}[公因式]
+$K[x]$中，若$c(x) \mid f(x)$且$c(x) \mid g(x)$, 则称$c(x)$是$f(x)$和$g(x)$的一个\textbf{公因式}.
+\end{Definition}
+

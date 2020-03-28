@@ -3,3 +3,6 @@
 *.thm
 *.toc
 *.out
+**/*.ind
+**/*.idx
+**/*.ilg
