@@ -102,12 +102,13 @@ for tree={grow=west, parent anchor=west, child anchor=east, anchor=east}
   % inside environment forest
 \end{forest}
 \end{center}
+\end{Note}
+
 
 \subsection{整除关系, 带余除法}
 
-\end{Note}
-\begin{Proposition}
-在$K[x]$中, 如果$g(x) \mid f(x)$, 其中$f(x) \neq 0$, 则$\deg g(x) \le \deg f(x)$.
+\begin{Proposition}[!]
+在$K[x]$中, $g(x) \mid f(x) \And f(x) \neq 0 \implies \deg g(x) \le \deg f(x)$.
 \end{Proposition}
 
 \begin{Proposition}
@@ -119,7 +120,11 @@ $f(x) \sim g(x) \iff f(x) = c g(x)~(c \in K^*)$
 
 \begin{Theorem}[带余除法]
 设$f(x), g(x) \in K[x]$, 且$g(x) \neq 0$, 则\;\fbox{唯一}\;的存在$K[x]$中一对多项式$h(x), r(x)$,
-使得$f(x) = h(x) g(x) + r(x)$, $\deg r(x) < \deg g(x)$. 我们把$h(x)$叫做\textbf{商式},
+使得
+\[
+f(x) = h(x) g(x) + r(x), \deg r(x) < \deg g(x)
+\]
+我们把$h(x)$叫做\textbf{商式},
 $r(x)$叫做\textbf{余式}.
 \end{Theorem}
 
@@ -156,3 +161,186 @@ $g(x) \mid f(x)$ $\iff$ $g(x)$除$f(x)$的余式是$0$.
 $K[x]$中，若$c(x) \mid f(x)$且$c(x) \mid g(x)$, 则称$c(x)$是$f(x)$和$g(x)$的一个\textbf{公因式}.
 \end{Definition}
 
+\begin{Definition}[最大公因式]
+设$f(x), g(x) \in K[x]$, 如果有$K[x]$中的一个多项式$d(x)$满足
+\begin{enumerate}[(1)]
+\item $d(x) \mid f(x)$且$d(x) \mid g(x)$
+\item $f(x)$与$g(x)$的任一公因式$c(x) \mid d(x)$
+\end{enumerate}
+那么称$d(x)$是$f(x)$与$g(x)$的一个\textbf{最大公因式}.
+\end{Definition}
+
+\begin{Note}
+$\forall f(x) \in K[x]$, $f(x)$与$0$的一个最大公因式是$f(x)$. 特别的$0$与$0$的一个最大公因式是$0$.
+\end{Note}
+
+\begin{Note}
+接下来探索$f(x) \neq 0$与$g(x) \neq 0$的最大公因式是否存在? 如果存在, 如何求? 有多少个? 
+\end{Note}
+
+\begin{Lemma}
+设$f(x), g(x) \in K[x]$, 且$g(x) \neq 0$, 如果有下式成立
+\[
+	f(x) = h(x) g(x) + r(x)
+\]
+那么
+\[
+c(x) \mid f(x) \And c(x) \mid g(x) \iff c(x) \mid g(x) \And c(x) \mid r(x)
+\]
+从而
+\begin{center}
+$d(x)$是$f(x)$与$g(x)$的一个最大公因式 $\iff$ $d(x)$是$g(x)$与$r(x)$的一个最大公因式
+\end{center}
+\end{Lemma}
+
+\begin{comment}
+\begin{Note}[辗转相除法]
+设$f(x), g(x) \in K[x]$, 且$g(x) \neq 0$, 作带余除法
+\[
+	f(x) = h_1(x) g(x) + r_1(x), \deg r_1(x) < \deg g(x)
+\]
+若$r_1(x) \neq 0$, 则
+\[
+	g(x) = h_2(x) r_1(x) + r_2(x), \deg r_2(x) < \deg r_1(x)
+\]
+若$r_2(x) \neq 0$, 则
+\[
+	r_1(x) = h_3(x) r_2(x) + r_3(x), \deg r_3(x) < \deg r_2(x)
+\]
+\[
+\vdots \quad \text{有限步必终止, 不妨设$r_{s+1}$是第一个$=0$的多项式} \quad \vdots
+\]
+若$r_{s-1}(x) \neq 0$, 则
+\[
+	r_{s-2}(x) = h_s(x) r_{s-1}(x) + r_s(x), \deg r_s(x) < \deg r_{s-1}(x)
+\]
+若$r_{s}(x) \neq 0$, 则
+\[
+	r_{s-1}(x) = h_{s+1}(x) r_{s}(x) + 0
+\]
+于是
+\[
+\begin{aligned}
+& \phantom{\implies} \text{$ r_s(x) $ 是 $r_s(x)$与$0$的一个最大公因式} \\
+& \implies           \text{$ r_s(x) $ 是 $r_{s-1}(x)$与$r_s(x)$的一个最大公因式} \\
+& \implies           \text{$ r_s(x) $ 是 $r_{s-2}(x)$与$r_{s-1}(x)$的一个最大公因式} \\
+& \phantom{\implies} \vdots \\
+& \implies           \text{$ r_s(x) $ 是 $r_{1}(x)$与$r_{2}(x)$的一个最大公因式} \\
+& \implies           \text{$ r_s(x) $ 是 $g(x)$与$r_{1}(x)$的一个最大公因式} \\
+& \implies           \text{$ r_s(x) $ 是 $f(x)$与$g(x)$的一个最大公因式} \\
+\end{aligned}
+\]
+\end{Note}
+\end{comment}
+
+\begin{Theorem}[!]
+$K[x]$中任意一对多项式$f(x)$与$g(x)$都有一个最大公因式$d(x)$, 并且存在$u(x), v(x) \in K[x]$使得
+\[
+	u(x) f(x) + v(x) g(x) = d(x)
+\]
+\end{Theorem}
+
+\begin{Note}
+设$d_1(x)$, $d_2(x)$都是$f(x)$与$g(x)$的最大公因式, 则$d_1(x) \mid d_2(x)$且$d_2(x) \mid d_1(x)$, 从而$d_1(x) \sim d_2(x)$.
+\end{Note}
+
+\begin{Note}
+当$f(x)$与$g(x)$不全为$0$时, 它们的最大公因式是非零多项式. 用$\Big( f(x), g(x) \Big)$表示$f(x)$与$g(x)$的首项系数为$1$的最大公因式,
+简称\textbf{首一最大公因式}.
+\end{Note}
+
+\begin{Proposition}[首一最大公因式不随数域的扩大而改变]
+设$f(x), g(x) \in K[x]$, 且$g(x) \neq 0$, 数域$E \supseteq K$, 则
+\begin{center}
+$f(x)$与$g(x)$在$K[x]$中的首一最大公因式 $=$ $f(x)$与$g(x)$在$E[x]$中的首一最大公因式.
+\end{center}
+\end{Proposition}
+
+\begin{Definition}[互素]
+在$K[x]$中, 若$\Big( f(x), g(x) \Big) = 1$, 则称$f(x)$和$g(x)$\textbf{互素}.
+\end{Definition}
+
+\begin{Note}
+$f(x)$与$g(x)$互素 $\iff$ $f(x)$与$g(x)$的任一公因式$c(x)$是零次多项式.
+\end{Note}
+
+\begin{Theorem}[!]
+在$K[x]$中$f(x)$与$g(x)$互素 $\iff$ 存在$u(x), v(x) \in K[x]$使得$u(x) f(x) +v(x) g(x) = 1$.
+\end{Theorem}
+
+\begin{Proposition}[互素性不随数域的扩大而改变]
+设$f(x), g(x) \in K[x]$, 且$g(x) \neq 0$, 数域$E \supseteq K$, 则
+\begin{center}
+$f(x)$与$g(x)$在$K[x]$中互素 $\iff$ $f(x)$与$g(x)$在$E[x]$中互素 
+\end{center}
+\end{Proposition}
+
+\begin{Property}[!]
+在$K[x]$中, 若$f(x) \mid g(x) h(x)$, 且$\Big( f(x), g(x) \Big) = 1$, 则 $f(x) \mid h(x)$.
+\end{Property}
+
+\begin{Property}
+在$K[x]$中, 若$f(x) \mid h(x)$, $g(x) \mid h(x)$, 且$\Big( f(x), g(x) \Big) = 1$, 则$f(x) g(x) \mid h(x)$.
+\end{Property}
+
+\begin{Property}
+在$K[x]$中, 若$\Big( f(x), h(x) \Big) = 1$, 且$\Big( g(x), h(x) \Big) = 1$, 则$\Big( f(x) g(x), h(x) \Big) = 1$.
+\end{Property}
+
+\begin{Corollary}
+在$K[x]$中, 若$\Big( f_i(x), h(x) \Big) = 1$, $i = 1, \dots, s$, 则$\Big( f_1(x)\cdots f_s(x), h(x) \Big) = 1$.
+\end{Corollary}
+
+\subsection{不可约多项式}
+
+\begin{Definition}
+设$f(x) \in K[x]$, $\deg f(x) > 0$, 如果$f(x)$的因式只有零次多项式和$f(x)$的相伴元, 那么称$f(x)$是在$K$上\textbf{不可约}的, 否则称$f(x)$在$K$上\textbf{可约}.
+\end{Definition}
+
+\begin{Theorem}
+设$p(x) \in K[x]$, 且$\deg p(x) > 0$, 则下列命题等价
+\begin{enumerate}[(1)]
+\item $p(x)$在$K$上不可约
+\item $\forall f(x) \in K[x]$, 有$\Big( p(x), f(x) \Big) = 1$ 或 $p(x) \mid f(x)$
+\item 在$K[x]$中, 从$p(x) \mid f(x) g(x)$ 可推出 $p(x) \mid f(x)$ 或 $p(x) \mid g(x)$
+\item 在$K[x]$中, $p(x)$不能分解成两个次数比$p(x)$低的多项式的乘积
+\end{enumerate}
+\end{Theorem}
+
+\begin{Corollary}
+$K[x]$中, 若不可约多项式$p(x) \mid f_1(x) \cdots f_s(x)$, 则$p(x) \mid f_j(x)$, 其中$j \in \{ 1, \dots, s \}$.
+\end{Corollary}
+
+\begin{Corollary}
+$K[x]$中, 一次多项式是不可约的.
+\end{Corollary}
+
+\begin{Corollary}
+$f(x) \in K[x]$, $\deg f(x) > 0$
+\begin{center}
+$f(x)$可约 $\iff$ $f(x)$能够分解成两个次数比$f(x)$低的多项式的乘积.
+\end{center}
+\end{Corollary}
+
+\begin{Theorem}[唯一因式分解定理]
+$K[x]$中每一个次数大于$0$的多项式$f(x)$都能\;\fbox{唯一}\;分解成$K$上有限多个不可约多项式的乘积. 其中唯一性是指若
+$f(x) = p_1(x)\cdots p_s(x) = q_1(x) \cdots q_t(x)$, 则$s=t$, 且适当排列因式的次序, 有$p_i(x) \sim q_i(x)$.
+\end{Theorem}
+
+\begin{Note}[标准分解式]
+\[
+f(x) = a p_1(x) ^{\ell_1} p_2(x)^{\ell_2} \cdots p_m(x)^{\ell_m}
+\]
+称为$f(x)$的\textbf{标准分解式}, 其中$p_1(x), p_2(x), \dots, p_m(x)$是两两不等的
+首一不可约多项式, $\ell_i > 0$, $i = 1, 2, \dots, m$.
+\end{Note}
+
+\begin{Definition}
+设$f(x) \in K[x]$, $\deg f(x) > 0$, 若不可约多项式$p(x)$满足$p^k(x) \mid f(x)$, 且$p^{k+1}(x) \nmid f(x)$,
+则称$p(x)$是$f(x)$的\textbf{$k$重因式}. 
+\begin{itemize}
+\item 当$k = 0$时, $p(x)$不是$f(x)$的因式. 
+\item 当$k = 1$时, $p(x)$称为$f(x)$的\textbf{单因式}.
+\item 当$k \ge 2$时, $p(x)$称为$f(x)$的\textbf{重因式}.
+\end{itemize}
+\end{Definition}
