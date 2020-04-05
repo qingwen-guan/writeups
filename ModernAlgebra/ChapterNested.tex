@@ -1,4 +1,71 @@
-\chapter{套娃}
+\chapter{多项式环}
+
+\subsection{一元多项式环$R[x]$} %%%%%%%%%%%%%%%
+\begin{Note}
+假定$R_0$是一个有单位元的交换环, $R$是$R_0$的子环, 并且包含$R_0$的单位元. 取$\alpha \in R_0$, 则
+$ \displaystyle \sum_{i=0}^n a_i \alpha^i = a_0 + a_1 \alpha + a_2 \alpha^2 + \cdots + a_n \alpha^n\; (a_i \in R) $有意义, 且$\in R_0$.
+\end{Note}
+
+\begin{Definition}[多项式]
+一个可以写成 $ a_0 + a_1 \alpha + \cdots + a_n \alpha^n $($a_i \in R$, $n \in \mathbb{Z}^+ $)形式的$R_0$的元叫做$R$上的关于$\alpha$的一个\textbf{多项式}, $a_i$叫做多项式的\textbf{系数}. 我们把所有$R$上的$x$的多项式放在一起, 做成一个集合，用$R[\alpha]$来表示.
+\end{Definition}
+
+\begin{Note}[环上的多项式构成一个环]
+在$R[x]$上定义
+$$
+\begin{aligned}
+\text{加法: }& \sum\limits_i a_i \alpha^i + \sum\limits_i b_i \alpha^i = \sum\limits_i (a_i + b_i) \alpha^i \\
+\text{乘法: }& \displaystyle \left(\sum_{i=0}^m a_i \alpha^i \right) \left( \sum_{j=0}^{n} b_j \alpha^j \right) 
+= \sum\limits_{i=0}^m \sum\limits_{j=0}^{n} a_i b_j \alpha^{i+j}
+= \sum_{i=s}^{mn} \left(\sum_{i+j=s} a_i b_{j} \right) \alpha^s
+\end{aligned}
+$$
+ 都为初等代数里的计算方法, 则$R[\alpha]$构成一个交换环.
+\end{Note}
+
+\begin{Definition}[未定元]
+$R_0$里得一个元$x$叫做$R$上的一个\textbf{未定元}, 如果在$R$里找不到不都等于零的元
+$a_0$, $a_1$, $a_2$, $\cdots$, $a_n$, 使得$a_0 + a_1 x + a_2 x^2 \cdots + a_n x^n = 0$
+\end{Definition}
+
+\begin{Proposition}[!]
+$R$上的一个未定元x的多项式$f(x)$(简称\textbf{一元多项式})的表法唯一，即如果不计入系数是零的项, 只能用一种方式写成
+$a_0 + a_1 x + a_2 x^2 + \cdots + a_n x^n \; (a_i \in R)$
+\end{Proposition}
+
+\begin{Definition}[多项式的次数]
+令$f(x) = a_0 + a_1 x + a_2 x^2 \cdots + a_n x^n = 0, a_n \neq \mathbf{0}$是环$R$上的一个一元多项式,
+那么非负整数$n$叫做这个多项式的\textbf{次数}, 记作$\deg f(x)$. $0$次多项式等同于$R$中的非零元, 多项式$0$(称为\textbf{零多项式})的次数规定为$-\infty$.
+\end{Definition}
+
+\begin{Note}
+数域$K$上的一元多项式$K[x]$对于加法和数量乘法成为数域$K$上的一个无限维线性空间, 
+$\Omega = \{ 1, x, x^2, \cdots, x^n, \cdots \}$是$K[x]$的一个基.
+\end{Note}
+
+\begin{Proposition}
+对于给定的$R_0$来说, $R_0$未必含有$R$上的未定元.
+\end{Proposition}
+
+\begin{Theorem}
+给了一个有单位元的交换环$R$, 一定有一个环$R_0$, $R$上的未定元$x \in R_0$存在，因此也就有$R$上的多项式环$R[x]$存在.
+\end{Theorem}
+
+\begin{Note}
+对于一个有单位元的交换环$R_0$, 和它的一个子环$R$, 其中$R$包含$R_0$的单位元. 我们从$R_0$里任意
+取出$n$个元$x_1, x_2, \cdots, x_n$来, 那么我们可以做$R$上的$x_1$的多项式环$R[x_1]$，然后做$R[x_1]$上的$x_2$的多项式环$R[x_1][x_2]$. 这样下去，可以得到$R[x_1][x_2]\cdots[x_n]$. 这个环包括所有可以写成 
+$\displaystyle \sum_{i_1 i_2 \cdots i_n} a_{i_1 i_2 \cdots i_n} x_1^{i_1} x_2^{i_2} \cdots x_n^{i_n}$ ($a_{i_1 i_2 \cdots i_n} \in R$
+, 但只有有限个$a_{i_1 i_2 \cdots i_n} \neq 0$)形式的元.
+\end{Note}
+
+\begin{Definition}
+一个有上述形式的元叫做$R$上的$x_1, x_2, \cdots, x_n$的一个多项式，$a_{i_1 i_2 \cdots i_n}$叫做多项式的系数. 环$R[x_1][x_2]\cdots[x_n]$叫做$R$上的$x_1, x_2, \cdots, x_n$的多项式环. 这个环我们也用符号$R[x_1, x_2, \cdots, x_n]$来表示.
+\end{Definition}
+
+\begin{Proposition}
+假定$R$是一个整环, 那么$R$上的一元多项式环也是一个整环.
+\end{Proposition}
+
 
 \section{数域$K$上的一元多项式环$K[x]$} %%%%%%%%%%%%%%%%%
 
@@ -139,7 +206,7 @@ $g(x) \mid f(x)$ $\iff$ $g(x)$除$f(x)$的余式是$0$.
 \end{tightcenter}
 \end{Corollary}
 
-\begin{Proposition}[整除性不随数域的扩大而改变]
+\begin{Proposition}[!, 整除性不随数域的扩大而改变]
 设$f(x), g(x) \in K[x]$, $g(x) \neq 0$, 数域$E$包含$K$, 则
 \begin{tightcenter}
 在$K[x]$中$g(x) \mid f(x)$ $\iff$ 在$E[x]$中$g(x) \mid f(x)$ 
@@ -240,6 +307,10 @@ $K[x]$中任意一对多项式$f(x)$与$g(x)$都有一个最大公因式$d(x)$, 
 \]
 \end{Theorem}
 
+\begin{Thoughts}
+这个定理对于$\mathbb{Z}$也成立!!! 看看怎么整理!!!
+\end{Thoughts}
+
 \begin{Note}
 设$d_1(x)$, $d_2(x)$都是$f(x)$与$g(x)$的最大公因式, 则$d_1(x) \mid d_2(x)$且$d_2(x) \mid d_1(x)$, 从而$d_1(x) \sim d_2(x)$.
 \end{Note}
@@ -279,7 +350,7 @@ $f(x)$与$g(x)$在$K[x]$中互素 $\iff$ $f(x)$与$g(x)$在$E[x]$中互素
 在$K[x]$中, 若$f(x) \mid g(x) h(x)$, 且$\Big( f(x), g(x) \Big) = 1$, 则 $f(x) \mid h(x)$.
 \end{Property}
 
-\begin{Property}
+\begin{Property}[!]
 在$K[x]$中, 若$f(x) \mid h(x)$, $g(x) \mid h(x)$, 且$\Big( f(x), g(x) \Big) = 1$, 则$f(x) g(x) \mid h(x)$.
 \end{Property}
 
@@ -291,7 +362,7 @@ $f(x)$与$g(x)$在$K[x]$中互素 $\iff$ $f(x)$与$g(x)$在$E[x]$中互素
 在$K[x]$中, 若$\Big( f_i(x), h(x) \Big) = 1$, $i = 1, \dots, s$, 则$\Big( f_1(x)\cdots f_s(x), h(x) \Big) = 1$.
 \end{Corollary}
 
-\subsection{不可约多项式}
+\subsection{不可约多项式, 唯一分解定理}
 
 \begin{Definition}
 设$f(x) \in K[x]$, $\deg f(x) > 0$, 如果$f(x)$的因式只有零次多项式和$f(x)$的相伴元, 那么称$f(x)$是在$K$上\textbf{不可约}的, 否则称$f(x)$在$K$上\textbf{可约}.
@@ -311,7 +382,7 @@ $f(x)$与$g(x)$在$K[x]$中互素 $\iff$ $f(x)$与$g(x)$在$E[x]$中互素
 $K[x]$中, 若不可约多项式$p(x) \mid f_1(x) \cdots f_s(x)$, 则$p(x) \mid f_j(x)$, 其中$j \in \{ 1, \dots, s \}$.
 \end{Corollary}
 
-\begin{Corollary}
+\begin{Corollary}[!]
 $K[x]$中, 一次多项式是不可约的.
 \end{Corollary}
 
@@ -344,3 +415,263 @@ f(x) = a p_1(x) ^{\ell_1} p_2(x)^{\ell_2} \cdots p_m(x)^{\ell_m}
 \item 当$k \ge 2$时, $p(x)$称为$f(x)$的\textbf{重因式}.
 \end{itemize}
 \end{Definition}
+
+\subsection{多项式的根, 复数域上的不可约多项式}
+
+\begin{Theorem}
+$K[x]$中, $x - c \mid f(x) \iff f(c) = 0$.
+\end{Theorem}
+
+\begin{Definition}[根]
+设$f(x) \in K[x]$, 若$c \in K$使得$f(c) = 0$, 则称$c$是$f(x)$在$K$中的一个\textbf{根}. 设数域$E \supseteq K$, 若有$\alpha \in E$使得$f(\alpha) = 0$, 则称$\alpha$是$f(x)$在$E$中的一个根.
+\end{Definition}
+
+\begin{Theorem}[!, Bezout定理]
+在$K[x]$中, $x - c \mid f(x)$ $\iff$ $c$是$f(x)$在$K$中的一个根.
+\end{Theorem}
+
+\begin{Definition}
+若$x-c$是$f(x)$的$k$重因式, 则称$c$是$f(x)$的一个\textbf{$k$重根}
+\end{Definition}
+
+
+%\begin{Note}
+%设$f(x) \in K[x]$, $\deg f(x) = n > 0$. 对$f(x)$进行唯一分解得$f(x) = a (x - c_1)^r_1 \cdots (x - c_s)^{r_s} p_1^{\ell_1}(x) \cdots p_t^{\ell_t}(x)$, 其中$\overbrace{c_1, \cdots, c_s}_{\text{两两不等}} \in K$, $p_1(x), \cdots, p_t(x)$是两两不等的次数大于$1$的首一不可约多项式, $r_i \ge 0, i = 1, \cdots s$; $\ell_j \ge 0, j = 1, \cdots, t$. $c_i$是$f(x)$的$r_i$重根, $i = 1, \cdots, s$. 于是$r_1 + \cdots +r_s \le \deg f(x) \ n$.
+%\end{Note}
+
+\begin{Theorem}
+$K[x]$中$n$次($n \ge 0$)多项式$f(x)$在$K$中至多有$n$个根.
+\end{Theorem}
+
+\begin{Corollary}
+设$h(x) \in K[x]$, $\deg h(x) \le n$, 若$h(x)$在$K$中有$n+1$个根, 则$h(x) = 0$.
+\end{Corollary}
+
+\begin{Proposition} 
+$K[x]$中, $\deg f(x) \le n$, $\deg g(x) \le n$. 若$K$中有$n+1$个不同的数$c_1, \cdots, c_{n+1}$使得$f(c_i) = g(c_i)$, $i=1, \cdots, n+1$. 则$f(x) = g(x)$.
+\end{Proposition}
+
+\begin{Definition}
+设$f(x) = \sum\limits_{i=0}^n a_i x^i \in K[x]$, $x$用$t \in K$代入, 得$f(t) = \sum\limits_{i=0}^n a_i t^i$, $\forall t in K$. 则$f$可以视为$K \rightarrow K$的一个函数. 【TODO: 啥是函数来的】 
+把函数$f$称为\textbf{多项式$f(x)$诱导的多项式函数}, 或称为数域$K$上的\textbf{一元多项式函数}.
+\end{Definition}
+
+\begin{Note}
+$K_\text{pol} \triangleq $\;$\{$ 数域$K$上的一元多项式函数 $\}$. 规定
+\[
+\begin{aligned}
+&\text{加法: } (f + g)(t) \triangleq f(t) + g(t), \forall t \in K \\
+&\text{乘法: } (fg)(t) \triangleq f(t) g(t), \forall t \in K \\
+\end{aligned}
+\]
+易验证$K_\text{pol}$称为一个有单位元的交换环. 零元是\textbf{零函数} $0(t) = 0$, $\forall t \in K$. 单位元是值函数$1(t) = 1$, $\forall t \in K$.
+\end{Note}
+
+\begin{Proposition} \label{f=g->f(x)=g(x)}
+设$f(x), g(x) \in K[x]$, 若它们诱导的多项式函数$f = g$, 则$f(x) = g(x)$.
+\end{Proposition}
+
+\begin{Note}
+建立映射
+\[
+\begin{aligned}
+\sigma: K[x] &\rightarrow K_\text{poly} \\
+f(x) & \mapsto f \\
+\end{aligned}
+\]
+可以证明$\sigma$是$K[x]$到$K_\text{poly}$的关于加法和乘法的同构映射, 从而$K[x] \cong K_\text{poly}$. 因此可以把
+$\overbrace{\text{多项式}f(x)}^{\text{表达式}}$ 与 $\underbrace{\text{多项式函数}f}_{\text{映射(函数)}}$\;\fbox{等同看待}.
+\end{Note}
+
+\begin{Note}
+对于非数域$K$的情况, 不一定可以等同看待, 因为命题\ref{f=g->f(x)=g(x)}的证明需要$K$中有无限多个元素.
+\end{Note}
+
+\begin{Note}
+$c$是$f(x)$在$K$中的一个根 $\iff$ $f$在$c$处的函数值$f(c) = 0$
+\end{Note}
+
+\begin{Note}[!!!!]
+所以在函数视角引入之前，我们是不知道$f(k)$的含义的!!!!
+\end{Note}
+
+\begin{Note}
+设$f(x) \in \mathbb{C}[x]$, $f(x) = \sum\limits_{i=0}^n a_i x^i$, $\deg f(x) = n > 0$.
+\end{Note}
+
+\begin{Theorem}[代数基本定理]
+每一个次数$> 0$的复系数多项式都有复根. 
+\end{Theorem}
+
+\begin{Note}
+从而$\mathbb{C}[x]$, 次数$> 1$的多项式有一次因式, 从而它一定可约.
+\end{Note}
+
+\begin{Corollary}
+$\mathbb{C}[x]$中, 不可约多项式只有一次多项式.
+\end{Corollary}
+
+\begin{Corollary}
+$\mathbb{C}[x]$中, 次数$>0$的多项式$f(x)$的标准分解式
+\[
+f(x) = a (x - c_1)^{\ell_1} \cdots (x - c_s)^{\ell_s} 
+\]
+\end{Corollary}
+
+\begin{Corollary}
+$\mathbb{C}[x]$中, $n$次($n > 0$)多项式$f(x)$恰好有$n$个复根(重根按重数计算).
+\end{Corollary}
+
+\subsection{实数域$\mathbb{R}$上的不可约多项式}
+
+\begin{Proposition}
+设$f(x) = \sum\limits a_i x^i \in \mathbb{R}[x]$, 若$f(x)$有一个虚根$c$, 则$\bar{c}$也是$f(x)$的一个根.
+\end{Proposition}
+
+\begin{Thoughts}
+所以是不是$Q[x]$中, 如果$f(x)$在扩域$Q(\alpha)$中, 例如$Q(\sqrt{2}$), 有一个根$r = a + b \gamma$, 则$a - b \gamma$也是$f(x)$的一个根.
+\end{Thoughts}
+
+\begin{Theorem}
+实数域$\mathbb{R}$上的不可约多项式只有一次多项式和判别式小于$0$的二次多项式.
+\end{Theorem}
+
+\begin{Note}
+$R[x]$中, 次数$> 0$的多项式$f(x)$的虚根共轭称对出现
+\end{Note}
+
+\subsection{有理数域$\mathbb{Q}$上的不可约多项式}
+
+\begin{Definition}[本原多项式]
+一个非零整系数多项式$g(x)$, 如果它的各项系数的公因数只有$\pm 1$, 那么称$g(x)$是一个\textbf{本原多项式}.
+\end{Definition}
+
+\begin{Note}
+$Q[x]$中次数$> 0$的多项式$f(x)$在$\mathbb{Q}$上不可约 $\iff$ 与$f(x)$相伴的本原多项式$g(x)$ 在$\mathbb{Q}$上不可约
+\end{Note}
+
+\begin{Property}
+本原多项式$g(x), h(x) \in Q[x]$, 
+\[
+g(x) \sim h(x) \iff g(x) = \pm h(x)
+\]
+\end{Property}
+
+\begin{Property}[高斯引理]
+两个本原多项式的乘积是本原多项式.
+\end{Property}
+
+\begin{Proposition}
+次数$>0$的本原多项式$g(x)$在$Q$上可约 $\iff$ $g(x)$能分解成两个次数比$g(x)$的次数低的本原多项式的乘积.
+\end{Proposition}
+
+\begin{Corollary}
+次数$>0$的本原多项式一定能分解成有限多个在$Q$上不可约的本原多项式的乘积.
+\end{Corollary}
+
+\begin{Corollary}
+次数$>0$的整系数多项式$f(x)$在$Q$上可约 $\iff$ $f(x)$能分解成两个次数比$f(x)$低的整系数多项式的乘积.
+\end{Corollary}
+
+\begin{Theorem}
+设$f(x) = \sum\limits_{i=0}^n a_i x^i$是一个次数$n > 0$的本原多项式, 若$f(x)$有一个有理根$\dfrac{q}{p}$, 其中$(p, q) = 1$, 则
+$p \mid a_n$, $q \mid a_0$.
+\end{Theorem}
+
+\begin{Note}
+上面的定理中, 本原多项式可以换成整系数多项式.
+\end{Note}
+
+\begin{Thoughts}
+本原多项式对于乘法构成群么???
+\end{Thoughts}
+
+\begin{Thoughts}
+$f(x) = (px - q) g(x)$把$1$和$-1$代进去试试. 典型例题中有例子.
+\end{Thoughts}
+
+\begin{Note}
+二次或三次整系数多项式$f(x)$没有有理根 $\iff$ $f(x)$在$\mathbb{Q}$上不可约.
+\end{Note}
+
+\begin{Note}
+次数$\ge 4$整系数多项式$f(x)$没有有理根 $\centernot\implies$ $f(x)$在$\mathbb{Q}$上不可约.
+\end{Note}
+
+\begin{Theorem}[Eisenstein判别法]
+设$f(x) = \sum\limits_{i=0}^n a_i x^i$是一个次数$n > 0$的整系数多项式, 如果有一个素数$p$满足下列条件
+\begin{enumerate}[(1)]
+\item $p \nmid a_n$; $p \mid a_{n-1}$, $\cdots$, $p \mid a_0$.
+\item $p^2 \nmid a_0$
+\end{enumerate}
+那么$f(x)$在$\mathbb{Q}$上不可约.
+\end{Theorem}
+
+\begin{Theorem}
+$\mathbb{Q}[x]$中, 存在任意次数的不可约多项式.
+\end{Theorem}
+
+\begin{Note}
+次数$>0$的整系数多项式$f(x)$在$\mathbb{Q}$上不可约 $\iff$ $f(x+1)$ 或 $f(x-1)$ 在 $\mathbb{Q}$上不可约. 【证明P43 例4】
+\end{Note}
+
+\begin{Thoughts}$\mathbb{Q}$上不可约多项式这就讲完了??? 
+\end{Thoughts}
+
+\subsection{模$m$剩余类环, 域的概念}
+
+\begin{Note}
+模$m$剩余类环是一个有单位元$\bar{1}$的交换环.
+\end{Note}
+
+\begin{Definition}[可逆元]
+设$R$是一个有单位元$1$($1 \neq 0$)的环, 对于$a \in R$, 如果有$b \in R$, 使得$ab = ba = 1$, 则称$a$是\textbf{可逆元}, 把$b$称为$a$的\textbf{逆元}. 可以证明满足这个要求的$b$是唯一(为啥唯一!!!!)的, 记作$a^{-1}$.
+\end{Definition}
+
+\begin{Definition}[域]
+若$F$是有单位元$1$($\neq 0$)的交换环, 并且每个非零元都是可逆元, 则称$F$是一个\textbf{域(Field)}.
+\end{Definition}
+
+\begin{Note}
+零因子一定不是可逆元.
+\end{Note}
+
+\begin{Theorem}
+若$p$是素数, 则$\mathbb{Z}_p$是一个域, 称为模$p$的剩余类域.
+\end{Theorem}
+
+\begin{Thoughts}
+思考证明: 若$m$是合数, 则$\mathbb{Z}_m$不是域.
+\end{Thoughts}
+
+\begin{Note}
+$\mathbb{Z}_p$中, $p{}\bar{1} = \overbrace{\bar{1} + \cdots + \bar{1}}^{\text{$p$个}} = \bar{p} = \bar{0}$. 当$0 < \ell < p$时, $\ell \bar{1} = \bar{\ell} \neq \bar{0}$.
+数域$K$, $\forall n \in N^*$有$n 1 = \underbrace{1 + \cdots +1}_{\text{$n$个}} \neq 0$. 
+\end{Note}
+
+\begin{Theorem}
+设$F$是一个域, 单位元$e$, 则
+\begin{enumerate}[(1)]
+\item 或者$\forall n \in N^*, ne \neq 0$. 此时称域$F$的\textbf{特征}为$0$.
+\item 或者有一个素数$p$使得$pe = 0$, 且$0 < \ell < p$, $\ell p \neq 0$. , 此时称域$F$的\textbf{特征}为素数$p$.
+\end{enumerate}
+\end{Theorem}
+
+\begin{Note}
+域$F$上的一元多项式环$F[x]$前面讲的都成立, 除非证明中用到$F[x]$有无限多个元素. 
+当$F$是有限域时, $f = g \centernot\implies f(x) = g(x)$ 【例子看下册P129 第9到16行】
+\end{Note}
+
+代数系统(非空集合, 代数运算, 运算法测) \\
+一: 环 加法(交换律、结合律、零元、负元) 乘法(结合律, 分配率) \\
+具体例子 $Z$, $2Z$, $K[x]$, $M_n(K) \supseteq K[A] \supseteq KI$ \\
+二: 域 加法(交换律、结合律、零元、负元) 乘法(交换律, 结合律, 单位元, 非零元可逆, 分配率) \\
+具体例子 数域$K$, $\mathbb{Z}_p$($p$是素数) \\
+三: 域$F$上的线性空间 加法(4条) 纯量乘法(4条) \\
+具体例子: 
+\begin{enumerate}
+\item $F^n \triangleq \{ (a_1, \cdots, a_n) \mid a_i \in F, i = 1, \cdots, n \}$, $n$维的
+\item $M_{s\times n}[K] \triangleq \{$ 域$F$上的$s \times n$矩阵 $\}$, $sn$维的
+\item $F[X] \triangleq \{ \text{域$F$上的一元多项式}\} = \{ a_n x^n + \cdots +a_1 x +a_0 \mid a_i \in F, i = 1, \cdots, n \}$ (一个基是$\{ 1, x, x^2, \cdots \}$), 无限维的. 同时$F[x]$是一个有单位元的交换环.
+\end{enumerate}
+
